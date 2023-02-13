@@ -1,0 +1,32 @@
+window:
+    # opacity: 0.9
+    dimensions:
+        columns: 150
+        lines: 30
+    position:
+        y: 10
+    padding:
+        x: 0
+        y: 0
+    # starup_mode: SimpleFullScreen
+    # decorations: buttonless
+font:
+    normal:
+        family: FiraCode Nerd Font Mono
+        style: Medium
+    bold:
+        family: FiraCode Nerd Font Mono
+        style: Medium
+    italic:
+        family: RobotoMono Nerd Font
+        style: Italic
+    size: 13
+    offset:
+        x: 0
+        y: 11
+    glyph_offset:
+        y: 3
+# colors:
+# transparent_background_colors: true
+key_binding:
+    - { key: F, mods: Command|Control, action: ToggleFullscreen }
