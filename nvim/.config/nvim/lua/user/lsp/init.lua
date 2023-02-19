@@ -3,5 +3,5 @@ if saferequire 'lspconfig' == nil then
     return
 end
 
-require 'user.lsp.installer'
+-- require 'user.lsp.installer'
 require 'user.lsp.config'

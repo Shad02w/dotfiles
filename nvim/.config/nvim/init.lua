@@ -10,6 +10,7 @@ require 'user.lualine'
 require 'user.cmp'
 
 -- lsp
+require 'user.mason'
 require 'user.lsp'
 require 'user.lsp-signature'
 require 'user.null-ls'

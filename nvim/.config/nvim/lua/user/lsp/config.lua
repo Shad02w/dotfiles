@@ -8,7 +8,7 @@ local servers = {
     'gopls',
     'vimls',
     'html',
-    'sumneko_lua',
+    'lua_ls',
     'rust_analyzer',
     'cssls',
     'jsonls',
@@ -20,7 +20,7 @@ local servers = {
 
 local disable_default_formatting_servers = {
     'html',
-    'sumneko_lua',
+    'lua_ls',
     'tsserver',
     'cssls',
     'jsonls',

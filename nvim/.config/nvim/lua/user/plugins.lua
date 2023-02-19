@@ -110,7 +110,8 @@ return packer.startup {
 
         -- LSP
         use 'neovim/nvim-lspconfig' -- lsp config
-        use 'williamboman/nvim-lsp-installer' -- lsp instller
+        use 'williamboman/mason.nvim' -- lsp installer v2
+        use 'williamboman/mason-lspconfig.nvim'
         use 'fladson/vim-kitty' -- kitty.conf syntax highlight
         use 'ray-x/lsp_signature.nvim'
         use 'jose-elias-alvarez/typescript.nvim' -- extend usage of typescript
