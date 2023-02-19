@@ -11,6 +11,7 @@ local servers = {
     'lua_ls',
     'rust_analyzer',
     'cssls',
+    'taplo',
     'jsonls',
     'yamlls',
     'lemminx',
