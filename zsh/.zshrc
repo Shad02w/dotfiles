@@ -38,3 +38,6 @@ if type "git" > /dev/null; then
     alias ns="nr start"
     alias nxx="na nx"
 fi
+
+# plugins
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
