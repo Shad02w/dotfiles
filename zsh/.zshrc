@@ -42,3 +42,6 @@ if type "git" > /dev/null; then
     alias nxx="na nx"
 fi
 
+
+#plugins
+eval "$(sheldon source)"
