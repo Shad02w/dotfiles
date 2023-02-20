@@ -18,8 +18,8 @@ github = 'zsh-users/zsh-autosuggestions'
 [plugins.zsh-syntax-highlighting]
 github = 'zsh-users/zsh-syntax-highlighting'
 
-[plugins.zsh-completions]
-github = 'zsh-users/zsh-completions'
+[plugins.zsh-vi-mode]
+github = 'jeffreytse/zsh-vi-mode'
 
 # For example:
 #
