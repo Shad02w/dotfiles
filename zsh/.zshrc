@@ -3,6 +3,9 @@ if type "starship" > /dev/null; then
     eval "$(starship init zsh)"
 fi
 
+# common alias
+alias dot="cd ~/dotfiles"
+
 # git
 if type "git" > /dev/null; then
     alias graph="git log --graph  --pretty=format:\"%C(auto)%h%Creset %C(cyan)%an%Creset %Cgreen%ad%Creset %C(auto)%d%Creset %n%s%n\" --date=format:\"%Y-%m-%d %H:%M:%S\""
@@ -39,5 +42,3 @@ if type "git" > /dev/null; then
     alias nxx="na nx"
 fi
 
-# plugins
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
