@@ -21,6 +21,9 @@ github = 'zsh-users/zsh-syntax-highlighting'
 [plugins.zsh-vi-mode]
 github = 'jeffreytse/zsh-vi-mode'
 
+[plugins.zsh-autopair]
+github = 'hlissner/zsh-autopair'
+
 # For example:
 #
 # [plugins.base16]
