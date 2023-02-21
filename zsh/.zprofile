@@ -1,6 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-# [[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && . "$HOME/.fig/shell/zprofile.pre.zsh"
-# eval "$(/opt/homebrew/bin/brew shellenv)"
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 # common path
 export PATH="/opt/local/bin":$PATH

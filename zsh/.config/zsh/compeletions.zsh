@@ -1,6 +1,7 @@
 export fpath=($HOME/.config/zsh/completions $fpath) 
 
-autoload -U compinit; compinit
+autoload -U compinit
+compinit
 
 setopt MENU_COMPLETE
 _comp_options+=(globdots) # With hidden files
