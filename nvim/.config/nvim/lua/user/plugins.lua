@@ -1,7 +1,7 @@
 local saferequire = require 'user.util.saferequire'
 local fn = vim.fn
 
--- Set packert_bootstrap is packer are not currently installed
+-- Set packer bootstrap is packer are not currently installed
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
     PACKER_BOOTSTAP = fn.system {
@@ -46,7 +46,6 @@ return packer.startup {
         use 'rcarriga/nvim-notify'
         use 'nvim-lua/plenary.nvim'
         use { 'nvim-neo-tree/neo-tree.nvim', branch = 'v2.x', requires = { 'MunifTanjim/nui.nvim' } }
-        use 'sidebar-nvim/sidebar.nvim'
         -- use 'folke/trouble.nvim'
 
         -- Telescope
@@ -74,7 +73,7 @@ return packer.startup {
         use 'TimUntersberger/neogit'
         use { 'akinsho/git-conflict.nvim', tag = 'v1.0.0' }
 
-        -- Edtior
+        -- Editor
         use 'jose-elias-alvarez/null-ls.nvim'
         use 'numToStr/Comment.nvim'
         use {
@@ -123,25 +122,13 @@ return packer.startup {
         use 'sudormrfbin/cheatsheet.nvim' -- vim cheatsheet
         use 'https://gitlab.com/yorickpeterse/nvim-pqf' -- better quick fix
         use 'j-hui/fidget.nvim' -- show lsp progress
-        -- use 'ThePrimeagen/refactoring.nvim'
 
         -- util
         use 'dstein64/vim-startuptime'
 
         -- color scheme
-        use { 'catppuccin/nvim', as = 'catppuccin' }
         use 'savq/melange'
-        use 'dracula/vim'
-        use 'ellisonleao/gruvbox.nvim'
         use 'sainnhe/gruvbox-material'
-        use 'folke/tokyonight.nvim'
-        use 'shaunsingh/nord.nvim'
-        use 'briones-gabriel/darcula-solid.nvim'
-        use 'rktjmp/lush.nvim'
-        use 'rose-pine/neovim'
-        use 'projekt0n/github-nvim-theme'
-        use { 'shaunsingh/oxocarbon.nvim', run = './install.sh' }
-        use 'Yazeed1s/minimal.nvim'
         use 'rebelot/kanagawa.nvim'
         use 'sainnhe/everforest'
 

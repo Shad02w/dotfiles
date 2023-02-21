@@ -1,5 +1,6 @@
 local saferequire = require 'user.util.saferequire'
 local eslint = require 'user.null-ls.eslint'
+local cspell = require 'user.null-ls.cspell'
 local null_ls = saferequire 'null-ls'
 local prettier_d = require 'user.null-ls.prettier'
 if not null_ls then
@@ -25,8 +26,7 @@ null_ls.setup {
         formatting.stylelint,
         diagnostics.stylelint,
 
-        -- common
-        -- diagnostics.cspell,
-        -- code_actions.cspell,
+        cspell.create_diagnostics_source(),
+        code_actions.cspell,
     },
 }

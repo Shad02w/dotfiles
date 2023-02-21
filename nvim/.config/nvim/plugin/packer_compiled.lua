@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/bufdelete.nvim",
     url = "https://github.com/famiu/bufdelete.nvim"
   },
-  catppuccin = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/catppuccin",
-    url = "https://github.com/catppuccin/nvim"
-  },
   ["cheatsheet.nvim"] = {
     loaded = true,
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/cheatsheet.nvim",
@@ -123,11 +118,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
-  },
-  ["darcula-solid.nvim"] = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/darcula-solid.nvim",
-    url = "https://github.com/briones-gabriel/darcula-solid.nvim"
   },
   ["diffview.nvim"] = {
     loaded = true,
@@ -159,11 +149,6 @@ _G.packer_plugins = {
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/git-conflict.nvim",
     url = "https://github.com/akinsho/git-conflict.nvim"
   },
-  ["github-nvim-theme"] = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
-    url = "https://github.com/projekt0n/github-nvim-theme"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -173,11 +158,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
-  },
-  ["gruvbox.nvim"] = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["hop.nvim"] = {
     loaded = true,
@@ -199,11 +179,6 @@ _G.packer_plugins = {
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["lush.nvim"] = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/lush.nvim",
-    url = "https://github.com/rktjmp/lush.nvim"
-  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -218,11 +193,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/melange",
     url = "https://github.com/savq/melange"
-  },
-  ["minimal.nvim"] = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/minimal.nvim",
-    url = "https://github.com/Yazeed1s/minimal.nvim"
   },
   ["neo-tree.nvim"] = {
     loaded = true,
@@ -239,20 +209,10 @@ _G.packer_plugins = {
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
     url = "https://github.com/karb94/neoscroll.nvim"
   },
-  neovim = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/neovim",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["neovim-session-manager"] = {
     loaded = true,
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/neovim-session-manager",
     url = "https://github.com/Shatur/neovim-session-manager"
-  },
-  ["nord.nvim"] = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/nord.nvim",
-    url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nui.nvim"] = {
     loaded = true,
@@ -334,11 +294,6 @@ _G.packer_plugins = {
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["oxocarbon.nvim"] = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
-    url = "https://github.com/shaunsingh/oxocarbon.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -348,11 +303,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["sidebar.nvim"] = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/sidebar.nvim",
-    url = "https://github.com/sidebar-nvim/sidebar.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -384,20 +334,10 @@ _G.packer_plugins = {
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
-  },
   ["typescript.nvim"] = {
     loaded = true,
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/typescript.nvim",
     url = "https://github.com/jose-elias-alvarez/typescript.nvim"
-  },
-  vim = {
-    loaded = true,
-    path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/vim",
-    url = "https://github.com/dracula/vim"
   },
   ["vim-commentary"] = {
     cond = { "\27LJ\2\n8\0\0\1\0\3\0\t6\0\0\0009\0\1\0009\0\2\0\v\0\0\0X\0\2€+\0\1\0X\1\1€+\0\2\0L\0\2\0\vvscode\6g\bvim\0" },
@@ -444,12 +384,12 @@ _G.packer_plugins = {
 
 time([[Defining packer_plugins]], false)
 -- Conditional loads
-time([[Conditional loading of vim-commentary]], true)
-  require("packer.load")({"vim-commentary"}, {}, _G.packer_plugins)
-time([[Conditional loading of vim-commentary]], false)
 time([[Conditional loading of vim-easymotion]], true)
   require("packer.load")({"vim-easymotion"}, {}, _G.packer_plugins)
 time([[Conditional loading of vim-easymotion]], false)
+time([[Conditional loading of vim-commentary]], true)
+  require("packer.load")({"vim-commentary"}, {}, _G.packer_plugins)
+time([[Conditional loading of vim-commentary]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
