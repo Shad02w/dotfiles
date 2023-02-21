@@ -7,7 +7,7 @@ setopt MENU_COMPLETE
 _comp_options+=(globdots) # With hidden files
 
 
-# Ztyle pattern
+# Zstyle pattern
 # :completion:<function>:<completer>:<command>:<argument>:<tag>
 
 # Colors for files and directory

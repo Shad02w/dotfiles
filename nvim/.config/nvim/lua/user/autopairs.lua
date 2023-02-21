@@ -1,7 +1,7 @@
 local saferequire = require 'user.util.saferequire'
-local npairs = saferequire 'nvim-autopairs'
-if not npairs then
+local autopairs = saferequire 'nvim-autopairs'
+if not autopairs then
     return
 end
 
-npairs.setup()
+autopairs.setup()
