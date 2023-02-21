@@ -1,0 +1,5 @@
+{
+    "allowCompoundWords": true,
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+    "words": ["luasnip", "nvim", "lualine"]
+}
