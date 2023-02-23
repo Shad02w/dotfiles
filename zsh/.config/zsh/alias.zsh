@@ -3,6 +3,7 @@ alias ..="cd .."
 alias :q=exit
 alias so="source $HOME/.zshrc"
 alias dot="cd $HOME/dotfiles"
+alias nv="nvim"
 
 # git
 if type "git" > /dev/null; then
@@ -33,7 +34,6 @@ pnpm() {
 
 # ni
 if type "ni" > /dev/null; then
-    alias nv="nvim"
     alias nb="nr build"
     alias nt="nr test"
     alias ns="nr start"
