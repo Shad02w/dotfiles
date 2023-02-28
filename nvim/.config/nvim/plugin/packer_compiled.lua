@@ -384,12 +384,12 @@ _G.packer_plugins = {
 
 time([[Defining packer_plugins]], false)
 -- Conditional loads
-time([[Conditional loading of vim-easymotion]], true)
-  require("packer.load")({"vim-easymotion"}, {}, _G.packer_plugins)
-time([[Conditional loading of vim-easymotion]], false)
 time([[Conditional loading of vim-commentary]], true)
   require("packer.load")({"vim-commentary"}, {}, _G.packer_plugins)
 time([[Conditional loading of vim-commentary]], false)
+time([[Conditional loading of vim-easymotion]], true)
+  require("packer.load")({"vim-easymotion"}, {}, _G.packer_plugins)
+time([[Conditional loading of vim-easymotion]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

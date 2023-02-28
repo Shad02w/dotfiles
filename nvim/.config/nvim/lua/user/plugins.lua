@@ -17,14 +17,14 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- PackageSync after writing to plugins.lua
-local packer_user_config_group = vim.api.nvim_create_augroup('packer_user_config_group', {})
-vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-    pattern = { 'plugins.lua' },
-    group = packer_user_config_group,
-    callback = function()
-        vim.api.nvim_exec([[ source <afile> | PackerSync ]], false)
-    end,
-})
+-- local packer_user_config_group = vim.api.nvim_create_augroup('packer_user_config_group', {})
+-- vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+--     pattern = { 'plugins.lua' },
+--     group = packer_user_config_group,
+--     callback = function()
+--         vim.api.nvim_exec([[ source <afile> | PackerSync ]], false)
+--     end,
+-- })
 
 -- Safely require packer, if packer not install then return
 local packer = saferequire 'packer'
