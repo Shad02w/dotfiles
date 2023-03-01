@@ -45,7 +45,6 @@ local mappings = {
         name = 'Explorer',
         e = { neo_tree.toggle, 'Toggle' },
         f = { neo_tree.focus, 'Focus' },
-        l = { cmd 'SidebarNvimToggle', 'Side bar' },
     },
     f = { telescope.find_files, 'Find files' },
     F = { telescope.find_all_files, 'Find all Files' },
