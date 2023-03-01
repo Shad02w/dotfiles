@@ -36,9 +36,8 @@ return {
                     ['c'] = function(state)
                         local node = state.tree:get_node()
                         vim.fn.setreg('*', node.path, 'c')
-                        vim.notify(path_copied_message(node.path), vim.log.levels.INFO, {
-                            title = 'Neo-tree',
-                        })
+                        ---@diagnostic disable-next-line: redundant-parameter
+                        vim.notify(path_copied_message(node.path), vim.log.levels.INFO, { title = 'Neo-tree' })
                     end,
                     ['m'] = {
                         'move',

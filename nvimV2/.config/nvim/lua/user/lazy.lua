@@ -28,6 +28,7 @@ require('lazy').setup({
     require 'user.lualine',
     require 'user.spectre',
     require 'user.session',
+    require 'user.whichkey',
 
     -- git
     require 'user.diffview',
