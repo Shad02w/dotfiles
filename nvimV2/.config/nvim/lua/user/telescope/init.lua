@@ -8,7 +8,7 @@ return {
         'nvim-telescope/telescope-live-grep-args.nvim',
         'AckslD/nvim-neoclip.lua',
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-        { dir = '/Users/alvistse/Documents/dev/yasks.nvim' },
+        { dir = '~/yasks.nvim' },
     },
     keys = {
         { '<leader>b', keys.buffers, 'Show all buffer' },
