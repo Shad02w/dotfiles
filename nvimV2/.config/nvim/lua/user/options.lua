@@ -27,7 +27,7 @@ local options = {
     -- cmp
     pumheight = 10,
     modifiable = true,
-    timeoutlen = 1000,
+    timeoutlen = 500,
 
     fillchars = vim.opt.fillchars + 'diff:╱',
 }

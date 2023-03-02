@@ -12,11 +12,13 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
+require('lazy').setup {
 
     -- system
-    { 'famiu/bufdelete.nvim', keys = { { '<leader>d', '<cmd>Bdelete<cr>', desc = 'Delete buffer' } } },
+    'famiu/bufdelete.nvim',
     'kyazdani42/nvim-web-devicons',
+    'nvim-lua/plenary.nvim',
+
     require 'user.notify',
     require 'user.neo-tree',
     require 'user.toggleterm',
@@ -42,6 +44,8 @@ require('lazy').setup({
     { 'kylechui/nvim-surround', version = '*', config = true, keys = { 'y', 'd', 'c' } },
     require 'user.hop',
     require 'user.todo', -- highlight todo
+    { 'numToStr/Comment.nvim', config = true },
+    { 'github/copilot.vim' },
 
     -- lsp
     require 'user.luasnip',
@@ -59,8 +63,4 @@ require('lazy').setup({
     -- color scheme
     'sainnhe/everforest',
     'sainnhe/gruvbox-material',
-}, {
-    defaults = {
-        lazy = true,
-    },
-})
+}

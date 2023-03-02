@@ -5,7 +5,6 @@ local function cmd(command)
 end
 return {
     'folke/which-key.nvim',
-    keys = '<leader>',
     opts = {
         window = {
             border = 'rounded',
