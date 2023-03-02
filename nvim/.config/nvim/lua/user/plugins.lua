@@ -65,7 +65,7 @@ return packer.startup {
         use 'folke/which-key.nvim'
         use 'sindrets/diffview.nvim'
         use 'nvim-lualine/lualine.nvim'
-        use 'windwp/nvim-spectre'
+        use { 'windwp/nvim-spectre', commit = '208d983e9bab4d0eb98b4642636e1b4f41c5280a' }
         use 'Shatur/neovim-session-manager'
 
         -- git
@@ -132,7 +132,7 @@ return packer.startup {
         use 'rebelot/kanagawa.nvim'
         use 'sainnhe/everforest'
 
-        use '/Users/alvistse/Documents/dev/yasks.nvim'
+        use '~/yasks.nvim'
 
         if PACKER_BOOTSTAP then
             require('packer').sync()

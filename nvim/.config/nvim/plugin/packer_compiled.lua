@@ -378,7 +378,7 @@ _G.packer_plugins = {
   ["yasks.nvim"] = {
     loaded = true,
     path = "/Users/alvistse/.local/share/nvim/site/pack/packer/start/yasks.nvim",
-    url = "/Users/alvistse/Documents/dev/yasks.nvim"
+    url = "/Users/alvistse/yasks.nvim"
   }
 }
 

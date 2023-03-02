@@ -10,4 +10,19 @@ if not masonlspconfig then
 end
 
 mason.setup()
-masonlspconfig.setup()
+masonlspconfig.setup {
+    ensure_installed = {
+        'gopls',
+        'vimls',
+        'html',
+        'lua_ls',
+        'rust_analyzer',
+        'cssls',
+        'taplo',
+        'jsonls',
+        'yamlls',
+        'lemminx',
+        'astro',
+        'tailwindcss',
+    },
+}
