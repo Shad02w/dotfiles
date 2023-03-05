@@ -15,7 +15,4 @@ vim.cmd [[hi DiffChange guifg=NONE guibg=#523e07]]
 vim.cmd [[hi DiffDelete guifg=NONE guibg=#68271c]]
 vim.cmd [[hi DiffText guifg=NONE guibg=#947726]]
 
--- remove tilde
-vim.cmd [[hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg]]
-
 vim.cmd [[set termguicolors]]

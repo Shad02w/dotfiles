@@ -13,7 +13,7 @@ local options = {
     expandtab = true, -- expand tab to spaces
     linespace = 10,
     numberwidth = 5,
-    guifont = 'FiraMono Nerd Font:h13',
+    -- guifont = 'FiraMono Nerd Font:h13',
     list = true,
     termguicolors = true,
     -- listchars = { lead = '⋅', tab = '|  ' },
@@ -29,7 +29,7 @@ local options = {
     modifiable = true,
     timeoutlen = 500,
 
-    fillchars = vim.opt.fillchars + 'diff:╱',
+    fillchars = vim.opt.fillchars + 'diff:╱' + 'eob: ',
 }
 
 vim.wo.cursorline = true
