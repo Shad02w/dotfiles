@@ -4,6 +4,13 @@ end
 
 return {
     'sindrets/diffview.nvim',
+    event = { 'BufRead' },
+    keys = {
+        { '<leader>g', desc = 'Git' },
+        { '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'Diffview' },
+        { '<leader>go', '<cmd>DiffviewFileHistory %<cr>', desc = 'Diffview Current File History' },
+        { '<leader>gO', '<cmd>DiffviewFileHistory<cr>', desc = 'Diffview Files History' },
+    },
     config = function()
         local actions = require 'diffview.actions'
 

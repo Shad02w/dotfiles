@@ -7,16 +7,17 @@ return {
         'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope-ui-select.nvim',
         'nvim-telescope/telescope-live-grep-args.nvim',
-        'AckslD/nvim-neoclip.lua',
-        -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        { 'AckslD/nvim-neoclip.lua', config = true },
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         { dir = '~/yasks.nvim' },
     },
     keys = {
-        { '<leader>b', keys.buffers, 'Show all buffer' },
-        { '<leader>C', keys.clipboard, 'Clipboard' },
-        { '<leader>f', keys.find_files, 'Find files' },
-        { '<leader>F', keys.find_all_files, 'Find all Files' },
-        { '<leader>o', keys.recent_files, 'Recent files' },
+        { '<leader>b', keys.buffers, desc = 'Show all buffer' },
+        { '<leader>C', keys.clipboard, desc = 'Clipboard' },
+        { '<leader>f', keys.find_files, desc = 'Find files' },
+        { '<leader>F', keys.find_all_files, desc = 'Find all Files' },
+        { '<leader>o', keys.recent_files, desc = 'Recent files' },
+        { '<leader>lc', desc = 'Code Action' },
     },
     config = function()
         local telescope = require 'telescope'
@@ -52,7 +53,7 @@ return {
         }
 
         telescope.load_extension 'ui-select'
-        -- telescope.load_extension 'fzf'
+        telescope.load_extension 'fzf'
         telescope.load_extension 'live_grep_args'
         telescope.load_extension 'neoclip'
         telescope.load_extension 'notify'

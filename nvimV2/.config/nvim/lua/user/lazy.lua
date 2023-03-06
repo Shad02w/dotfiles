@@ -12,12 +12,10 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup {
+require('lazy').setup({
 
     -- system
-    'famiu/bufdelete.nvim',
-    'kyazdani42/nvim-web-devicons',
-    'nvim-lua/plenary.nvim',
+    require 'user.bufdelete',
 
     require 'user.notify',
     require 'user.neo-tree',
@@ -35,17 +33,17 @@ require('lazy').setup {
     -- git
     require 'user.diffview',
     require 'user.gitsigns',
-    'TimUntersberger/neogit',
+    { 'TimUntersberger/neogit', enabled = false },
     { 'akinsho/git-conflict.nvim', tag = 'v1.0.0', enabled = false },
 
     -- editor
     { 'windwp/nvim-autopairs', event = { 'TextChanged', 'TextChangedI', 'InsertEnter' }, config = true },
     'RRethy/vim-illuminate',
-    { 'kylechui/nvim-surround', version = '*', config = true, keys = { 'y', 'd', 'c' } },
+    { 'kylechui/nvim-surround', version = '*', config = true, lazy = false },
     require 'user.hop',
     require 'user.todo', -- highlight todo
-    { 'numToStr/Comment.nvim', config = true },
-    { 'github/copilot.vim' },
+    require 'user.copilot',
+    { 'numToStr/Comment.nvim', config = true, keys = { { 'gc', mode = { 'n', 'v' } } } },
 
     -- lsp
     require 'user.luasnip',
@@ -58,9 +56,27 @@ require('lazy').setup {
     require 'user.colorizer',
     { 'karb94/neoscroll.nvim', keys = { 'zz', '<c-u>', '<c-d>' }, config = true }, -- smooth scroll
     { 'sudormrfbin/cheatsheet.nvim', enabled = false }, -- vim cheatsheet
-    { url = 'https://gitlab.com/yorickpeterse/nvim-pqf', config = true }, -- better quick fix
+    { url = 'https://gitlab.com/yorickpeterse/nvim-pqf', config = true, lazy = false }, -- better quick fix
 
     -- color scheme
-    'sainnhe/everforest',
-    'sainnhe/gruvbox-material',
-}
+    -- 'sainnhe/everforest',
+    -- 'sainnhe/gruvbox-material',
+    -- {
+    --     'rose-pine/neovim',
+    --     name = 'rose-pine',
+    --     config = function()
+    --         require('rose-pine').setup {
+    --             variant = 'moon',
+    --             dark_variant = 'moon',
+    --             dim_nc_background = true,
+    --             disable_italics = true,
+    --         }
+    --     end,
+    -- },
+    { 'kvrohit/mellow.nvim' },
+    { 'frenzyexists/aquarium-vim' },
+}, {
+    defaults = {
+        lazy = true,
+    },
+})

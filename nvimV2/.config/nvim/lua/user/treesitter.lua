@@ -11,8 +11,8 @@ local function exceeded_max_column(bufnr)
 end
 return {
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
     build = ':TSUpdate',
-    event = 'BufRead',
     dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects',
         'windwp/nvim-ts-autotag',
@@ -21,9 +21,26 @@ return {
     },
     config = function()
         require('nvim-treesitter.configs').setup {
-            ensure_installed = 'all',
+            ensure_installed = {
+                'c',
+                'cpp',
+                'lua',
+                'typescript',
+                'javascript',
+                'go',
+                'rust',
+                'json',
+                'yaml',
+                'toml',
+                'vim',
+                'help',
+                'css',
+                'dockerfile',
+                'git_rebase',
+                'graphql',
+                'bash',
+            },
             auto_install = true,
-            ignore_install = { 'php', 'phpdoc' },
             highlight = {
                 enable = true,
                 disable = function(_, bufnr)

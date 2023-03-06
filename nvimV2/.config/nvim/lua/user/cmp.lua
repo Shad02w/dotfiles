@@ -29,7 +29,7 @@ return {
     'hrsh7th/nvim-cmp',
     event = { 'InsertEnter', 'TextChangedI', 'CmdlineEnter' },
     dependencies = {
-        'hrsh7th/cmp-nvim-lsp', -- lsp compeletion
+        'hrsh7th/cmp-nvim-lsp', -- lsp completion
         'hrsh7th/cmp-path', -- path completion
         'hrsh7th/cmp-buffer', -- search completion
         'hrsh7th/cmp-cmdline',
@@ -44,7 +44,6 @@ return {
             return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
         end
 
-        -- Setup nvim-cmp
         cmp.setup {
             snippet = {
                 expand = function(args)
@@ -72,8 +71,6 @@ return {
                 ['<S-Tab>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    -- elseif luasnip.jumpable(-1) then
-                    --     luasnip.jump(-1)
                     else
                         fallback()
                     end
@@ -102,7 +99,7 @@ return {
             }),
             experimental = {
                 native_menu = false,
-                ghost_text = true,
+                -- ghost_text = false,
             },
         }
 

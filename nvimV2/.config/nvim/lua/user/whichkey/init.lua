@@ -5,6 +5,7 @@ local function cmd(command)
 end
 return {
     'folke/which-key.nvim',
+    lazy = false,
     opts = {
         window = {
             border = 'rounded',
@@ -18,7 +19,6 @@ return {
         local toggleterm = require 'user.whichkey.toggleterm'
         local hop = require 'user.whichkey.hop'
         local quickfix = require 'user.whichkey.quickfix'
-        local neo_tree = require 'user.whichkey.neo-tree'
         local general = require 'user.whichkey.general'
         local spectre = require 'user.whichkey.spectre'
 
@@ -36,12 +36,6 @@ return {
                 o = { general.close_other, 'Close all buffers except current and pinned' },
             },
             C = { telescope.clipboard, 'Clipboard' },
-            d = { cmd 'Bdelete', 'Buffer Delete' },
-            e = {
-                name = 'Explorer',
-                e = { neo_tree.toggle, 'Toggle' },
-                f = { neo_tree.focus, 'Focus' },
-            },
             f = { telescope.find_files, 'Find files' },
             F = { telescope.find_all_files, 'Find all Files' },
             g = {

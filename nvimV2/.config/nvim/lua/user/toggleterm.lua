@@ -1,6 +1,7 @@
 return {
     'akinsho/toggleterm.nvim',
     version = '*',
+    lazy = true,
     keys = {
         '<c-t>',
         { '<leader>tt', '<cmd>ToggleTerm direction=horizontal size=20<cr>', desc = 'Open Bottom Term' },

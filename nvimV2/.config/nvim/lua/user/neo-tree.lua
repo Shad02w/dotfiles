@@ -4,15 +4,16 @@ end
 
 return {
     'nvim-neo-tree/neo-tree.nvim',
-    lazy = true,
     branch = 'v2.x',
     dependencies = {
         'nvim-lua/plenary.nvim',
         'MunifTanjim/nui.nvim',
+        'nvim-tree/nvim-web-devicons',
     },
     keys = {
-        { '<leader>ee', '<cmd>NeoTreeShowToggle<cr>', desc = 'Toggle NeoTree' },
-        { '<leader>ef', '<cmd>NeoTreeFocusToggle<cr>', desc = 'Focus NeoTree' },
+        { '<leader>e', desc = 'Neo-Tree' },
+        { '<leader>ee', '<cmd>NeoTreeShowToggle<cr>', desc = 'Neo-Tree Toggle' },
+        { '<leader>ef', '<cmd>NeoTreeFocusToggle<cr>', desc = 'Neo-Tree Toggle' },
     },
     config = function()
         require('neo-tree').setup {

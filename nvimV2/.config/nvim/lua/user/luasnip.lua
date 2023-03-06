@@ -2,7 +2,7 @@ return {
     'L3MON4D3/LuaSnip', -- snippet engine
     event = { 'InsertEnter' },
     dependencies = {
-        'rafamadriz/friendly-snippets',
+        { 'rafamadriz/friendly-snippets', enabled = false },
     },
     config = function()
         local ls = require 'luasnip'
