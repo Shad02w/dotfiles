@@ -28,8 +28,9 @@ return {
             },
             options = {
                 section_separators = { left = '', right = '' },
+                theme = 'tundra',
             },
-            -- section_separators = { left = '', right = ''},
+            -- section_separators = { left = '', right = '' },
             extensions = { 'quickfix', 'neo-tree', 'toggleterm' },
             inactive_winbar = winbar,
             winbar = winbar,

@@ -61,6 +61,8 @@ require('lazy').setup({
     -- color scheme
     -- 'sainnhe/everforest',
     -- 'sainnhe/gruvbox-material',
+    -- { 'embark-theme/vim', name = 'embark' },
+    { 'sam4llis/nvim-tundra', opts = { transparent_background = true } },
     -- {
     --     'rose-pine/neovim',
     --     name = 'rose-pine',
@@ -73,8 +75,8 @@ require('lazy').setup({
     --         }
     --     end,
     -- },
-    { 'kvrohit/mellow.nvim' },
-    { 'frenzyexists/aquarium-vim' },
+    -- { 'kvrohit/mellow.nvim' },
+    -- { 'frenzyexists/aquarium-vim' },
 }, {
     defaults = {
         lazy = true,
