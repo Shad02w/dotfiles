@@ -1,0 +1,75 @@
+set visualbell
+set noerrorbells
+set number
+set relativenumber
+set ignorecase
+
+let mapleader= " "
+
+" Enable which-key extension
+set which-key
+" Show the menu also for default Vim actions like `gg` or `zz`.
+let g:WhichKey_ShowVimActions = "true"
+" Disable which-key timeout, i.e. show the menu until you press a key
+set notimeout
+" enable NERDTree
+set NERDTree
+" enable easymotion
+set easymotion
+" enable vim-surround
+set surround
+" enable Commentary
+set commentary
+
+nmap gr <Action>(FindUsages)
+nmap gd <Action>(GotoDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gk <Action>(GotoTypeDeclaration)
+nmap ge <Action>(GotoNextError)
+nmap rn <Action>(RenameElement)
+
+
+nmap <c--> <Action>(SplitHorizontally)
+nmap <c-\> <Action>(SplitVertically)
+nmap <c-l> <c-w>l
+nmap <c-h> <c-w>h
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+map <c-i> <Action>(Forward)
+map <c-o> <Action>(Back)
+
+map <Tab> <Action>(NextTab)
+map <S-Tab> <Action>(PreviousTab)
+map <S-k> <Action>(QuickJavaDoc)
+
+nmap zr <Action>(CollapseRegion)
+
+
+nmap <leader>co <Action>(CloseAllEditorsButActive)
+nmap <leader>u <Action>(RunClass)
+nmap <leader>d <Action>(CloseContent)
+nmap <leader>P <Action>(PinActiveEditorTab)
+nmap <leader>f <Action>(GotoFile)
+nmap <leader>o <Action>(RecentFiles)
+nmap <leader>k <Action>(ShowErrorDescription)
+nmap <leader>j <Action>(AceWordStartAction)
+vmap <leader>j <Action>(AceWordStartAction)
+nmap <leader>s <Action>(FindInPath)
+nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>lc <Action>(ShowIntentionActions)
+
+nmap <leader>lf <Action>(ReformatCode)
+xmap <leader>lf <Action>(ReformatCode)
+vmap <leader>lf <Action>(ReformatCode)
+
+nmap <leader>ee <Action>(ToggleDistractionFreeMode)
+nmap <leader>ne <Action>(GotoNextError)
+nmap <leader>pe <Action>(GotoPreviousError)
+
+
+
+" map <c-f> <Action>(EditSource)
+
+
+" let g:WhichKeyDesc_rename = '<leader>rn Rename'
+" let g:WhichKeyDesc_p = '<leader>p Pin Tab'
