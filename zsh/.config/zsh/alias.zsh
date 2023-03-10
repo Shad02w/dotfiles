@@ -1,3 +1,5 @@
+unsetopt BEEP
+
 # common alias
 alias ..="cd .."
 alias :q=exit
