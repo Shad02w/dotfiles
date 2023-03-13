@@ -4,6 +4,7 @@ local ft = {
     'scss',
     'css',
     'html',
+    'lua',
 }
 return {
     'norcalli/nvim-colorizer.lua', -- highlight color string

@@ -4,7 +4,6 @@ end
 
 return {
     'sindrets/diffview.nvim',
-    event = { 'BufRead' },
     keys = {
         { '<leader>g', desc = 'Git' },
         { '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'Diffview' },
