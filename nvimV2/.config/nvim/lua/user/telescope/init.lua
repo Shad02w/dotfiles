@@ -17,6 +17,10 @@ return {
         { '<leader>f', keys.find_files, desc = 'Find files' },
         { '<leader>F', keys.find_all_files, desc = 'Find all Files' },
         { '<leader>o', keys.recent_files, desc = 'Recent files' },
+        { '<leader>s', keys.live_grep_raw, desc = 'Search with args' },
+        { '<leader>S', desc = 'Search' },
+        { '<leader>Ss', keys.live_grep, desc = 'Search All' },
+        { '<leader>Sy', keys.live_grep_with_default, desc = 'Search current 0 register' },
         { '<leader>lc', desc = 'Code Action' },
     },
     config = function()

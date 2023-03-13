@@ -4,6 +4,7 @@ return {
     lazy = true,
     keys = {
         '<c-t>',
+        { '<leader>t', desc = 'Terminal' },
         { '<leader>tt', '<cmd>ToggleTerm direction=horizontal size=20<cr>', desc = 'Open Bottom Term' },
         { '<leader>tl', '<cmd>ToggleTerm direction=vertical size=65<cr>', desc = 'Open Left Term' },
         { '<leader>tf', '<cmd>ToggleTerm direction=float size=20<cr>', desc = 'Open Float Term' },
