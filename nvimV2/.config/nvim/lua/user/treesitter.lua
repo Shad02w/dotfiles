@@ -40,6 +40,7 @@ return {
                 'git_rebase',
                 'graphql',
                 'bash',
+                'astro',
             },
             auto_install = true,
             highlight = {
