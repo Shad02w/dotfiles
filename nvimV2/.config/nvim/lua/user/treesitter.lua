@@ -27,6 +27,7 @@ return {
                 'lua',
                 'typescript',
                 'javascript',
+                'svelte',
                 'go',
                 'rust',
                 'json',
