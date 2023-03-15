@@ -11,4 +11,6 @@ return {
     'lemminx',
     'astro',
     'tailwindcss',
+    'svelte',
+    'cssmodules_ls',
 }
