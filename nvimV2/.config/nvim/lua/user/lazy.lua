@@ -43,7 +43,7 @@ require('lazy').setup({
     require 'user.hop',
     require 'user.todo', -- highlight todo
     require 'user.copilot',
-    { 'numToStr/Comment.nvim', config = true, keys = { { 'gc', mode = { 'n', 'v' } } } },
+    require 'user.comment',
 
     -- lsp
     require 'user.luasnip',
