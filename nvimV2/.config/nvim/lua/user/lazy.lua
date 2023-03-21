@@ -56,7 +56,7 @@ require('lazy').setup({
     require 'user.colorizer',
     { 'karb94/neoscroll.nvim', keys = { 'zz', '<c-u>', '<c-d>' }, config = true }, -- smooth scroll
     { 'sudormrfbin/cheatsheet.nvim', enabled = false }, -- vim cheatsheet
-    { url = 'https://gitlab.com/yorickpeterse/nvim-pqf', config = true, lazy = false }, -- better quick fix
+    require 'user.nvim-pqf',
 
     -- color scheme
     -- 'sainnhe/everforest',
