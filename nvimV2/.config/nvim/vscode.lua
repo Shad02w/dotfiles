@@ -1,15 +1,13 @@
--- require 'user.plugins'
--- require 'user.hop'
+require 'user.lazy'
 
 -- Disable auto session
--- local saferequire = require 'user.util.saferequire'
--- local session = saferequire 'session_manager'
--- if session then
---     session.setup {
---         autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
---         autosave_last_session = false,
---     }
--- end
+local ok, session = pcall(require, 'session_manager')
+if ok then
+    session.setup {
+        autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
+        autosave_last_session = false,
+    }
+end
 
 vim.opt.ignorecase = true
 vim.opt.hlsearch = true
