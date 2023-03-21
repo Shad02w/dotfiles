@@ -66,6 +66,8 @@ nmap <leader>ee <Action>(ToggleDistractionFreeMode)
 nmap <leader>ne <Action>(GotoNextError)
 nmap <leader>pe <Action>(GotoPreviousError)
 
+nmap <leader>wv <Action>(SplitVertically)
+nmap <leader>wh <Action>(SplitHorizontally)
 
 
 " map <c-f> <Action>(EditSource)
