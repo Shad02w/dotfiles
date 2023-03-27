@@ -1,4 +1,5 @@
 local MAX_COLUMN = 10000
+local MAX_LINE = 5000
 
 local function exceeded_max_column(bufnr)
     local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
@@ -9,6 +10,15 @@ local function exceeded_max_column(bufnr)
     end
     return false
 end
+
+local function exceeded_max_line(bufnr)
+    local count = vim.api.nvim_buf_line_count(bufnr)
+    if count > MAX_LINE then
+        return true
+    end
+    return false
+end
+
 return {
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
@@ -48,6 +58,12 @@ return {
                 disable = function(_, bufnr)
                     local no_highlight = false
                     if exceeded_max_column(bufnr) then
+                        vim.notify 'treesitter highlight disable: max column'
+                        no_highlight = true
+                    end
+
+                    if exceeded_max_line(bufnr) then
+                        vim.notify 'treesitter highlight disable: max line'
                         no_highlight = true
                     end
 
