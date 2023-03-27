@@ -80,5 +80,16 @@ require('lazy').setup({
 }, {
     defaults = {
         lazy = true,
+        ---@type boolean|fun(self:LazyPlugin):boolean|nil
+        cond = function(self)
+            if vim.g.vscode then
+                if self.name == 'neovim-session-manager' then
+                    self.enabled = true
+                end
+                return false
+            else
+                return true
+            end
+        end,
     },
 })
