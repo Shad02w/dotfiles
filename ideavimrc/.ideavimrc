@@ -43,6 +43,8 @@ map <S-Tab> <Action>(PreviousTab)
 map <S-k> <Action>(QuickJavaDoc)
 
 nmap zr <Action>(CollapseRegion)
+nmap ]s <Action>(MoveStatementDown)
+nmap [s <Action>(MoveStatementUp)
 
 
 nmap <leader>co <Action>(CloseAllEditorsButActive)
