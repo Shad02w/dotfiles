@@ -21,3 +21,7 @@ fi
 if type "fnm" > /dev/null; then
     eval "$(fnm env --use-on-cd)"
 fi
+
+if type "nvim" > /dev/null; then
+    export GIT_EDITOR=nvim
+fi
