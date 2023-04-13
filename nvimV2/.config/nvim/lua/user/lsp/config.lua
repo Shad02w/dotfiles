@@ -56,3 +56,12 @@ if status_ok then
         server = opts,
     }
 end
+
+-- setup rust-analyzer using rust-tools
+local rt = require 'rust-tools'
+rt.setup {
+    server = {
+        on_attach = on_attach,
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    },
+}

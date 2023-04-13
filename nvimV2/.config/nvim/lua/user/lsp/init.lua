@@ -18,6 +18,7 @@ return {
             },
         },
         'jose-elias-alvarez/typescript.nvim', -- extend usage of typescript
+        'simrat39/rust-tools.nvim',
         { 'narutoxy/dim.lua', config = true }, -- dimmed unused variable
         require 'user.lsp.dependencies.fidget',
     },
