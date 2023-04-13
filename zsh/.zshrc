@@ -6,3 +6,6 @@ source "$HOME/.config/zsh/external.zsh"
 
 # plugins
 eval "$(sheldon source)"
+
+# bun completions
+[ -s "/Users/alvistse/.bun/_bun" ] && source "/Users/alvistse/.bun/_bun"
