@@ -44,3 +44,5 @@ if type "ni" > /dev/null; then
         na create vite $argv[1] --template=react-ts
     }
 fi
+
+

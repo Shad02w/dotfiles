@@ -24,4 +24,8 @@ fi
 
 if type "nvim" > /dev/null; then
     export GIT_EDITOR=nvim
+
+# mac Postgres
+if [[ -d /Applications/Postgres.app/Contents/Versions/15/bin ]]; then
+    export PATH="/Applications/Postgres.app/Contents/Versions/15/bin":$PATH
 fi
