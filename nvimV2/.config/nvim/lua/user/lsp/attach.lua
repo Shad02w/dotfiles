@@ -20,10 +20,7 @@ function M.set_lsp_keymap(bufnr)
             name = 'next',
             e = { vim.diagnostic.goto_next, 'Next Diagnostic' },
         },
-        p = {
-            name = 'prev',
-            e = { vim.diagnostic.goto_prev, 'Previous Diagnostic' },
-        },
+        ['<leader>pe'] = { vim.diagnostic.goto_prev, 'Previous Diagnostic' },
         ['<leader>l'] = {
             name = 'lsp',
             c = { vim.lsp.buf.code_action, 'Code Action' },
