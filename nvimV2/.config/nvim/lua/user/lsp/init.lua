@@ -19,6 +19,7 @@ return {
         },
         'jose-elias-alvarez/typescript.nvim', -- extend usage of typescript
         'simrat39/rust-tools.nvim',
+        'folke/which-key.nvim',
         { 'zbirenbaum/neodim', branch = 'v2', opts = { alpha = 0.50 } },
         require 'user.lsp.dependencies.fidget',
     },

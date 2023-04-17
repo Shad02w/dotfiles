@@ -2,20 +2,38 @@ local format = require 'user.util.formatting'
 local M = {}
 
 function M.set_lsp_keymap(bufnr)
+    local wk = require 'which-key'
     local opts = { noremap = true, silent = true, buffer = bufnr }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'gk', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'ge', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', 'rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '<leader>le', vim.diagnostic.goto_prev, opts)
-    vim.keymap.set('n', '<leader>ne', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<leader>lc', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, opts)
+    local mappings = {
+        g = {
+            d = { vim.lsp.buf.definition, 'Go to Definition' },
+            D = { vim.lsp.buf.declaration, 'Go to Declaration' },
+            e = { vim.diagnostic.goto_next, 'Next Diagnostic' },
+            i = { vim.lsp.buf.implementation, 'Go to Implementation' },
+            r = { vim.lsp.buf.references, 'Find All References' },
+        },
+        K = { vim.lsp.buf.hover, 'Hover' },
+        r = {
+            n = { vim.lsp.buf.rename, 'Rename' },
+        },
+        n = {
+            name = 'next',
+            e = { vim.diagnostic.goto_next, 'Next Diagnostic' },
+        },
+        p = {
+            name = 'prev',
+            e = { vim.diagnostic.goto_prev, 'Previous Diagnostic' },
+        },
+        ['<leader>l'] = {
+            name = 'lsp',
+            c = { vim.lsp.buf.code_action, 'Code Action' },
+            f = { vim.lsp.buf.format, 'Format' },
+        },
+        ['<leader>k'] = { vim.diagnostic.open_float, 'Open Float' },
+    }
+
+    wk.register(mappings, vim.tbl_extend('force', { mode = 'n' }, opts))
+    wk.register(mappings, vim.tbl_extend('force', { mode = 'v' }, opts))
 end
 
 -- Avoiding LSP formatting conflicts
@@ -36,7 +54,7 @@ function M.illuminate(client)
 end
 
 local lsp_formatting_augroup = vim.api.nvim_create_augroup('null_ls_lsp_formatting', {})
-function M.enable_format_on_save(client, bufnr)
+function M.enable_format_on_save(_, bufnr)
     -- if not client.supports_method 'textDocument/formatting' then
     --     return
     -- end

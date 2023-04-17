@@ -15,7 +15,6 @@ return {
     config = function()
         local whichkey = require 'which-key'
 
-        local toggleterm = require 'user.whichkey.toggleterm'
         local quickfix = require 'user.whichkey.quickfix'
         local general = require 'user.whichkey.general'
 
