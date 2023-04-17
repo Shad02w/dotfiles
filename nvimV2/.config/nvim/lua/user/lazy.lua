@@ -12,6 +12,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+-- TODO: Move all plugins config to `plugins` directory
 require('lazy').setup({
 
     -- system
