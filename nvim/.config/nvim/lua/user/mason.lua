@@ -17,6 +17,7 @@ masonlspconfig.setup {
         'html',
         'lua_ls',
         'rust_analyzer',
+        'tsserver',
         'cssls',
         'taplo',
         'jsonls',
@@ -24,5 +25,6 @@ masonlspconfig.setup {
         'lemminx',
         'astro',
         'tailwindcss',
+        'zls',
     },
 }
