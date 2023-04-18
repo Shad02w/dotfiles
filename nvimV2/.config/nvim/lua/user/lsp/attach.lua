@@ -3,7 +3,7 @@ local M = {}
 
 function M.set_lsp_keymap(bufnr)
     local wk = require 'which-key'
-    local opts = { noremap = true, silent = true, buffer = bufnr }
+    local opts = { mode = 'n', noremap = true, silent = true, buffer = bufnr }
     local mappings = {
         g = {
             d = { vim.lsp.buf.definition, 'Go to Definition' },
@@ -20,17 +20,23 @@ function M.set_lsp_keymap(bufnr)
             name = 'next',
             e = { vim.diagnostic.goto_next, 'Next Diagnostic' },
         },
-        ['<leader>pe'] = { vim.diagnostic.goto_prev, 'Previous Diagnostic' },
-        ['<leader>l'] = {
+    }
+
+    local leader_mappings = {
+        p = {
+            name = 'Previous',
+            e = { vim.diagnostic.goto_prev, 'Previous Diagnostic' },
+        },
+        l = {
             name = 'lsp',
             c = { vim.lsp.buf.code_action, 'Code Action' },
             f = { vim.lsp.buf.format, 'Format' },
         },
-        ['<leader>k'] = { vim.diagnostic.open_float, 'Open Float' },
+        k = { vim.diagnostic.open_float, 'Open Float' },
     }
 
-    wk.register(mappings, vim.tbl_extend('force', { mode = 'n' }, opts))
-    wk.register(mappings, vim.tbl_extend('force', { mode = 'v' }, opts))
+    wk.register(mappings, opts)
+    wk.register(leader_mappings, vim.tbl_extend('force', { prefix = '<leader>' }, opts))
 end
 
 -- Avoiding LSP formatting conflicts
