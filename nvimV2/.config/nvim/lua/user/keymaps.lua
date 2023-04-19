@@ -32,19 +32,6 @@ set('n', '<C-S-p>', ':vertical resize +2<CR>', opts)
 set('n', '<tab>', [[:bn<cr>]], opts)
 set('n', '<s-tab>', [[:bN<cr>]], opts)
 
--- telescope
-set('n', '<c-p>', function()
-    require('telescope.builtin').find_files(require('telescope.themes').get_dropdown {})
-end, opts)
-
-set('n', '<c-;>', function()
-    require('telescope.builtin').commands(require('telescope.themes').get_dropdown {
-        layout_config = {
-            width = 0.7,
-        },
-    })
-end, opts)
-
 -- gitsigns
 set('n', ']c', ':Gitsigns next_hunk<cr>', opts)
 set('n', '[c', ':Gitsigns prev_hunk<cr>', opts)
