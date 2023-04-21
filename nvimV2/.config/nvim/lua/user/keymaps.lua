@@ -33,5 +33,5 @@ set('n', '<tab>', [[:bn<cr>]], opts)
 set('n', '<s-tab>', [[:bN<cr>]], opts)
 
 -- gitsigns
-set('n', ']c', ':Gitsigns next_hunk<cr>', opts)
-set('n', '[c', ':Gitsigns prev_hunk<cr>', opts)
+set('n', ']c', ':Gitsigns next_hunk<cr>zz', opts)
+set('n', '[c', ':Gitsigns prev_hunk<cr>zz', opts)
