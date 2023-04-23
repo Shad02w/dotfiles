@@ -24,7 +24,8 @@ github = 'jeffreytse/zsh-vi-mode'
 [plugins.zsh-autopair]
 github = 'hlissner/zsh-autopair'
 
-# For example:
+# [plugins.spaceship]
+# github = "spaceship-prompt/spaceship-prompt"
 #
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
+# [plugins.spaceship-section]
+# github = "spaceship-prompt/spaceship-vi-mode"

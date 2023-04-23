@@ -9,3 +9,10 @@ eval "$(sheldon source)"
 
 # bun completions
 [ -s "/Users/alvistse/.bun/_bun" ] && source "/Users/alvistse/.bun/_bun"
+
+
+# spaceship vi mode
+# if type "spaceship" > /dev/null; then
+#     spaceship add --after line_sep vi_mode
+# fi
+
