@@ -58,12 +58,11 @@ require('lazy').setup({
     { 'karb94/neoscroll.nvim', keys = { 'zz', '<c-u>', '<c-d>' }, config = true }, -- smooth scroll
     { 'sudormrfbin/cheatsheet.nvim', enabled = false }, -- vim cheatsheet
     require 'user.nvim-pqf',
+    require 'user.package-info', -- package info in package.json
 
     -- color scheme
-    -- 'sainnhe/everforest',
-    -- 'sainnhe/gruvbox-material',
-    -- { 'embark-theme/vim', name = 'embark' },
     { 'sam4llis/nvim-tundra', opts = { transparent_background = true } },
+    -- { 'embark-theme/vim', name = 'embark' },
     -- {
     --     'rose-pine/neovim',
     --     name = 'rose-pine',
