@@ -14,6 +14,8 @@ _comp_options+=(globdots) # With hidden files
 zstyle ':completion:*:*:*:*:default' list-colors ${(s.:.)LS_COLORS}
 # Allow you to select in a menu
 zstyle ':completion:*' menu select
+# Case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Required for completion to be in good groups (named after the tags)
 zstyle ':completion:*' group-name ''
 
