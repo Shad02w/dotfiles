@@ -4,9 +4,9 @@ return {
     config = function()
         local null_ls = require 'null-ls'
 
-        local eslint = require 'user.null-ls.eslint'
-        local cspell = require 'user.null-ls.cspell'
-        local prettier_d = require 'user.null-ls.prettier'
+        local eslint = require 'plugins.null-ls.eslint'
+        local cspell = require 'plugins.null-ls.cspell'
+        local prettier_d = require 'plugins.null-ls.prettier'
 
         local formatting = null_ls.builtins.formatting
         local diagnostics = null_ls.builtins.diagnostics

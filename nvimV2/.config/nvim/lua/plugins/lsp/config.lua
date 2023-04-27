@@ -1,8 +1,8 @@
 local lspconfig = require 'lspconfig'
-local attach = require 'user.lsp.attach'
-local diagnostic = require 'user.lsp.diagnostic'
-local handlers = require 'user.lsp.handlers'
-local servers = require 'user.lsp.servers'
+local attach = require 'plugins.lsp.attach'
+local diagnostic = require 'plugins.lsp.diagnostic'
+local handlers = require 'plugins.lsp.handlers'
+local servers = require 'plugins.lsp.servers'
 
 local disable_default_formatting_servers = {
     'html',
@@ -31,7 +31,7 @@ for _, server in ipairs(servers) do
     }
 
     -- merge extra options
-    local has_extra_opts, extra_opts = pcall(require, 'user.lsp.settings.' .. server)
+    local has_extra_opts, extra_opts = pcall(require, 'plugins.lsp.settings.' .. server)
     if has_extra_opts then
         opts = vim.tbl_deep_extend('force', opts, extra_opts)
     end
@@ -48,7 +48,7 @@ if status_ok then
     }
 
     -- merge extra options
-    local has_extra_opts, extra_opts = pcall(require, 'user.lsp.settings.tsserver')
+    local has_extra_opts, extra_opts = pcall(require, 'plugins.lsp.settings.tsserver')
     if has_extra_opts then
         opts = vim.tbl_deep_extend('force', opts, extra_opts)
     end

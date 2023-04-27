@@ -15,8 +15,8 @@ return {
     config = function()
         local whichkey = require 'which-key'
 
-        local quickfix = require 'user.whichkey.quickfix'
-        local general = require 'user.whichkey.general'
+        local quickfix = require 'plugins.whichkey.quickfix'
+        local general = require 'plugins.whichkey.general'
 
         whichkey.setup {
             window = {

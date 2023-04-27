@@ -1,4 +1,4 @@
-local keys = require 'user.telescope.keys'
+local keys = require 'plugins.telescope.keys'
 return {
     'nvim-telescope/telescope.nvim',
     lazy = true,

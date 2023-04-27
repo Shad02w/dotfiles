@@ -1,4 +1,4 @@
-local servers = require 'user.lsp.servers'
+local servers = require 'plugins.lsp.servers'
 
 return {
     'neovim/nvim-lspconfig',
@@ -21,9 +21,9 @@ return {
         'simrat39/rust-tools.nvim',
         'folke/which-key.nvim',
         { 'zbirenbaum/neodim', branch = 'v2', opts = { alpha = 0.50 } },
-        require 'user.lsp.dependencies.fidget',
+        require 'plugins.lsp.dependencies.fidget',
     },
     config = function()
-        require 'user.lsp.config'
+        require 'plugins.lsp.config'
     end,
 }

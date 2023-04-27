@@ -1,0 +1,16 @@
+return { 'sam4llis/nvim-tundra', opts = { transparent_background = true } }
+-- { 'embark-theme/vim', name = 'embark' },
+-- {
+--     'rose-pine/neovim',
+--     name = 'rose-pine',
+--     config = function()
+--         require('rose-pine').setup {
+--             variant = 'moon',
+--             dark_variant = 'moon',
+--             dim_nc_background = true,
+--             disable_italics = true,
+--         }
+--     end,
+-- },
+-- { 'kvrohit/mellow.nvim' },
+-- { 'frenzyexists/aquarium-vim' },
