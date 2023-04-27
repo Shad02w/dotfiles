@@ -1,4 +1,4 @@
-return { 'sam4llis/nvim-tundra', opts = { transparent_background = true } }
+return { 'sam4llis/nvim-tundra', opts = {} }
 -- { 'embark-theme/vim', name = 'embark' },
 -- {
 --     'rose-pine/neovim',
