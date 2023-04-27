@@ -7,6 +7,7 @@ return {
         local eslint = require 'plugins.null-ls.eslint'
         local cspell = require 'plugins.null-ls.cspell'
         local prettier_d = require 'plugins.null-ls.prettier'
+        local stylelint = require 'plugins.null-ls.stylelint'
 
         local formatting = null_ls.builtins.formatting
         local diagnostics = null_ls.builtins.diagnostics
@@ -23,8 +24,8 @@ return {
                 eslint.create_eslint_d_source 'formatting',
                 eslint.create_eslint_d_source 'diagnostics',
                 eslint.create_eslint_d_source 'code_actions',
-                formatting.stylelint,
-                diagnostics.stylelint,
+                stylelint.create_stylelint_source 'formatting',
+                stylelint.create_stylelint_source 'diagnostics',
 
                 cspell.create_diagnostics_source(),
                 code_actions.cspell,

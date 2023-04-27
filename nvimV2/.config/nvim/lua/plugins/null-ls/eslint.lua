@@ -2,10 +2,8 @@ local files = require 'user.util.files'
 
 local M = {}
 
----@alias NullLsType 'formatting' | 'diagnostics' | 'code_actions'
-
 ---Create eslint_d null-ls source
----@param type NullLsType
+---@param type 'formatting' | 'diagnostics' | 'code_actions'
 ---@return unknown
 function M.create_eslint_d_source(type)
     local root = require('null-ls.utils').get_root()
@@ -35,7 +33,7 @@ function M.create_eslint_d_source(type)
 end
 
 ---Create eslint null-ls source
----@param type NullLsType
+---@param type StylelintNullLsType
 ---@return any
 function M.create_eslint_source(type)
     local root = require('null-ls.utils').get_root()
