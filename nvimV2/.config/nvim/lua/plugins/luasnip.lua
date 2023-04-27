@@ -26,6 +26,7 @@ return {
         ls.filetype_extend('typescriptreact', { 'typescript', 'javascript' })
         ls.filetype_extend('javascriptreact', { 'javascript' })
         ls.filetype_extend('astro', { 'typescriptreact', 'typescript', 'javascript' })
+        ls.filetype_extend('svelte', { 'typescript', 'javascript' })
 
         -- load snippets
         require('luasnip.loaders.from_lua').load { paths = vim.fn.stdpath 'config' .. '/lua/snippets' }
