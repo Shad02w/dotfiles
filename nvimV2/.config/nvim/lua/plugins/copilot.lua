@@ -1,7 +1,17 @@
-vim.g.copilot_no_tab_map = true
-vim.api.nvim_set_keymap('i', '<c-s-k>', 'copilot#Accept("<CR>")', { silent = true, expr = true })
+-- vim.g.copilot_no_tab_map = true
+-- vim.api.nvim_set_keymap('i', '<c-s-k>', 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 return {
-    'github/copilot.vim',
+    'zbirenbaum/copilot.lua',
     event = 'InsertEnter',
+    config = function()
+        require('copilot').setup {
+            suggestion = {
+                auto_trigger = true,
+            },
+            panel = {
+                auto_refresh = true,
+            },
+        }
+    end,
 }
