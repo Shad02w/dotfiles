@@ -20,8 +20,8 @@ return {
         'jose-elias-alvarez/typescript.nvim', -- extend usage of typescript
         'simrat39/rust-tools.nvim',
         'folke/which-key.nvim',
-        { 'zbirenbaum/neodim', branch = 'v2', opts = { alpha = 0.50 } },
-        require 'plugins.lsp.dependencies.fidget',
+        'j-hui/fidget.nvim',
+        { 'narutoxy/dim.lua', config = true },
     },
     config = function()
         require 'plugins.lsp.config'
