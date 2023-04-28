@@ -1,1 +1,1 @@
-return { 'karb94/neoscroll.nvim', event = 'BufRead', config = true }
+return { 'karb94/neoscroll.nvim', config = true }

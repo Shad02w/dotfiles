@@ -19,7 +19,6 @@ return {
         },
         'jose-elias-alvarez/typescript.nvim', -- extend usage of typescript
         'simrat39/rust-tools.nvim',
-        'folke/which-key.nvim',
         'j-hui/fidget.nvim',
         { 'narutoxy/dim.lua', config = true },
     },
