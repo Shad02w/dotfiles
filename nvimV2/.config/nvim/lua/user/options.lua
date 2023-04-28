@@ -30,6 +30,7 @@ local options = {
     timeoutlen = 500,
 
     fillchars = vim.opt.fillchars + 'diff:╱' + 'eob: ',
+    listchars = vim.opt.listchars + 'tab:▸ ',
 }
 
 vim.wo.cursorline = true
