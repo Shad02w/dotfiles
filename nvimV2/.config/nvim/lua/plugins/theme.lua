@@ -1,4 +1,4 @@
-return { 'sam4llis/nvim-tundra', opts = {} }
+return {}
 -- { 'embark-theme/vim', name = 'embark' },
 -- {
 --     'rose-pine/neovim',

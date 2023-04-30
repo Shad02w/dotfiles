@@ -23,8 +23,10 @@ end
 function M.find_files()
     require('telescope.builtin').find_files(require('telescope.themes').get_dropdown {
         hidden = true,
+        layout_strategy = 'vertical',
         layout_config = {
-            width = 0.5,
+            width = 0.9,
+            height = 0.75,
         },
     })
 end
