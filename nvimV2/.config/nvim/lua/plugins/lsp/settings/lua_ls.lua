@@ -12,8 +12,6 @@ addLibrary '$VIMRUNTIME'
 addLibrary '~/.config/nvim'
 addLibrary '~/.local/share/nvim/lazy/*'
 
-print(vim.inspect(library))
-
 return {
     settings = {
         Lua = {
