@@ -43,6 +43,9 @@ if type "ni" > /dev/null; then
     vite-react() {
         na create vite $argv[1] --template=react-ts
     }
+    vite-svelte() {
+        na create vite $argv[1] --template=svelte-ts
+    }
 fi
 
 
