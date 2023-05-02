@@ -25,8 +25,8 @@ function M.find_files()
         hidden = true,
         layout_strategy = 'vertical',
         layout_config = {
-            width = 0.9,
-            height = 0.75,
+            width = 0.6,
+            height = 0.8,
         },
     })
 end
