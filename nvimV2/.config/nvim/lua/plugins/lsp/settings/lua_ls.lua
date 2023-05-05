@@ -4,11 +4,11 @@ return {
             runtime = {
                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = 'LuaJIT',
-                path = {
-                    -- Setup your lua path
-                    'lua/?.lua',
-                    'lua/?/init.lua',
-                },
+                -- path = {
+                --     -- Setup your lua path
+                --     'lua/?.lua',
+                --     'lua/?/init.lua',
+                -- },
             },
             completion = {
                 callSnippet = 'Replace',
