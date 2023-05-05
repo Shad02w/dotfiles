@@ -14,7 +14,7 @@ window:
     decorations: transparent
 font:
     normal:
-        family: FiraCode Nerd Font Mono
+        family: Liga SFMono Nerd Font
         style: Medium
     bold:
         family: FiraCode Nerd Font Mono
