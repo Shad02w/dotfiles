@@ -6,6 +6,7 @@ return {
             colors = {
                 outdated = '#d19a66',
             },
+            autostart = false,
             icons = {
                 enable = true,
                 style = {

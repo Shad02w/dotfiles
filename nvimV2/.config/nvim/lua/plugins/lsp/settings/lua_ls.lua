@@ -4,14 +4,13 @@ return {
             runtime = {
                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = 'LuaJIT',
-                -- path = {
-                --     -- Setup your lua path
-                --     'lua/?.lua',
-                --     'lua/?/init.lua',
-                -- },
             },
             completion = {
                 callSnippet = 'Replace',
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { 'vim' },
             },
             format = {
                 enable = false,
