@@ -1,6 +1,8 @@
 return {
     'vuki656/package-info.nvim',
-    event = { 'BufRead package.json' },
+    keys = {
+        { '<leader>ns', '<cmd>lua require("package-info").show({force = true})<cr>', desc = 'Show package info' },
+    },
     config = function()
         require('package-info').setup {
             colors = {
