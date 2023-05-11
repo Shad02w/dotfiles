@@ -26,6 +26,25 @@ function M.create_prettier_source(type)
     }
 
     return require('null-ls').builtins[type].prettierd.with {
+        filetypes = {
+            'javascript',
+            'javascriptreact',
+            'typescript',
+            'typescriptreact',
+            'vue',
+            'css',
+            'scss',
+            'less',
+            'html',
+            'json',
+            'jsonc',
+            'yaml',
+            'markdown',
+            'markdown.mdx',
+            'graphql',
+            'handlebars',
+            'svelte',
+        },
         prefer_local = 'node_modules/.bin',
         condition = function(utils)
             return utils.root_has_file(prettier_config_files)
