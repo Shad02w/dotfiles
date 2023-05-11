@@ -44,7 +44,6 @@ return {
                 'yaml',
                 'toml',
                 'vim',
-                'help',
                 'css',
                 'dockerfile',
                 'git_rebase',
