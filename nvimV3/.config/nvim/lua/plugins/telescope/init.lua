@@ -6,6 +6,8 @@ return {
     dependencies = {
         'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope-ui-select.nvim',
+        'nvim-telescope/telescope-live-grep-args.nvim',
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         { 'AckslD/nvim-neoclip.lua', config = true },
     },
     cmd = { 'Telescope' },
@@ -15,7 +17,7 @@ return {
         { '<leader>f', keys.find_files, desc = 'Find files' },
         { '<leader>F', keys.find_all_files, desc = 'Find all Files' },
         { '<leader>o', keys.recent_files, desc = 'Recent files' },
-        -- { '<leader>s', keys.live_grep_raw, desc = 'Search with args' },
+        { '<leader>s', keys.live_grep_raw, desc = 'Search with args' },
         { '<leader>S', desc = 'Search' },
         { '<leader>Ss', keys.live_grep, desc = 'Search All' },
         { '<leader>Sy', keys.live_grep_with_default, desc = 'Search current 0 register' },
@@ -48,11 +50,16 @@ return {
                     find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix' },
                 },
             },
+            extensions = {
+                ['ui-select'] = {
+                    require('telescope.themes').get_ivy {},
+                },
+            },
         }
 
         telescope.load_extension 'ui-select'
-        -- telescope.load_extension 'fzf'
-        -- telescope.load_extension 'live_grep_args'
+        telescope.load_extension 'fzf'
+        telescope.load_extension 'live_grep_args'
         telescope.load_extension 'neoclip'
         -- telescope.load_extension 'notify'
         -- telescope.load_extension 'yasks'
