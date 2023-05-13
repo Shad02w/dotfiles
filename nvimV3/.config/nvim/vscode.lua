@@ -1,4 +1,4 @@
-require 'user.lazy'
+require 'core.lazy'
 
 -- Disable auto session
 local ok, session = pcall(require, 'session_manager')

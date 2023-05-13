@@ -25,7 +25,6 @@ return {
             'williamboman/mason-lspconfig.nvim',
             'RRethy/vim-illuminate',
             'ray-x/lsp_signature.nvim',
-            'lukas-reineke/lsp-format.nvim',
             'hrsh7th/nvim-cmp',
             'folke/neodev.nvim',
             'jose-elias-alvarez/typescript.nvim', -- extend usage of typescript
@@ -54,12 +53,6 @@ return {
                 border = 'rounded',
             },
         },
-    },
-    {
-        'lukas-reineke/lsp-format.nvim',
-        config = function()
-            require('lsp-format').setup()
-        end,
     },
     { 'narutoxy/dim.lua', config = true },
     { 'folke/neodev.nvim', config = true },
