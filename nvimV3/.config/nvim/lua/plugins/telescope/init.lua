@@ -9,6 +9,7 @@ return {
         'nvim-telescope/telescope-live-grep-args.nvim',
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
         { 'AckslD/nvim-neoclip.lua', config = true },
+        { dir = '~/yasks.nvim' },
     },
     cmd = { 'Telescope' },
     keys = {
@@ -61,7 +62,7 @@ return {
         telescope.load_extension 'fzf'
         telescope.load_extension 'live_grep_args'
         telescope.load_extension 'neoclip'
-        -- telescope.load_extension 'notify'
-        -- telescope.load_extension 'yasks'
+        telescope.load_extension 'notify'
+        telescope.load_extension 'yasks'
     end,
 }
