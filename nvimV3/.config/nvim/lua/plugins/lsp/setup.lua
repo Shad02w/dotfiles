@@ -53,7 +53,8 @@ vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
 local on_attach = function(client, bufnr)
     attach.keymap(bufnr)
     attach.illuminate(client)
-    attach.disable_default_formatting(disable_default_formatting_servers, client)
+    require('lsp-format').on_attach(client)
+    -- attach.disable_default_formatting(disable_default_formatting_servers, client)
     -- attach.enable_format_on_save(client, bufnr)
 end
 

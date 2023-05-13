@@ -23,6 +23,7 @@ return {
         dependencies = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
+            'RRethy/vim-illuminate',
             'ray-x/lsp_signature.nvim',
             'lukas-reineke/lsp-format.nvim',
             'hrsh7th/nvim-cmp',
@@ -54,7 +55,12 @@ return {
             },
         },
     },
-    { 'lukas-reineke/lsp-format.nvim', config = true },
+    {
+        'lukas-reineke/lsp-format.nvim',
+        config = function()
+            require('lsp-format').setup()
+        end,
+    },
     { 'narutoxy/dim.lua', config = true },
     { 'folke/neodev.nvim', config = true },
     {

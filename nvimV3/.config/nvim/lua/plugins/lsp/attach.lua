@@ -1,4 +1,4 @@
--- local format = require 'user.util.formatting'
+local format = require 'plugins.lsp.format'
 local M = {}
 
 function M.keymap(bufnr)
@@ -26,25 +26,18 @@ function M.disable_default_formatting(list, client)
 end
 
 function M.illuminate(client)
-    local status_ok, illuminate = pcall(require, 'illuminate')
-    if not status_ok then
-        return
-    end
-    illuminate.on_attach(client)
+    require('illuminate').on_attach(client)
 end
 
 -- format on save
 local lsp_formatting_augroup = vim.api.nvim_create_augroup('null_ls_lsp_formatting', {})
 function M.enable_format_on_save(_, bufnr)
-    -- if not client.supports_method 'textDocument/formatting' then
-    --     return
-    -- end
     vim.api.nvim_clear_autocmds { group = lsp_formatting_augroup, buffer = bufnr }
     vim.api.nvim_create_autocmd('BufWritePre', {
         group = lsp_formatting_augroup,
         buffer = bufnr,
         callback = function()
-            -- format.async_formatting(bufnr)
+            format.async_formatting(bufnr)
         end,
     })
 end
