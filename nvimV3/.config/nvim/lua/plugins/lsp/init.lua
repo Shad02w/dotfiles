@@ -1,4 +1,4 @@
-local servers = {
+local ensure_installed = {
     'gopls',
     'vimls',
     'html',
@@ -42,7 +42,7 @@ return {
         cmd = 'Mason',
         config = true,
     },
-    { 'williamboman/mason-lspconfig.nvim', opts = { ensure_installed = servers } },
+    { 'williamboman/mason-lspconfig.nvim', opts = { ensure_installed = ensure_installed } },
     {
         'ray-x/lsp_signature.nvim',
         opts = {
