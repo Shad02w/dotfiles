@@ -52,7 +52,11 @@ function M.live_grep_with_default()
 end
 
 function M.live_grep_raw()
-    require('telescope').extensions.live_grep_args.live_grep_args(require('telescope.themes').get_ivy())
+    require('telescope').extensions.live_grep_args.live_grep_args(require('telescope.themes').get_ivy {
+        layout_config = {
+            height = 0.5,
+        },
+    })
 end
 
 function M.help()
