@@ -4,6 +4,7 @@ end
 
 return {
     'sindrets/diffview.nvim',
+    commit = '6bebefbc4c90e6d2b8c65e65b055d284475d89f8',
     keys = {
         { '<leader>g', desc = 'Git' },
         { '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'Diffview' },
