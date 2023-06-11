@@ -6,6 +6,7 @@ local opts = {
 
 function M.recent_files()
     require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown {
+        only_cwd = true,
         layout_strategy = 'center',
         layout_config = { width = 0.6 },
         previewer = false,
