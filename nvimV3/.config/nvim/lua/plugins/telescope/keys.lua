@@ -22,7 +22,7 @@ end
 
 function M.find_files()
     require('telescope.builtin').find_files(require('telescope.themes').get_dropdown {
-        -- hidden = true,
+        hidden = true,
         layout_strategy = 'center',
         -- layout_config = {
         --     width = 0.6,
