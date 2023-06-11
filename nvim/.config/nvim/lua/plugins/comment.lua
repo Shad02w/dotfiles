@@ -3,7 +3,7 @@ return {
     keys = { { 'gc', mode = { 'n', 'v' } } },
     dependencies = {
         'nvim-treesitter/nvim-treesitter',
-        'JoosepAlviste/nvim-ts-context-commentstring'
+        'JoosepAlviste/nvim-ts-context-commentstring',
     },
     config = function()
         require('Comment').setup {
