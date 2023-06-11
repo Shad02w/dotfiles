@@ -28,7 +28,7 @@ return {
             },
             options = {
                 section_separators = { left = '', right = '' },
-                theme = 'kanagawa',
+                theme = 'kanagawa_dragon',
             },
             -- section_separators = { left = '', right = '' },
             extensions = { 'quickfix', 'neo-tree', 'toggleterm' },
