@@ -35,6 +35,7 @@ return {
                 cspell.create_diagnostics_source(),
                 code_actions.cspell,
             },
+            -- add should_attach function to attach lsp server only on specific filetype
         }
     end,
 }
