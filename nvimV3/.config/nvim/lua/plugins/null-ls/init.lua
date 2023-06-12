@@ -35,12 +35,6 @@ return {
                 cspell.create_diagnostics_source(),
                 code_actions.cspell,
             },
-            on_attach = function(client, bufnr)
-                print(vim.inspect(client))
-                if client.supports_method 'textDocument/formatting' then
-                    print(vim.inspect(client))
-                end
-            end,
         }
     end,
 }

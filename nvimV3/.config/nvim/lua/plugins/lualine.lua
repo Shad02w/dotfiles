@@ -23,17 +23,17 @@ return {
         require('lualine').setup {
             sections = {
                 lualine_c = {
-                    -- [[vim.fn.bufname '%']],
+                    [[vim.fn.bufname '%']],
                 },
             },
             options = {
                 section_separators = { left = '', right = '' },
-                theme = 'kanagawa_dragon',
+                theme = 'gruvbox-material',
             },
             -- section_separators = { left = '', right = '' },
             extensions = { 'quickfix', 'neo-tree', 'toggleterm' },
-            inactive_winbar = winbar,
-            winbar = winbar,
+            -- inactive_winbar = winbar,
+            -- winbar = winbar,
         }
     end,
 }
