@@ -16,6 +16,19 @@ local winbar = {
     },
 }
 
+local function get_file_path()
+    local filename = vim.fn.expand '%:p'
+    if filename == '' then
+        return '😴 no file'
+    end
+    local cwd = vim.loop.cwd()
+    if cwd then
+        return string.sub(filename, cwd:len() + 1)
+    else
+        return filename
+    end
+end
+
 return {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
@@ -23,11 +36,13 @@ return {
         require('lualine').setup {
             sections = {
                 lualine_c = {
-                    [[vim.fn.bufname '%']],
+                    get_file_path,
                 },
             },
             options = {
-                section_separators = { left = '', right = '' },
+                -- section_separators = { left = '', right = '' },
+                section_separators = { left = '', right = '' },
+                component_separators = { left = '', right = '' },
                 theme = 'gruvbox-material',
             },
             -- section_separators = { left = '', right = '' },
