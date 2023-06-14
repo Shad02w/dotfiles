@@ -18,6 +18,11 @@ return {
     },
     config = function()
         require('neo-tree').setup {
+            default_component_configs = {
+                indent = {
+                    with_markers = false,
+                },
+            },
             filesystem = {
                 filtered_items = {
                     visible = false, -- when true, they will just be displayed differently than normal items
