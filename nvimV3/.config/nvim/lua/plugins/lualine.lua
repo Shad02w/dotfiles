@@ -33,6 +33,9 @@ return {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
     config = function()
+        local themes = require 'lualine.themes.gruvbox-material'
+        themes.normal.c.bg = '#181616'
+
         require('lualine').setup {
             sections = {
                 lualine_c = {
@@ -41,14 +44,19 @@ return {
             },
             options = {
                 -- section_separators = { left = '', right = '' },
-                section_separators = { left = '', right = '' },
-                component_separators = { left = '', right = '' },
-                theme = 'gruvbox-material',
+                -- section_separators = { left = '', right = '' },
+                -- component_separators = { left = '', right = '' },
+                theme = themes,
+                disabled_filetypes = {
+                    statusline = {
+                        'neo-tree',
+                    },
+                },
             },
             -- section_separators = { left = '', right = '' },
             extensions = { 'quickfix', 'neo-tree', 'toggleterm' },
-            -- inactive_winbar = winbar,
-            -- winbar = winbar,
+            inactive_winbar = winbar,
+            winbar = winbar,
         }
     end,
 }
