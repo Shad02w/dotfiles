@@ -163,6 +163,11 @@ local schemas = {
         fileMatch = { 'resume.json' },
         url = 'https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json',
     },
+    {
+        description = 'Configuration file for swc',
+        fileMatch = { '.swcrc' },
+        url = 'http://json.schemastore.org/swcrc',
+    },
 }
 
 local function extend(tab1, tab2)
