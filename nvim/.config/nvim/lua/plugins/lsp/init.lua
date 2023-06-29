@@ -32,6 +32,17 @@ return {
         },
     },
     {
+        'ray-x/lsp_signature.nvim',
+        opts = {
+            bind = true, -- This is mandatory, otherwise border config won't get registered.
+            floating_window = false,
+            hint_enable = true, -- virtual hint enable
+            handler_opts = {
+                border = 'rounded',
+            },
+        },
+    },
+    {
         'neovim/nvim-lspconfig',
         event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
@@ -40,6 +51,7 @@ return {
 
             -- useful lsp tools
             'RRethy/vim-illuminate',
+            'ray-x/lsp_signature.nvim',
             'j-hui/fidget.nvim',
             'lukas-reineke/lsp-format.nvim', --
 
