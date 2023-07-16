@@ -16,7 +16,7 @@ function M.create_eslint_d_source(type)
         condition = function(utils)
             return utils.root_has_file {
                 '.eslintrc.js',
-                '.eslintrc.cjs ',
+                '.eslintrc.cjs',
                 '.eslintrc.yaml',
                 '.eslintrc.yml',
                 '.eslintrc.json',
