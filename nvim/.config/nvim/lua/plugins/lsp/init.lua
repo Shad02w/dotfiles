@@ -33,6 +33,7 @@ return {
     },
     {
         'ray-x/lsp_signature.nvim',
+        enabled = false,
         opts = {
             bind = true, -- This is mandatory, otherwise border config won't get registered.
             floating_window = false,
