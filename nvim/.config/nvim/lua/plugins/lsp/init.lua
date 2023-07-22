@@ -1,4 +1,5 @@
 local servers = require 'plugins.lsp.servers'
+
 return {
     {
         'williamboman/mason.nvim',

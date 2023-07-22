@@ -10,6 +10,7 @@ M.ensure_installed_servers = {
     'yamlls',
     'lemminx',
     -- web
+    -- 'rome',
     'tsserver',
     'tailwindcss',
     'cssls',
