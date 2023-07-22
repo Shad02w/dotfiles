@@ -4,6 +4,7 @@ if type "zoxide" > /dev/null; then
 fi
 
 # starship 
-if type "starship" > /dev/null; then
-    eval "$(starship init zsh)"
-fi
+# if type "starship" > /dev/null; then
+#     eval "$(starship init zsh)"
+# fi
+

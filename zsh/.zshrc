@@ -12,9 +12,10 @@ eval "$(sheldon source)"
 
 
 # spaceship vi mode
-# if type "spaceship" > /dev/null; then
-#     spaceship add --after line_sep vi_mode
-# fi
+if type "spaceship" > /dev/null; then
+    eval "$(spaceship_vi_mode_enable)"
+    spaceship add --after line_sep vi_mode
+fi
 
 
 # bun
