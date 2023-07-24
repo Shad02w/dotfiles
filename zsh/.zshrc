@@ -13,11 +13,12 @@ eval "$(sheldon source)"
 
 # spaceship vi mode
 if type "spaceship" > /dev/null; then
-    eval "$(spaceship_vi_mode_enable)"
     spaceship add --after line_sep vi_mode
+    spaceship_vi_mode_enable
 fi
 
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
