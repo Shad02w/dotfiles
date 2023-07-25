@@ -30,3 +30,8 @@ fi
 if [[ -d /Applications/Postgres.app/Contents/Versions/15/bin ]]; then
     export PATH="/Applications/Postgres.app/Contents/Versions/15/bin":$PATH
 fi
+
+# Added by OrbStack: command-line tools and integration
+if [[ -d ~/.orbstack/shell ]]; then
+    source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+fi
