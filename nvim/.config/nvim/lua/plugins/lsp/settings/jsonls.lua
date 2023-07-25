@@ -168,6 +168,11 @@ local schemas = {
         fileMatch = { '.swcrc' },
         url = 'http://json.schemastore.org/swcrc',
     },
+    {
+        description = 'Configuration file for tsup',
+        fileMatch = { 'tsup.config.json' },
+        url = 'https://cdn.jsdelivr.net/npm/tsup/schema.json',
+    },
 }
 
 local function extend(tab1, tab2)
