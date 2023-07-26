@@ -13,7 +13,7 @@ export PATH="$ANDROID_HOME/platform-tools":$PATH
 export PATH="$ANDROID_HOME/emulator":$PATH 
 
 # common bin
-export PATH="~/.local/bin":$PATH
+export PATH="$HOME/.local/bin":$PATH
 
 # rust
 if [[ -d "$HOME/.cargo/bin" ]]; then
