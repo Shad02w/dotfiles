@@ -11,8 +11,13 @@ eval "$(sheldon source)"
 [ -s "/Users/alvistse/.bun/_bun" ] && source "/Users/alvistse/.bun/_bun"
 
 
-# spaceship vi mode
+# spaceship 
 if type "spaceship" > /dev/null; then
+    if [[ "$TERM_PROGRAM" == "WarpTerminal" ]]; then
+        SPACESHIP_PROMPT_ASYNC=false
+        SPACESHIP_PROMPT_ORDER=()
+    fi
+    # spaceship vi_mode
     spaceship add --after line_sep vi_mode
     spaceship_vi_mode_enable
 fi
