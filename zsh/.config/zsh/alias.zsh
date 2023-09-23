@@ -39,7 +39,7 @@ if type "ni" > /dev/null; then
     alias nb="nr build"
     alias nt="nr test"
     alias ns="nr start"
-    alias nxx="na nx"
+    alias nx="na dlx"
     vite-react() {
         na create vite $argv[1] --template=react-ts
     }
