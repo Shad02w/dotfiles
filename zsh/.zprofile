@@ -30,8 +30,13 @@ if type "nvim" > /dev/null; then
 fi
 
 # mac Postgres
-if [[ -d /Applications/Postgres.app/Contents/Versions/15/bin ]]; then
+if [[ -d /Applications/Postgres.app/Contents/Versions/16/bin ]]; then
     export PATH="/Applications/Postgres.app/Contents/Versions/15/bin":$PATH
+fi
+
+# go bin path
+if [[ -d "$HOME/.local/bin/go/bin" ]]; then
+    export PATH="$HOME/.local/bin/go/bin":$PATH
 fi
 
 # Added by OrbStack: command-line tools and integration
