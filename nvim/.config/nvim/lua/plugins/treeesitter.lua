@@ -1,5 +1,5 @@
-local MAX_COLUMN = 10000
-local MAX_LINE = 5000
+local MAX_COLUMN = 5000
+local MAX_LINE = 50000
 
 local function exceeded_max_column(bufnr)
     local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
@@ -21,7 +21,7 @@ end
 
 return {
     'nvim-treesitter/nvim-treesitter',
-    event = {"BufReadPre", "BufNewFile"},
+    event = { 'BufReadPre', 'BufNewFile' },
     build = ':TSUpdate',
     dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects',
