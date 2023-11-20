@@ -18,16 +18,18 @@ local m = require('luasnip.extras').m
 local lambda = require('luasnip.extras').l
 local postfix = require('luasnip.extras.postfix').postfix
 
-local saferequire_snippet = [[
-local saferequire = require 'user.util.saferequire'
-local {} = saferequire '{}'
-if not {} then
-    return
-end
+local prettier_snippet = [[
+{
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": false,
+    "trailingComma": "none",
+    "arrowParens": "avoid"<>
+}
 ]]
 
-local snippets = {
-    s('sreq', fmt(saferequire_snippet, { i(2), i(1), rep(2) })),
+local snippet = {
+    s({ trig = 'prettier', desc = 'Prettier snippet' }, fmta(prettier_snippet, { i(1) })),
 }
 
-return snippets
+return snippet
