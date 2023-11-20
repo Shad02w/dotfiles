@@ -39,3 +39,32 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHoldI', 'CursorH
         vim.cmd 'checktime'
     end,
 })
+
+-- Warn when open big file
+local file_size_threshold = 50 * 1024 * 1024
+local open_big_file_warning = vim.api.nvim_create_augroup('open_big_file_warning', {})
+vim.api.nvim_create_autocmd('BufReadPre', {
+    pattern = { '*' },
+    group = open_big_file_warning,
+    callback = function(arg)
+        local filepath = vim.api.nvim_buf_get_name(arg.buf)
+        local buf_size = vim.fn.getfsize(filepath)
+
+        if buf_size > file_size_threshold or buf_size == -2 then
+            local choice = vim.fn.confirm(
+                'file size of '
+                    .. arg.file
+                    .. ' is larger than '
+                    .. file_size_threshold
+                    .. ' bytes('
+                    .. buf_size
+                    .. '), Open this file may crash the editor, continue?',
+                '&Yes\n&No',
+                2
+            )
+            if choice == 2 then
+                vim.cmd('bdelete ' .. arg.buf)
+            end
+        end
+    end,
+})
