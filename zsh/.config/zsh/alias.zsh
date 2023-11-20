@@ -48,4 +48,8 @@ if type "ni" > /dev/null; then
     }
 fi
 
-
+if type "aws" > /dev/null; then
+    set-aws-default-profile() {
+        export AWS_PROFILE=$argv[1]
+    }
+fi
