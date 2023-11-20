@@ -29,7 +29,13 @@ local prettier_snippet = [[
 ]]
 
 local snippet = {
-    s({ trig = 'prettier', desc = 'Prettier snippet' }, fmta(prettier_snippet, { i(1) })),
+    s({
+        trig = 'prettier',
+        dscr = 'my favorite prettier config',
+        show_condition = function()
+            return string.find(vim.fn.expand '%', 'prettier') ~= nil
+        end,
+    }, fmta(prettier_snippet, { i(1) })),
 }
 
 return snippet
