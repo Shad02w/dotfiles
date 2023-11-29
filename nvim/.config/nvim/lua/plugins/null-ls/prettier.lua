@@ -25,7 +25,7 @@ function M.create_prettier_source(type)
         '.prettierrc.toml',
     }
 
-    return require('null-ls').builtins[type].prettier.with {
+    return require('null-ls').builtins[type].prettierd.with {
         filetypes = {
             'javascript',
             'javascriptreact',
