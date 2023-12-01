@@ -24,7 +24,7 @@ local prettier_snippet = [[
     "semi": false,
     "singleQuote": false,
     "trailingComma": "none",
-    "printWidth": "120",
+    "printWidth": 120,
     "arrowParens": "avoid"<>
 }
 ]]
