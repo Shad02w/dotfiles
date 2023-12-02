@@ -29,6 +29,31 @@ local prettier_snippet = [[
 }
 ]]
 
+local tsconfig_snippet = [[
+{
+    "compilerOptions": {
+        "checkJs": true,
+        "useDefineForClassFields": true,
+
+        /* Import & Export */
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+
+        /* Linting */
+        "strict": true,
+        "noImplicitOverride": true,
+        "noImplicitAny": true,
+        "verbatimModuleSyntax": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "strictPropertyInitialization": true<>
+    }
+}
+]]
+
 local snippet = {
     s({
         trig = 'prettier',
@@ -37,6 +62,13 @@ local snippet = {
             return string.find(vim.fn.expand '%', 'prettier') ~= nil
         end,
     }, fmta(prettier_snippet, { i(1) })),
+    s({
+        trig = 'tsconfig',
+        dscr = 'my favorite tsconfig config',
+        show_condition = function()
+            return string.find(vim.fn.expand '%', 'tsconfig') ~= nil
+        end,
+    }, fmta(tsconfig_snippet, { i(1) })),
 }
 
 return snippet
