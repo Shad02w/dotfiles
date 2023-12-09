@@ -52,6 +52,28 @@ if type "ni" > /dev/null; then
     }
 fi
 
+# neovim
+if type "nvim" > /dev/null; then
+    nvx() {
+        NVIM_APPNAME=$argv[1] nvim $argv[2]
+    }
+    nv_uninstall() {
+        local name=${1:-nvim}
+        rm -rf ~/.local/share/$name && rm -rf ~/.local/state/$name && rm -rf ~/.cache/$name
+    }
+fi
+
+confirm_rm() {
+    local ans
+    echo -n "Are you sure? [y/N] "
+    read ans
+    if [[ $ans =~ ^[Yy]$ ]]; then
+        command rm "$@"
+    fi
+}
+
+alias rm='confirm_rm'
+
 if type "aws" > /dev/null; then
     set-aws-default-profile() {
         export AWS_PROFILE=$argv[1]
