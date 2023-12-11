@@ -3,7 +3,7 @@ local keys = require 'plugins.telescope.keys'
 return {
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
-    tag = '0.1.1',
+    branch = '0.1.x',
     dependencies = {
         'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope-ui-select.nvim',
