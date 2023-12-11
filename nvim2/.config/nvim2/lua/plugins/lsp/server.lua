@@ -7,4 +7,6 @@ M.ensure_installed_server = {
     'biome',
 }
 
+M.enabled_server = M.ensure_installed_server
+
 return M

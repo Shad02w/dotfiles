@@ -13,18 +13,7 @@ return {
             'j-hui/fidget.nvim',
         },
         config = function()
-            local lspconfig = require 'lspconfig'
-            lspconfig.lua_ls.setup {
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            globals = { 'vim' },
-                        },
-                    },
-                },
-            }
-            lspconfig.gopls.setup {}
-            -- require 'plugins.lsp.lspconfig'
+            require 'plugins.lsp.config'
         end,
     },
     {
@@ -43,6 +32,7 @@ return {
     },
     {
         'j-hui/fidget.nvim',
+        tag = 'legacy',
         opts = {
             text = {
                 spinner = 'moon',
