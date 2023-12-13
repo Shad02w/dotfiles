@@ -26,6 +26,18 @@ local function command(bufnr)
     end, {})
 end
 
+---@param bufnr number
+local function format_on_save(bufnr)
+    vim.api.nvim_create_augroup('attach_format_on_save', {})
+    vim.api.nvim_create_autocmd('BufWritePre', {
+        group = 'attach_format_on_save',
+        buffer = bufnr,
+        callback = function()
+            M.format(bufnr)
+        end,
+    })
+end
+
 ---@param client lsp.Client
 local function disable_formatter(client)
     if vim.tbl_contains(config.disable_server_formatter, client.name) then
@@ -66,9 +78,10 @@ M.capabilities = require('cmp_nvim_lsp').default_capabilities()
 ---@param client lsp.Client
 ---@param bufnr number
 M.on_attach = function(client, bufnr)
+    disable_formatter(client)
     keymaps(bufnr)
     command(bufnr)
-    disable_formatter(client)
+    format_on_save(bufnr)
 end
 
 ---@param server_name string
