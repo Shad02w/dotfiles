@@ -16,10 +16,10 @@ return {
                     local theme = colors.theme
                     return {
                         -- cmp
-                        Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
-                        PmenuSel = { fg = 'NONE', bg = theme.ui.bg_p2 },
-                        PmenuSbar = { bg = theme.ui.bg_m1 },
-                        PmenuThumb = { bg = theme.ui.bg_p2 },
+                        -- Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+                        -- PmenuSel = { fg = 'NONE', bg = theme.ui.bg_p2 },
+                        -- PmenuSbar = { bg = theme.ui.bg_m1 },
+                        -- PmenuThumb = { bg = theme.ui.bg_p2 },
                         -- telescope
                         TelescopeTitle = { fg = theme.ui.special, bold = true },
                         TelescopePromptNormal = { bg = theme.ui.bg_p1 },
