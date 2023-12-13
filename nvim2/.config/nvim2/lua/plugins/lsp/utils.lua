@@ -1,4 +1,4 @@
-local server = require 'plugins.lsp.server'
+local config = require 'plugins.lsp.config'
 local M = {}
 
 ---@bufnr number
@@ -28,7 +28,7 @@ end
 
 ---@param client lsp.Client
 local function disable_formatter(client)
-    if vim.tbl_contains(server.disable_server_formatter, client.name) then
+    if vim.tbl_contains(config.disable_server_formatter, client.name) then
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
     end
@@ -61,6 +61,8 @@ local function async_format(bufnr)
     )
 end
 
+M.capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 ---@param client lsp.Client
 ---@param bufnr number
 M.on_attach = function(client, bufnr)
@@ -69,12 +71,10 @@ M.on_attach = function(client, bufnr)
     disable_formatter(client)
 end
 
-M.capabilities = require('cmp_nvim_lsp').default_capabilities()
-
----@param server string
+---@param server_name string
 ---@return table|nil
-M.get_settings = function(server)
-    local has_settings, settings = pcall(require, 'plugins.lsp.settings.' .. server)
+M.get_settings = function(server_name)
+    local has_settings, settings = pcall(require, 'plugins.lsp.settings.' .. server_name)
     return has_settings and settings or nil
 end
 

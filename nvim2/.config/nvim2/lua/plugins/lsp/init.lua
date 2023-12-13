@@ -1,4 +1,4 @@
-local server = require 'plugins.lsp.server'
+local config = require 'plugins.lsp.config'
 
 return {
     {
@@ -13,7 +13,7 @@ return {
             'j-hui/fidget.nvim',
         },
         config = function()
-            require 'plugins.lsp.config'
+            require 'plugins.lsp.setup'
         end,
     },
     {
@@ -26,7 +26,7 @@ return {
         'williamboman/mason-lspconfig.nvim',
         dependencies = { 'williamboman/mason.nvim' },
         opts = {
-            ensure_installed = server.ensure_installed_server,
+            ensure_installed = config.ensure_installed_server,
             automatic_installation = true,
         },
     },

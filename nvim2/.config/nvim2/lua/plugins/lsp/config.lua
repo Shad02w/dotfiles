@@ -1,37 +1,17 @@
-local lspconfig = require 'lspconfig'
-local server = require 'plugins.lsp.server'
-local utils = require 'plugins.lsp.utils'
+local M = {}
 
-for _, server_name in ipairs(server.enabled_server) do
-    local settings = utils.get_settings(server_name) or {}
-    local opts = vim.tbl_deep_extend('force', {
-        on_attach = utils.on_attach,
-        capabilities = utils.capabilities,
-    }, settings)
+M.ensure_installed_server = {
+    'rust_analyzer',
+    'gopls',
+    'lua_ls',
+    'biome',
+    "jsonls"
+}
 
-    lspconfig[server_name].setup(opts)
-end
+M.enabled_server = M.ensure_installed_server
 
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = 'rounded',
-    width = 60,
-})
+M.disable_server_formatter = {
+    'lua_ls'
+}
 
--- vim.diagnostic.config {
---     virtual_text = true,
---     -- show signs
---     signs = {
---         active = {
---             { name = 'DiagnosticSignError', text = '' },
---             { name = 'DiagnosticSignWarn', text = '' },
---             { name = 'DiagnosticSignHint', text = '' },
---             { name = 'DiagnosticSignInfo', text = '' },
---         },
---     },
---     severity_sort = true,
---     float = {
---         focusable = false,
---         border = 'rounded',
---         source = 'always',
---     },
--- }
+return M
