@@ -26,6 +26,13 @@ local kind_icons = {
     Variable = ' ',
 }
 
+---prevent cmp menu pop up when hitting tab key
+local function has_word_before()
+    local u = unpack or table.unpack
+    local line, col = u(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
+end
+
 return {
     'hrsh7th/nvim-cmp',
     event = { 'InsertEnter', 'CmdLineEnter' },
@@ -48,6 +55,7 @@ return {
                 documentation = cmp.config.window.bordered { winhighlight = highlight },
             },
             formatting = {
+                expandable_indicator = true,
                 fields = { 'kind', 'abbr', 'menu' },
                 format = function(entry, vim_item)
                     vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
@@ -66,6 +74,8 @@ return {
                 ['<Tab>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
+                    elseif has_word_before() then
+                        cmp.complete()
                     else
                         fallback()
                     end
