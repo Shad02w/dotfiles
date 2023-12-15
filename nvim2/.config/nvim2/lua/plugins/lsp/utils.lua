@@ -26,11 +26,11 @@ local function command(bufnr)
     end, {})
 end
 
+local attach_format_on_save = vim.api.nvim_create_augroup('attach_format_on_save', {})
 ---@param bufnr number
 local function format_on_save(bufnr)
-    vim.api.nvim_create_augroup('attach_format_on_save', {})
     vim.api.nvim_create_autocmd('BufWritePre', {
-        group = 'attach_format_on_save',
+        group = attach_format_on_save,
         buffer = bufnr,
         callback = function()
             M.format(bufnr)
@@ -66,7 +66,7 @@ local function async_format(bufnr)
                 local client = vim.lsp.get_client_by_id(context.client_id)
                 vim.lsp.util.apply_text_edits(result, bufnr, client and client.offset_encoding or 'utf-16')
                 vim.api.nvim_buf_call(bufnr, function()
-                    vim.cmd [[silent noautocmd update]]
+                    vim.cmd 'silent noautocmd update'
                 end)
             end
         end
@@ -97,9 +97,13 @@ M.format = function(bufnr)
 
     -- get all clients with formatting capabilities
     ---@type table<lsp.Client>
-    local formatable_clients = vim.tbl_filter(function(c)
-        return c.supports_method 'textDocument/formatting'
-    end, vim.lsp.get_clients { bufnr = bufnr })
+    local formatable_clients = {}
+
+    for _, client in ipairs(vim.lsp.get_clients { bufnr = bufnr }) do
+        if client.server_capabilities.documentFormattingProvider ~= false then
+            table.insert(formatable_clients, client)
+        end
+    end
 
     if vim.tbl_isempty(formatable_clients) then
         return
