@@ -10,6 +10,7 @@ return {
     config = function()
         local notify = require 'notify'
         vim.notify = notify
+        ---@diagnostic disable-next-line: missing-fields
         notify.setup {
             stages = 'fade',
             timeout = 5000,

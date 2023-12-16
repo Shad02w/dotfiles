@@ -19,14 +19,38 @@ return {
                 with_markers = false,
             },
         },
-        filesystem= {
+        filesystem = {
+            filtered_items = {
+                visible = false, -- when true, they will just be displayed differently than normal items
+                hide_dotfiles = false,
+                hide_gitignored = false,
+                hide_hidden = false, -- only works on Windows for hidden files/directories
+                never_show = { -- remains hidden even if visible is toggled to true
+                    '.DS_Store',
+                },
+            },
             follow_current_file = {
-                enabled = true
-            }
+                enabled = true,
+            },
         },
         window = {
             position = 'right',
-            width = 60
+            width = 60,
+            mappings = {
+                ['z'] = '',
+                ['<c-z>'] = 'close_all_nodes',
+                ['c'] = function(state)
+                    local node = state.tree:get_node()
+                    vim.fn.setreg('*', node.path)
+                    vim.notify('Copied path' .. node.path, vim.log.levels.INFO, { title = 'Neo-tree copy path' })
+                end,
+                ['m'] = {
+                    'move',
+                    config = {
+                        show_path = 'relative',
+                    },
+                },
+            },
         },
     },
 }
