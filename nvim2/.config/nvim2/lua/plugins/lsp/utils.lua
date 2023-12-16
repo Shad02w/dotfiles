@@ -3,7 +3,6 @@ local M = {}
 
 ---@bufnr number
 local function keymaps(bufnr)
-    require('lazy').load { plugins = { 'trouble.nvim' } }
     local opts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', '<cmd>Trouble lsp_definitions<cr>', opts)
