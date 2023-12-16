@@ -8,7 +8,7 @@ return {
     },
     dependencies = {
         'nvim-lua/plenary.nvim',
-        'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+        'nvim-tree/nvim-web-devicons',
         'MunifTanjim/nui.nvim',
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
@@ -32,6 +32,7 @@ return {
             follow_current_file = {
                 enabled = true,
             },
+            use_libuv_file_watcher = true, -- use libnv watcher, do not need to press 'R' to manually refresh
         },
         window = {
             position = 'right',
@@ -51,6 +52,9 @@ return {
                     },
                 },
             },
+        },
+        source_selector = {
+            winbar = true,
         },
     },
 }
