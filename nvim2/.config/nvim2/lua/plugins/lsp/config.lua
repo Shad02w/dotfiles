@@ -19,6 +19,8 @@ M.ensure_installed_server = {
 M.enabled_server = M.ensure_installed_server
 
 M.disable_server_formatter = {
+    -- TODO: disable formatter, dont know why it break, plz fix it
+    'jsonls',
     'lua_ls',
 }
 
