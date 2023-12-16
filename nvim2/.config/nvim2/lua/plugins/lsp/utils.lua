@@ -29,6 +29,8 @@ end
 local attach_format_on_save = vim.api.nvim_create_augroup('attach_format_on_save', {})
 ---@param bufnr number
 local function format_on_save(bufnr)
+    -- to make sure trigger only format on save only once at a buffer
+    vim.api.nvim_clear_autocmds { group = attach_format_on_save, buffer = bufnr }
     vim.api.nvim_create_autocmd('BufWritePre', {
         group = attach_format_on_save,
         buffer = bufnr,
