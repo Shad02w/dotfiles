@@ -18,6 +18,7 @@ return {
         wk.register()
 
         local mappings = {
+            d = { cmd 'Bdelete', 'Delete Current Buffer' },
             c = {
                 name = 'Close buffer',
                 o = { general.close_other_buffer, 'Close all buffers execpt buffers on current tab' },
