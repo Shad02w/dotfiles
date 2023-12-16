@@ -18,19 +18,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
             return
         end
 
-        local inject = config.hander[client.name]
-        if not inject then
+        -- default on_attach
+        utils.on_attach(client, bufnr)
+
+        local extra_handler = config.hander[client.name]
+        if not extra_handler then
             return
         end
 
-        inject(client, bufnr)
+        -- extra on_attach logic
+        extra_handler(client, bufnr)
     end,
 })
 
 for _, server_name in ipairs(config.enabled_server) do
     local settings = utils.get_settings(server_name) or {}
     local opts = vim.tbl_deep_extend('force', {
-        on_attach = utils.on_attach,
         capabilities = utils.capabilities,
     }, settings)
 

@@ -19,10 +19,20 @@ M.ensure_installed_server = {
 M.enabled_server = M.ensure_installed_server
 
 M.disable_server_formatter = {
-    -- TODO: disable formatter, dont know why it break, plz fix it
+    -- TODO: disable formatter, do not know why it breaks, plz fix it
     'jsonls',
     'lua_ls',
+    -- disable copilot as the formatter
+    'copilot',
 }
+
+---@alias LspDefaultFormatterFilter fun(): string
+---@type table<string, string | LspDefaultFormatterFilter>
+M.default_formatter = {
+    ['lua'] = 'null-ls',
+}
+
+vim.notify '12312312312123-------------------------------12312312312123-------------------------------12312312312123-------------------------------12312312312123-------------------------------12312312312123-------------------------------12312312312123-------------------------------'
 
 ---@alias LspMiddleHandler fun(client: lsp.Client, bufnr: number)
 ---@type table<string,LspMiddleHandler>
