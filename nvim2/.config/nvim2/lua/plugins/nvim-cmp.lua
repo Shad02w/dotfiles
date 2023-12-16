@@ -46,6 +46,8 @@ return {
     config = function()
         local cmp = require 'cmp'
         local highlight = 'Normal:Normal,FloatBorder:None,CursorLine:Visual,Search:None'
+
+        ---@diagnostic disable-next-line: missing-fields
         cmp.setup {
             view = {
                 entries = 'custom',
@@ -68,7 +70,22 @@ return {
                     return vim_item
                 end,
             },
+            sources = cmp.config.sources({
+                { name = 'nvim_lsp' },
+                { name = 'luasnip' },
+            }, {
+                { name = 'path' },
+            }, {
+                { name = 'buffer' },
+            }),
+            snippet = {
+                expand = function(args)
+                    require('luasnip').lsp_expand(args.body)
+                end,
+            },
             mapping = {
+                ['<up>'] = cmp.mapping.select_prev_item(),
+                ['<down>'] = cmp.mapping.select_next_item(),
                 ['<cr>'] = cmp.mapping.confirm { select = true },
                 ['<c-space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
                 ['<Tab>'] = cmp.mapping(function(fallback)
@@ -88,28 +105,9 @@ return {
                     end
                 end, { 'i', 's' }),
             },
-            sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'luasnip' },
-            }, {
-                { name = 'path' },
-            }, {
-                { name = 'buffer' },
-            }),
-            snippet = {
-                expand = function(args)
-                    require('luasnip').lsp_expand(args.body)
-                end,
-            },
-            -- window = {
-            --     completion = cmp.config.window.bordered(),
-            --     documentation = cmp.config.window.bordered(),
-            -- },
-            -- experimental = {
-            --     native_menu = true,
-            -- },
         }
 
+        ---@diagnostic disable-next-line: missing-fields
         cmp.setup.cmdline('/', {
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
@@ -117,6 +115,7 @@ return {
             },
         })
 
+        ---@diagnostic disable-next-line: missing-fields
         cmp.setup.cmdline(':', {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
