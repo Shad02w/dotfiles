@@ -58,7 +58,7 @@ return function(bufnr)
             async_format(client_maps[formatter_name], bufnr)
         else
             vim.notify(
-                'Default formatter for `' .. filetype .. '` is not found: ' .. default_formatter,
+                'Default formatter for `' .. filetype .. '` is not found: ' .. formatter_name,
                 vim.log.levels.ERROR,
                 { title = TITLE }
             )
