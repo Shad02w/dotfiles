@@ -31,7 +31,7 @@ return function(bufnr)
 
     -- get all clients of current buffer
     -- get filetype of current buffer
-    -- if default formatter is specify
+    -- if default formatter of given filetype is specify
     --      then check if client exist
     --          then format
     --          else notify error

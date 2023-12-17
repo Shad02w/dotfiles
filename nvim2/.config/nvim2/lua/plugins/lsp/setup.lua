@@ -20,14 +20,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- default on_attach
         utils.on_attach(client, bufnr)
-
-        local extra_handler = config.hander[client.name]
-        if not extra_handler then
-            return
-        end
-
-        -- extra on_attach logic
-        extra_handler(client, bufnr)
     end,
 })
 
