@@ -14,9 +14,8 @@ return {
         notify.setup {
             stages = 'fade',
             timeout = 5000,
-            on_open = function(win)
-                vim.api.nvim_win_set_option(win, 'wrap', true)
-            end,
+            render = 'wrapped-compact',
+            max_width = 80,
         }
     end,
 }
