@@ -13,7 +13,7 @@ return {
         ---@diagnostic disable-next-line: missing-fields
         notify.setup {
             stages = 'fade',
-            timeout = 5000,
+            timeout = 3000,
             render = 'wrapped-compact',
             max_width = 80,
         }
