@@ -3,7 +3,7 @@ local config = require 'plugins.lsp.config'
 return {
     {
         'neovim/nvim-lspconfig',
-        event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
+        event = { 'BufReadPre', 'BufNewFile', 'BufWritePre' },
         dependencies = {
             { 'folke/neodev.nvim', config = true },
             'williamboman/mason.nvim',
