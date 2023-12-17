@@ -1,13 +1,13 @@
 local M = {}
 
----@param pattern table<string>
+---@param pattern string[]
 ---@return boolean
 local function has_root(pattern)
     local util = require 'lspconfig.util'
     return util.root_pattern(pattern)(vim.loop.cwd()) ~= nil
 end
 
----@param filetypes table<string>
+---@param filetypes string[]
 ---@param formatter string | LspDefaultFormatterFilter
 local function set_default_formatter(filetypes, formatter)
     for _, filetype in ipairs(filetypes) do
@@ -15,7 +15,7 @@ local function set_default_formatter(filetypes, formatter)
     end
 end
 
----@type table<string>
+---@type string[]
 M.ensure_installed_server = {
     'rust_analyzer',
     'gopls',
@@ -24,7 +24,33 @@ M.ensure_installed_server = {
     'jsonls',
 }
 
-M.enabled_server = M.ensure_installed_server
+---@class LspEnabledServerConfig
+---@field [1] string
+---@field cond fun(): boolean
+
+---@type (LspEnabledServerConfig | string)[]
+M.enabled_server = {
+    'jsonls',
+    'lua_ls',
+    {
+        'gopls',
+        cond = function()
+            return has_root { 'go.mod' }
+        end,
+    },
+    {
+        'rust_analyzer',
+        cond = function()
+            return has_root { 'Cargo.toml' }
+        end,
+    },
+    {
+        'biome',
+        cond = function()
+            return has_root { 'biome.json' }
+        end,
+    },
+}
 
 M.disable_server_formatter = {
     'lua_ls',

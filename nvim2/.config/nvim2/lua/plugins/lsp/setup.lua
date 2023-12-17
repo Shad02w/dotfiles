@@ -18,18 +18,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
             return
         end
 
-        -- default on_attach
         utils.on_attach(client, bufnr)
     end,
 })
 
-for _, server_name in ipairs(config.enabled_server) do
-    local settings = utils.get_settings(server_name) or {}
-    local opts = vim.tbl_deep_extend('force', {
-        capabilities = utils.capabilities,
-    }, settings)
+for _, s in ipairs(config.enabled_server) do
+    local server_name
+    if type(s) == 'string' then
+        server_name = s
+    else
+        if s.cond() then
+            server_name = s[1]
+        end
+    end
 
-    lspconfig[server_name].setup(opts)
+    if server_name then
+        local settings = utils.get_settings(server_name) or {}
+        local opts = vim.tbl_deep_extend('force', {
+            capabilities = utils.capabilities,
+        }, settings)
+
+        lspconfig[server_name].setup(opts)
+    end
 end
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {

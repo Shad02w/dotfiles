@@ -68,7 +68,7 @@ return function(bufnr)
 
     -- if no default_formatter specify
 
-    ---@type table<lsp.Client>
+    ---@type lsp.Client[]
     local formatable_clients = {}
 
     for _, client in ipairs(all_clients) do
