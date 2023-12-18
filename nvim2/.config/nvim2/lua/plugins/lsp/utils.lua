@@ -50,6 +50,11 @@ local function disable_formatter(client)
 end
 
 M.capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- enable code folding, related to nvim-ufo
+M.capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+}
 
 ---@param client lsp.Client
 ---@param bufnr number
