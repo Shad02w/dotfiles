@@ -11,6 +11,7 @@ return {
 
             -- useful lsp tools
             'j-hui/fidget.nvim',
+            -- 'b0o/schemastore.nvim', -- json, yaml schema store
         },
         config = function()
             require 'plugins.lsp.setup'
@@ -45,4 +46,5 @@ return {
             },
         },
     },
+    { 'pmizio/typescript-tools.nvim' },
 }

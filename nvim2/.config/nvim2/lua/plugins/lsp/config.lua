@@ -21,17 +21,25 @@ M.ensure_installed_server = {
     'gopls',
     'lua_ls',
     'biome',
+    'tsserver',
     'jsonls',
 }
 
 ---@class LspEnabledServerConfig
 ---@field [1] string
 ---@field cond fun(): boolean
+---@field setup nil|fun(): boolean
 
 ---@type (LspEnabledServerConfig | string)[]
 M.enabled_server = {
     'jsonls',
     'lua_ls',
+    {
+        'tsserver',
+        cond = function()
+            return has_root { 'package.json' }
+        end,
+    },
     {
         'gopls',
         cond = function()
@@ -54,7 +62,7 @@ M.enabled_server = {
 
 M.disable_server_formatter = {
     'lua_ls',
-    -- disable copilot as the formatter
+    -- disable copilot formatting capability
     'copilot',
 }
 

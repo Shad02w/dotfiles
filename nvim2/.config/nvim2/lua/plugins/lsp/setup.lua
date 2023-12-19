@@ -38,7 +38,11 @@ for _, s in ipairs(config.enabled_server) do
             capabilities = utils.capabilities,
         }, settings)
 
-        lspconfig[server_name].setup(opts)
+        if server_name == 'tsserver' then
+            require('typescript-tools').setup(opts)
+        else
+            lspconfig[server_name].setup(opts)
+        end
     end
 end
 
