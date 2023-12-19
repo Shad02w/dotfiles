@@ -1,10 +1,12 @@
 local M = {}
 
 ---@param pattern string[]
----@return boolean
+---@return fun(): boolean
 local function has_root(pattern)
-    local util = require 'lspconfig.util'
-    return util.root_pattern(pattern)(vim.loop.cwd()) ~= nil
+    return function()
+        local util = require 'lspconfig.util'
+        return util.root_pattern(pattern)(vim.loop.cwd()) ~= nil
+    end
 end
 
 ---@param filetypes string[]
@@ -22,6 +24,7 @@ M.ensure_installed_server = {
     'lua_ls',
     'biome',
     'tsserver',
+    'yamlls',
     'jsonls',
 }
 
@@ -33,30 +36,23 @@ M.ensure_installed_server = {
 ---@type (LspEnabledServerConfig | string)[]
 M.enabled_server = {
     'jsonls',
+    'yamlls',
     'lua_ls',
     {
         'tsserver',
-        cond = function()
-            return has_root { 'package.json' }
-        end,
+        cond = has_root { 'package.json' },
     },
     {
         'gopls',
-        cond = function()
-            return has_root { 'go.mod' }
-        end,
+        cond = has_root { 'go.mod' },
     },
     {
         'rust_analyzer',
-        cond = function()
-            return has_root { 'Cargo.toml' }
-        end,
+        cond = has_root { 'Cargo.toml' },
     },
     {
         'biome',
-        cond = function()
-            return has_root { 'biome.json' }
-        end,
+        cond = has_root { 'biome.json' },
     },
 }
 
