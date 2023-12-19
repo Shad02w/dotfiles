@@ -3,7 +3,6 @@ return {
     event = { 'CursorMoved', 'CursorMovedI' },
     dependencies = {
         'kevinhwang91/promise-async',
-        'luukvbaal/statuscol.nvim',
     },
     cmd = {
         'UfoEnable',
