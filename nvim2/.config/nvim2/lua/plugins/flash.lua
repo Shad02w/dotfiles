@@ -18,15 +18,16 @@ return {
             desc = 'Flash Treesitter',
         },
         '/',
-        'f',
-        'F',
-        't',
-        'T',
     },
     ---@type Flash.Config
     opts = {
         search = {
             multi_window = false,
+        },
+        modes = {
+            char = {
+                enabled = false,
+            },
         },
     },
 }
