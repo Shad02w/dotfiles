@@ -1,6 +1,9 @@
 HISTSIZE=1000000
 SAVEHIST=1000000
 
+# disable zsh seesion
+export SHELL_SESSIONS_DISABLE=1
+
 # common path
 export PATH="/opt/local/bin":$PATH
 export PATH="/opt/homebrew/bin":$PATH
