@@ -1,3 +1,4 @@
+---@type vim.opt
 local opt = {
     relativenumber = true,
     number = true,
@@ -15,6 +16,7 @@ local opt = {
     list = true,
     termguicolors = true,
     autoread = true,
+    laststatus = 3,
 
     -- search
     ignorecase = true,
