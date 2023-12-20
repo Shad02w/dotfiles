@@ -2,26 +2,6 @@ local lspconfig = require 'lspconfig'
 local config = require 'plugins.lsp.config'
 local utils = require 'plugins.lsp.utils'
 
----inject extra logic when lsp, extra logic can be declare in plugins.lsp.config
-local special_lsp_attach_group = vim.api.nvim_create_augroup('special_lsp_attach_group', {})
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = special_lsp_attach_group,
-    callback = function(ev)
-        local client_id = ev.data.client_id
-        local bufnr = ev.buf
-        if not client_id or not bufnr then
-            return
-        end
-
-        local client = vim.lsp.get_client_by_id(client_id)
-        if not client then
-            return
-        end
-
-        utils.on_attach(client, bufnr)
-    end,
-})
-
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = 'rounded',
     width = 60,
@@ -43,6 +23,25 @@ vim.diagnostic.config {
         source = 'always',
     },
 }
+
+local lsp_attach_group = vim.api.nvim_create_augroup('lsp_attach_group', {})
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = lsp_attach_group,
+    callback = function(ev)
+        local client_id = ev.data.client_id
+        local bufnr = ev.buf
+        if not client_id or not bufnr then
+            return
+        end
+
+        local client = vim.lsp.get_client_by_id(client_id)
+        if not client then
+            return
+        end
+
+        utils.on_attach(client, bufnr)
+    end,
+})
 
 for _, s in ipairs(config.enabled_server) do
     local server_name

@@ -73,6 +73,7 @@ M.disable_server_formatter = {
 M.default_formatter = {}
 
 set_default_formatter({ 'lua' }, 'null-ls')
+set_default_formatter({ 'go' }, 'gopls')
 set_default_formatter({ 'json', 'jsonc' }, function()
     if has_root { 'biome.json' } then
         return 'biome'
