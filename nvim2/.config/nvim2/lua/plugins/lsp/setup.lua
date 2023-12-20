@@ -51,21 +51,21 @@ vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
     width = 60,
 })
 
--- vim.diagnostic.config {
---     virtual_text = true,
---     -- show signs
---     signs = {
---         active = {
---             { name = 'DiagnosticSignError', text = '' },
---             { name = 'DiagnosticSignWarn', text = '' },
---             { name = 'DiagnosticSignHint', text = '' },
---             { name = 'DiagnosticSignInfo', text = '' },
---         },
---     },
---     severity_sort = true,
---     float = {
---         focusable = false,
---         border = 'rounded',
---         source = 'always',
---     },
--- }
+vim.diagnostic.config {
+    virtual_text = true,
+    -- show signs
+    signs = {
+        active = {
+            { name = 'DiagnosticSignError', text = '' },
+            { name = 'DiagnosticSignWarn', text = '' },
+            { name = 'DiagnosticSignHint', text = '' },
+            { name = 'DiagnosticSignInfo', text = '' },
+        },
+    },
+    severity_sort = true,
+    float = {
+        focusable = false,
+        border = 'rounded',
+        source = 'always',
+    },
+}
