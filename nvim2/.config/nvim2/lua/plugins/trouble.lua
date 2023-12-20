@@ -7,6 +7,9 @@ return {
         'TroubleRefresh',
         'TroubleClose',
     },
+    keys = {
+        { '<leader>q', '<CMD>TroubleToggle<CR>', desc = 'Toggle Trouble' },
+    },
     opts = {
         auto_preview = false,
     },
