@@ -22,6 +22,12 @@ return {
                 o = { general.close_other_buffer, 'Close all buffers execpt buffers on current tab' },
             },
             d = { cmd 'Bdelete', 'Delete Current Buffer' },
+            g = {
+                name = 'Git',
+                h = {
+                    name = 'Hunk',
+                },
+            },
             w = {
                 name = 'Window Layout',
                 h = { cmd 'abo vsplit', 'Split left' },
