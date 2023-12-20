@@ -22,6 +22,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = 'rounded',
+    width = 60,
+})
+
+vim.diagnostic.config {
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = ' ',
+            [vim.diagnostic.severity.WARN] = ' ',
+            [vim.diagnostic.severity.INFO] = ' ',
+            [vim.diagnostic.severity.HINT] = ' ',
+        },
+    },
+    severity_sort = true,
+    float = {
+        focusable = false,
+        border = 'rounded',
+        source = 'always',
+    },
+}
+
 for _, s in ipairs(config.enabled_server) do
     local server_name
     if type(s) == 'string' then
@@ -45,27 +67,3 @@ for _, s in ipairs(config.enabled_server) do
         end
     end
 end
-
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = 'rounded',
-    width = 60,
-})
-
-vim.diagnostic.config {
-    virtual_text = true,
-    -- show signs
-    signs = {
-        active = {
-            { name = 'DiagnosticSignError', text = '' },
-            { name = 'DiagnosticSignWarn', text = '' },
-            { name = 'DiagnosticSignHint', text = '' },
-            { name = 'DiagnosticSignInfo', text = '' },
-        },
-    },
-    severity_sort = true,
-    float = {
-        focusable = false,
-        border = 'rounded',
-        source = 'always',
-    },
-}
