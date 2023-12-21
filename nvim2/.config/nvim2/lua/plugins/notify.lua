@@ -16,6 +16,7 @@ return {
             timeout = 3000,
             render = 'wrapped-compact',
             max_width = 80,
+            top_down = false,
         }
     end,
 }
