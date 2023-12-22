@@ -36,6 +36,7 @@ return {
         require 'nvim-treesitter.query_predicates'
     end,
     config = function()
+        ---@diagnostic disable-next-line: missing-fields
         require('nvim-treesitter.configs').setup {
             ensure_installed = {
                 'c',
@@ -61,6 +62,45 @@ return {
             },
             highlight = {
                 enable = true,
+            },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = '<CR>',
+                    node_incremental = '<CR>',
+                    node_decremental = '<S-CR>',
+                },
+            },
+            textobjects = {
+                select = {
+                    enable = true,
+                    keymaps = {
+                        -- You can use the capture groups defined in textobjects.scm
+                        ['af'] = '@function.outer',
+                        ['if'] = '@function.inner',
+                        ['aa'] = '@call.outer',
+                        ['ia'] = '@call.outer',
+                        ['ac'] = '@class.outer',
+                        ['ic'] = '@class.inner',
+                    },
+                },
+                move = {
+                    enable = true,
+                    -- set_jumps = true, -- whether to set jumps in the jumplist
+                    goto_next_start = {
+                        [']f'] = '@function.outer',
+                        [']q'] = '@parameter.inner',
+                    },
+                    goto_next_end = {
+                        [']F'] = '@function.outer',
+                    },
+                    goto_previous_start = {
+                        ['[f'] = '@function.outer',
+                    },
+                    goto_previous_end = {
+                        ['[F'] = '@function.outer',
+                    },
+                },
             },
         }
     end,
