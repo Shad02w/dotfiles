@@ -4,6 +4,10 @@ source "$HOME/.config/zsh/completions.zsh"
 source "$HOME/.config/zsh/title.zsh"
 source "$HOME/.config/zsh/external.zsh"
 
+if [[ -f "$HOME/.zsh_secret" ]]; then
+    source "$HOME/.zsh_secret"
+fi
+
 # plugins
 eval "$(sheldon source)"
 
