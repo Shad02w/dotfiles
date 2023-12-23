@@ -9,6 +9,7 @@ return {
         'nvim-telescope/telescope-ui-select.nvim',
         { 'AckslD/nvim-neoclip.lua', config = true },
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        'folke/trouble.nvim',
     },
     keys = {
         { '<leader>b', keys.buffers, desc = 'Show all buffer' },
@@ -25,6 +26,7 @@ return {
     config = function()
         local telescope = require 'telescope'
         local actions = require 'telescope.actions'
+        local trouble = require 'trouble.providers.telescope'
         telescope.setup {
             defaults = {
                 mappings = {
@@ -33,12 +35,14 @@ return {
                         ['<C-p>'] = actions.cycle_history_prev,
                         ['<C-h>'] = actions.which_key,
                         ['<C-c>'] = actions.close,
+                        ['<C-q>'] = trouble.open_with_trouble,
                     },
                     n = {
                         ['<C-n>'] = actions.cycle_history_next,
                         ['<C-p>'] = actions.cycle_history_prev,
                         ['<C-h>'] = actions.which_key,
                         ['<C-c>'] = actions.close,
+                        ['<C-q>'] = trouble.open_with_trouble,
                     },
                 },
             },
