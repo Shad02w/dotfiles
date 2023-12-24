@@ -1,6 +1,6 @@
 return {
     'lewis6991/gitsigns.nvim',
-    event = { 'CursorMoved', 'CursorMovedI', 'CursorHold' },
+    event = { 'CursorMoved' },
     cmd = 'Gitsigns',
     keys = {
         { '<leader>ghs', '<cmd>Gitsigns stage_hunk<cr>', 'Stage hunk' },
