@@ -35,7 +35,7 @@ return {
             use_libuv_file_watcher = true, -- use libnv watcher, do not need to press 'R' to manually refresh
         },
         window = {
-            position = 'right',
+            position = 'left',
             width = 60,
             mappings = {
                 ['z'] = '',

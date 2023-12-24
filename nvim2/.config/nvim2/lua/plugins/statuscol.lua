@@ -5,7 +5,7 @@ return {
         local builtin = require 'statuscol.builtin'
         require('statuscol').setup {
             relculright = true,
-            ft_ignore = { 'DiffviewFiles', 'notify', 'Trouble' },
+            ft_ignore = { 'DiffviewFiles', 'notify', 'Trouble', 'neo-tree' },
             segments = {
                 { text = { '  ' } },
                 {
