@@ -15,12 +15,32 @@ return {
 
         local kanagawa = require('kanagawa.colors').setup { theme = 'dragon' }
         local utils = require 'heirline.utils'
+        local conditions = require 'heirline.conditions'
         local Statusline = require 'plugins.heirline.statusline'
+        local Winbar = require 'plugins.heirline.winbar'
+
+        ---@param bufnr number
+        ---@return boolean
+        local function match_no_winbar_files(bufnr)
+            return conditions.buffer_matches({
+                buftype = { 'nofile', 'prompt', 'help', 'quickfix', 'terminal' },
+                filetype = {
+                    '^git.*',
+                    'fugitive',
+                    'Trouble',
+                    'dashboard',
+                    'Telescope',
+                    'Lazy',
+                    'spectre_panel',
+                },
+            }, bufnr)
+        end
 
         require('heirline').setup {
             ---@diagnostic disable-next-line: missing-fields
             -- statusline = { provider = 'hi123' },
             statusline = Statusline,
+            winbar = Winbar,
             opts = {
                 colors = {
                     line_highlight = kanagawa.palette.roninYellow,
@@ -43,7 +63,22 @@ return {
                     git_change = utils.get_highlight('GitSignsChange').fg,
                     git_delete = utils.get_highlight('GitSignsDelete').fg,
                 },
+                disable_winbar_cb = function(args)
+                    return match_no_winbar_files(args.buf)
+                end,
             },
         }
+
+        -- set winbar is open file directly since heirline is load after VimEnter
+        local wins = vim.api.nvim_list_wins()
+        for _, win in ipairs(wins) do
+            local buf = vim.api.nvim_win_get_buf(win)
+            local filetype = vim.bo[buf].filetype
+            if not match_no_winbar_files(buf) and filetype ~= '' then
+                vim.api.nvim_set_option_value('winbar', [[%{%v:lua.require'heirline'.eval_winbar()%}]], {
+                    win = win,
+                })
+            end
+        end
     end,
 }
