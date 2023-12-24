@@ -1,9 +1,6 @@
 return {
     'luukvbaal/statuscol.nvim',
     event = { 'BufEnter' },
-    init = function()
-        vim.opt.signcolumn = 'auto:1'
-    end,
     config = function()
         local builtin = require 'statuscol.builtin'
         require('statuscol').setup {
@@ -16,7 +13,7 @@ return {
                     condition = { true, builtin.not_empty },
                     click = 'v:lua.ScLa',
                 },
-                { text = { '%s' } },
+                { sign = { text = { '.*' }, colwidth = 2 } },
                 { text = { '%C' }, click = 'v:lua.ScFa' },
                 { text = { '  ' } },
             },
