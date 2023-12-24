@@ -16,7 +16,10 @@ local function keymaps(bufnr)
     vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '<leader>le', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', '<leader>ne', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<leader>lc', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', '<leader>lc', function()
+        require('lazy').load { plugins = { 'telescope.nvim' } }
+        vim.lsp.buf.code_action()
+    end, opts)
     vim.keymap.set('n', '<leader>lf', format, opts)
 end
 

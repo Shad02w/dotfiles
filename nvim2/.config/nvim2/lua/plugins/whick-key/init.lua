@@ -28,6 +28,9 @@ return {
                     name = 'Hunk',
                 },
             },
+            l = {
+                name = 'LSP',
+            },
             w = {
                 name = 'Window Layout',
                 h = { cmd 'abo vsplit', 'Split left' },
