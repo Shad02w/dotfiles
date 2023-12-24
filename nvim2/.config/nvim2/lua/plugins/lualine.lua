@@ -1,6 +1,7 @@
 return {
     'nvim-lualine/lualine.nvim',
     event = 'VimEnter',
+    enabled = false,
     config = function()
         local function get_file_path()
             local filename = vim.fn.expand '%'
