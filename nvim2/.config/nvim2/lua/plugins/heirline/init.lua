@@ -9,7 +9,7 @@ return {
         vim.o.laststatus = 0
         vim.cmd 'hi StatusLine guibg=NONE guifg=NONE'
     end,
-    event = { 'BufEnter' },
+    event = 'VeryLazy',
     config = function()
         vim.o.laststatus = 3
 
