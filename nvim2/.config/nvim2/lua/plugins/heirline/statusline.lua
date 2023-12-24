@@ -229,18 +229,14 @@ local Filename = {
     end,
     update = { 'TextChanged', 'TextChangedI', 'TextChangedP', 'TextChangedT', 'ModeChanged' },
     {
-        provider = function(self)
-            if self.modified then
-                return ''
-            else
-                return ' '
-            end
-        end,
-        hl = { bold = false },
-    },
-    Space,
-    {
         provider = '%f',
+    },
+    {
+        condition = function(self)
+            return self.modified
+        end,
+        provider = '',
+        hl = { bold = false },
     },
     {
         condition = function(self)
@@ -288,6 +284,7 @@ return {
     },
     -- vi mode
     ViMode,
+    Space,
     Space,
     Filename,
     Space,
