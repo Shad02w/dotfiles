@@ -1,4 +1,3 @@
-local utils = require 'heirline.utils'
 local devicons = require 'nvim-web-devicons'
 local conditions = require 'heirline.conditions'
 
@@ -30,7 +29,7 @@ local ViMode = {
         self.mode = vim.fn.mode(1)
     end,
     static = {
-        mode_names = { -- change the strings if you like it vvvvverbose!
+        mode_names = {
             n = 'N',
             no = 'N?',
             nov = 'N?',
@@ -157,6 +156,32 @@ local Git = {
     },
 }
 
+local LspInfo = {
+    condition = conditions.lsp_attached,
+    update = { 'LspAttach', 'LspDetach' },
+    hl = {
+        fg = 'green',
+    },
+    provider = ' LSP: ',
+    {
+        hl = { bold = false },
+        provider = function()
+            local clients = vim.lsp.get_clients { bufnr = 0 }
+            local names = {}
+            for _, client in ipairs(clients) do
+                table.insert(names, client.name)
+            end
+            return table.concat(names, ',')
+        end,
+    },
+    on_click = {
+        callback = function()
+            vim.cmd 'LspInfo'
+        end,
+        name = 'heirline_lsp_info',
+    },
+}
+
 local Macro = {
     update = { 'RecordingEnter', 'RecordingLeave' },
     condition = function()
@@ -167,23 +192,15 @@ local Macro = {
     end,
 }
 
-local Encoding = utils.surround({ '', '' }, 'text', {
-    provider = '%{&encoding}',
-    hl = {
-        bg = 'text',
-        fg = 'dark_text',
-    },
-})
-
 local Ruler = {
-    provider = [[%8(%l:%-3c%)]],
+    provider = [[ %2l:%-2c ]],
 }
 
 local Filetype = {
     provider = function()
         local filetype = vim.bo.filetype
         local fileicon = devicons.get_icon_by_filetype(filetype)
-        return '%7(' .. filetype .. ' ' .. (fileicon or '') .. ' %)'
+        return filetype .. ' ' .. (fileicon or '') .. ' '
     end,
     update = { 'BufEnter' },
 }
@@ -200,6 +217,8 @@ return {
     Git,
     Align,
     Macro,
+    Space,
+    LspInfo,
     Space,
     Ruler,
     Space,

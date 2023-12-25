@@ -19,9 +19,8 @@ local Filename = {
         end
     end,
     update = { 'TextChanged', 'TextChangedI', 'TextChangedP', 'TextChangedT', 'ModeChanged' },
-    {
-        provider = '%f',
-    },
+    provider = '%f',
+    fallthrough = false,
     {
         condition = function(self)
             return self.modified
@@ -34,6 +33,9 @@ local Filename = {
             return self.readonly
         end,
         provider = '󰌾 ',
+    },
+    {
+        provider = ' ',
     },
 }
 
