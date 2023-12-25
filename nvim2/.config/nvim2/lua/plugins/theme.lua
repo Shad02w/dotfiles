@@ -2,6 +2,7 @@ return {
     {
         'rebelot/kanagawa.nvim',
         config = function()
+            local palette = require('kanagawa.colors').setup({ theme = 'dragon' }).palette
             require('kanagawa').setup {
                 colors = {
                     theme = {
@@ -24,7 +25,8 @@ return {
                         -- set their background accordingly if you wish to keep them dark and borderless
                         LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
                         MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-                        MsgArea = { bg = 'None' },
+                        MsgArea = { bg = 'none' },
+                        NonText = { fg = palette.fujiGray },
 
                         -- cmp
                         -- Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
