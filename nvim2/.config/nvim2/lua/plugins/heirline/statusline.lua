@@ -67,11 +67,11 @@ local ViMode = {
         },
         mode_colors = {
             n = 'white',
-            i = 'purple',
+            i = 'line_highlight',
             v = 'cyan',
             V = 'cyan',
             ['\22'] = 'cyan',
-            c = 'orange',
+            c = 'purple',
             s = 'green',
             S = 'green',
             ['\19'] = 'green',

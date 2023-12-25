@@ -37,8 +37,6 @@ return {
         end
 
         require('heirline').setup {
-            ---@diagnostic disable-next-line: missing-fields
-            -- statusline = { provider = 'hi123' },
             statusline = Statusline,
             winbar = Winbar,
             opts = {
@@ -69,7 +67,7 @@ return {
             },
         }
 
-        -- set winbar is open file directly since heirline is load after VimEnter
+        -- set winbar is open file directly since heirline is loaded after VimEnter
         local wins = vim.api.nvim_list_wins()
         for _, win in ipairs(wins) do
             local buf = vim.api.nvim_win_get_buf(win)
