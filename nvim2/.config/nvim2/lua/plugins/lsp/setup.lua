@@ -24,6 +24,9 @@ vim.diagnostic.config {
     },
 }
 
+-- use round border in lspconfig ui
+require('lspconfig.ui.windows').default_options.border = 'rounded'
+
 local lsp_attach_group = vim.api.nvim_create_augroup('lsp_attach_group', {})
 vim.api.nvim_create_autocmd('LspAttach', {
     group = lsp_attach_group,
