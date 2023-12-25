@@ -33,6 +33,10 @@ set('n', '<C-S-p>', ':vertical resize +2<CR>', opts)
 set('n', '<tab>', [[:bn<cr>]], opts)
 set('n', '<s-tab>', [[:bN<cr>]], opts)
 
+set('n', '<c-s-/>', function()
+    vim.cmd [[Lazy]]
+end, opts)
+
 -- gitsigns
 -- set('n', ']c', ':Gitsigns next_hunk<cr>zz', opts)
 -- set('n', '[c', ':Gitsigns prev_hunk<cr>zz', opts)
