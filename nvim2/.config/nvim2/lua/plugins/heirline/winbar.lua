@@ -6,9 +6,16 @@ local Filename = {
     init = function(self)
         self.modified = vim.api.nvim_get_option_value('modified', {})
         self.readonly = vim.api.nvim_get_option_value('readonly', {})
+        self.has_error = conditions.has_diagnostics()
+                and (#vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0)
+            or false
     end,
     hl = function(self)
-        if self.modified then
+        if self.has_error then
+            return {
+                fg = 'diagnostic_error',
+            }
+        elseif self.modified then
             return {
                 fg = 'yellow',
             }

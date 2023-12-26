@@ -7,7 +7,7 @@ return {
             relculright = true,
             ft_ignore = { 'DiffviewFiles', 'notify', 'Trouble', 'neo-tree' },
             segments = {
-                { text = { '  ' } },
+                { text = { ' ' } },
                 {
                     text = { builtin.lnumfunc, ' ' },
                     condition = { true, builtin.not_empty },
