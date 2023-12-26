@@ -32,6 +32,7 @@ return {
                     'Telescope',
                     'Lazy',
                     'spectre_panel',
+                    'netrw',
                 },
             }, bufnr)
         end
