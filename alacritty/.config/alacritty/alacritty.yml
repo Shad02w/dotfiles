@@ -14,11 +14,11 @@ window:
     decorations: transparent
 font:
     normal:
-        family: Liga SFMono Nerd Font
+        family: JetBrainsMono Nerd Font
         style: Medium
     bold:
-        family: FiraCode Nerd Font Mono
-        style: Medium
+        family: JetBrainsMono Nerd Font
+        style: Bold
     italic:
         family: RobotoMono Nerd Font
         style: Italic
