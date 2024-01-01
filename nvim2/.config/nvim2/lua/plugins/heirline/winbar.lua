@@ -1,6 +1,7 @@
 local conditions = require 'heirline.conditions'
 
 local Space = { provider = ' ' }
+local Align = { provider = '%=' }
 
 local Filename = {
     init = function(self)
@@ -25,7 +26,15 @@ local Filename = {
             }
         end
     end,
-    update = { 'TextChanged', 'TextChangedI', 'TextChangedP', 'TextChangedT', 'ModeChanged' },
+    update = {
+        'TextChanged',
+        'TextChangedI',
+        'TextChangedP',
+        'TextChangedT',
+        'ModeChanged',
+        'DiagnosticChanged',
+        'BufEnter',
+    },
     provider = '%f',
     fallthrough = false,
     {
