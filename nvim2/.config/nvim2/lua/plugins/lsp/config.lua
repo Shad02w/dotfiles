@@ -23,7 +23,9 @@ M.ensure_installed_server = {
     'biome',
     'tsserver',
     'yamlls',
+    'cssls',
     'jsonls',
+    'tailwindcss',
 }
 
 ---@class LspEnabledServerConfig
@@ -36,6 +38,8 @@ M.enabled_server = {
     'jsonls',
     'yamlls',
     'lua_ls',
+    'cssls',
+    'tailwindcss',
     {
         'tsserver',
         cond = function()
@@ -66,6 +70,7 @@ M.disable_server_formatter = {
     'lua_ls',
     -- disable copilot formatting capability
     'copilot',
+    'tailwindcss',
 }
 
 ---@alias LspDefaultFormatterFilter fun(): string
