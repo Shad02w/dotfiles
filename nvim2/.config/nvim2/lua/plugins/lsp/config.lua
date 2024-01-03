@@ -71,6 +71,7 @@ M.disable_server_formatter = {
     -- disable copilot formatting capability
     'copilot',
     'tailwindcss',
+    'cssls',
 }
 
 ---@alias LspDefaultFormatterFilter fun(): string
