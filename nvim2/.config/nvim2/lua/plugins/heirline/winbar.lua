@@ -1,7 +1,6 @@
 local conditions = require 'heirline.conditions'
 
 local Space = { provider = ' ' }
-local Align = { provider = '%=' }
 
 local Filename = {
     init = function(self)
