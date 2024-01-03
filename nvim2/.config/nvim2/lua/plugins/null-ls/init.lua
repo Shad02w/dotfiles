@@ -7,9 +7,11 @@ return {
         local cspell = require 'plugins.null-ls.cspell'
         local prettier = require 'plugins.null-ls.prettier'
         local eslint = require 'plugins.null-ls.eslint'
+
         null_ls.setup {
             sources = {
                 cspell.create_diagnostics_source(),
+                cspell.create_code_actions_source(),
 
                 -- lua
                 null_ls.builtins.formatting.stylua,

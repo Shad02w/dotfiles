@@ -15,6 +15,13 @@ function M.create_diagnostics_source()
         end,
     }
 end
+function M.create_code_actions_source()
+    return require('null-ls').builtins.code_actions.cspell.with {
+        find_json = function()
+            local home_dir = os.getenv 'HOME' or os.getenv 'USERPROFILE'
+            return vim.fn.expand(home_dir .. '/cspell.json')
+        end,
+    }
+end
 
 return M
-
