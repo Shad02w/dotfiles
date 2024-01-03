@@ -10,8 +10,8 @@ return {
 
         null_ls.setup {
             sources = {
-                cspell.create_diagnostics_source(),
                 cspell.create_code_actions_source(),
+                cspell.create_diagnostics_source(),
 
                 -- lua
                 null_ls.builtins.formatting.stylua,

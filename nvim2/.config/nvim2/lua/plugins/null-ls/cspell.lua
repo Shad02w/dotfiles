@@ -15,6 +15,7 @@ function M.create_diagnostics_source()
         end,
     }
 end
+
 function M.create_code_actions_source()
     return require('null-ls').builtins.code_actions.cspell.with {
         find_json = function()
