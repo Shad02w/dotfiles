@@ -50,6 +50,7 @@ return {
                 'rust',
                 'json',
                 'yaml',
+                'sql',
                 'toml',
                 'vim',
                 'vimdoc',
