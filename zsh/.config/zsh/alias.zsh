@@ -25,6 +25,11 @@ if type "exa" > /dev/null; then
     alias ll="exa -lah --icons"
 fi
 
+# shell-gpt
+if type "sgpt" > /dev/null; then
+    alias ss="sgpt -s"
+fi
+
 # javascript
 yarn() {
     echo "use ni instead, stupid"
