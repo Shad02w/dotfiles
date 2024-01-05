@@ -1,5 +1,6 @@
 require 'core.keymaps'
 require 'core.options'
+require 'core.filetype'
 require 'core.lazy'
 require 'core.colorscheme'
 require 'core.autocmd'
