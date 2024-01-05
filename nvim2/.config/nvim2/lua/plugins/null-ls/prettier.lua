@@ -1,4 +1,4 @@
-local exists = require('core.utils.file').exists
+local exist = require('core.utils.file').exist
 
 local M = {}
 
@@ -12,8 +12,8 @@ function M.create_prettier_source(type)
 
     local prettier_ignore_file = root .. '/.prettierignore'
     local git_ignore_file = root .. '/.gitignore'
-    local extra_args = exists { prettier_ignore_file } and { '--ignore-path', prettier_ignore_file }
-        or exists { git_ignore_file } and { '--ignore-path', git_ignore_file }
+    local extra_args = exist { prettier_ignore_file } and { '--ignore-path', prettier_ignore_file }
+        or exist { git_ignore_file } and { '--ignore-path', git_ignore_file }
         or {}
 
     local prettier_config_files = {
