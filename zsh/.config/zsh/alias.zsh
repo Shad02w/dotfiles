@@ -17,12 +17,12 @@ if type "git" > /dev/null; then
     alias gw="git worktree"
 fi
 
-# exa
-if type "exa" > /dev/null; then
-    alias l="exa --icons"
-    alias ls="exa -a --icons"
-    alias la="exa -a --icons -albl --git"
-    alias ll="exa -lah --icons"
+# eza
+if type "eza" > /dev/null; then
+    alias l="eza --icons"
+    alias ls="eza -a --icons"
+    alias la="eza -a --icons -albl --git"
+    alias ll="eza -lah --icons"
 fi
 
 # shell-gpt
