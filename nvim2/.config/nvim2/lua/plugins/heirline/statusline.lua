@@ -94,7 +94,7 @@ local ViMode = {
         end,
         hl = function(self)
             return {
-                bg = self.mode_colors[self.mode],
+                bg = self.mode_colors[self.mode] or 'green',
                 fg = 'dark_text',
             }
         end,
@@ -103,7 +103,7 @@ local ViMode = {
         provider = '',
         hl = function(self)
             return {
-                fg = self.mode_colors[self.mode],
+                fg = self.mode_colors[self.mode] or 'green',
             }
         end,
     },
