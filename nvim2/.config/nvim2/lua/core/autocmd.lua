@@ -4,11 +4,11 @@ vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
     pattern = { '*' },
     group = preserve_cursor_position_group,
     callback = function()
-        vim.cmd[[silent! normal! g`"zv]]
+        vim.cmd [[silent! normal! g`"zv]]
         vim.schedule(function()
             vim.cmd [[silent! normal! zz]]
         end)
-   end,
+    end,
 })
 
 -- Automatically reload kitty when kitty.conf changed
@@ -29,7 +29,6 @@ vim.api.nvim_create_autocmd('FileType', {
     group = set_help_keymap_group,
     command = 'wincmd L',
 })
-
 
 -- Warn when open big file
 local file_size_threshold = 50 * 1024 * 1024
