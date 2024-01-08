@@ -20,12 +20,18 @@ M.ensure_installed_server = {
     'rust_analyzer',
     'gopls',
     'lua_ls',
+    'yamlls',
+    'jsonls',
+
+    -- js
     'biome',
     'tsserver',
-    'yamlls',
     'cssls',
-    'jsonls',
     'tailwindcss',
+
+    -- docker
+    'dockerls',
+    'docker_compose_language_service',
 }
 
 ---@class LspEnabledServerConfig
@@ -35,17 +41,6 @@ M.ensure_installed_server = {
 
 ---@type (LspEnabledServerConfig | string)[]
 M.enabled_server = {
-    'jsonls',
-    'yamlls',
-    'lua_ls',
-    'cssls',
-    'tailwindcss',
-    {
-        'tsserver',
-        cond = function()
-            return has_root { 'package.json' }
-        end,
-    },
     {
         'gopls',
         cond = function()
@@ -58,10 +53,37 @@ M.enabled_server = {
             return has_root { 'Cargo.toml' }
         end,
     },
+    'jsonls',
+    'yamlls',
+    'lua_ls',
+
+    -- js
+    'cssls',
+    'tailwindcss',
+    {
+        'tsserver',
+        cond = function()
+            return has_root { 'package.json' }
+        end,
+    },
     {
         'biome',
         cond = function()
             return has_root { 'biome.json' }
+        end,
+    },
+
+    -- docker
+    {
+        'dockerls',
+        cond = function()
+            return has_root { 'Dockerfile' }
+        end,
+    },
+    {
+        'docker_compose_language_service',
+        cond = function()
+            return has_root { 'docker-compose.yaml', 'compose.yaml' }
         end,
     },
 }
@@ -72,6 +94,8 @@ M.disable_server_formatter = {
     'copilot',
     'tailwindcss',
     'cssls',
+    'dockerls',
+    'docker_compose_language_service',
 }
 
 ---@alias LspDefaultFormatterFilter fun(): string
