@@ -1,1 +1,6 @@
-return { 'kylechui/nvim-surround', version = '*', config = true, event = 'BufRead' }
+return {
+    'kylechui/nvim-surround',
+    version = '*',
+    event = { 'CursorMoved', 'InsertEnter' },
+    config = true,
+}

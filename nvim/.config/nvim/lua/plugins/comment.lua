@@ -1,9 +1,11 @@
 return {
     'numToStr/Comment.nvim',
-    keys = { { 'gc', mode = { 'n', 'v' } } },
+    keys = {
+        { 'gc', mode = { 'n', 'v' }, desc = 'Comment toggle linewise' },
+        { 'gb', mode = { 'n', 'v' }, desc = 'Comment toggle blockwise' },
+    },
     dependencies = {
         'nvim-treesitter/nvim-treesitter',
-        'JoosepAlviste/nvim-ts-context-commentstring',
     },
     config = function()
         require('Comment').setup {

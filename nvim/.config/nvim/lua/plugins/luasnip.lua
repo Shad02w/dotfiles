@@ -1,15 +1,14 @@
 return {
-    'L3MON4D3/LuaSnip', -- snippet engine
-    event = { 'InsertEnter' },
-    dependencies = {
-        { 'rafamadriz/friendly-snippets', enabled = false },
-    },
+    'L3MON4D3/LuaSnip',
+    -- follow latest release.
+    version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = 'make install_jsregexp',
     config = function()
         local ls = require 'luasnip'
         local types = require 'luasnip.util.types'
 
-        ls.config.set_config {
-            history = true,
+        ls.setup {
             update_events = 'TextChanged,TextChangedI',
             delete_check_events = 'TextChanged,InsertLeave',
             ext_opts = {
@@ -23,14 +22,11 @@ return {
 
         -- file extension extend
         ls.filetype_extend('typescript', { 'javascript' })
-        ls.filetype_extend('typescriptreact', { 'typescript', 'javascript' })
+        ls.filetype_extend('typescriptreact', { 'typescript', 'javascript', 'javascriptreact' })
         ls.filetype_extend('javascriptreact', { 'javascript' })
         ls.filetype_extend('astro', { 'typescriptreact', 'typescript', 'javascript' })
         ls.filetype_extend('svelte', { 'typescript', 'javascript' })
         ls.filetype_extend('jsonc', { 'json' })
-
-        -- load snippets
-        require('luasnip.loaders.from_lua').load { paths = vim.fn.stdpath 'config' .. '/lua/snippets' }
 
         local opts = { noremap = true, silent = true }
         -- keymap
@@ -59,5 +55,8 @@ return {
                 ls.change_choice(-1)
             end
         end, opts)
+
+        -- load snippets
+        require('luasnip.loaders.from_lua').lazy_load { paths = vim.fn.stdpath 'config' .. '/lua/snippets' }
     end,
 }

@@ -1,30 +1,30 @@
-local function close_all()
-    vim.api.nvim_exec([[DiffviewClose]], false)
-end
-
 return {
     'sindrets/diffview.nvim',
-    commit = '6bebefbc4c90e6d2b8c65e65b055d284475d89f8',
+    cmd = {
+        'DiffviewOpen',
+        'DiffviewFileHistory',
+    },
     keys = {
-        { '<leader>g', desc = 'Git' },
-        { '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'Diffview' },
-        { '<leader>go', '<cmd>DiffviewFileHistory %<cr>', desc = 'Diffview Current File History' },
-        { '<leader>gO', '<cmd>DiffviewFileHistory<cr>', desc = 'Diffview Files History' },
+        { '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'Open diff view' },
+        { '<leader>go', '<cmd>DiffviewFileHistory<cr>', 'Open File History' },
+        { '<leader>gO', '<cmd>DiffviewFileHistory %<cr>', 'Open Current File History' },
     },
     config = function()
         local actions = require 'diffview.actions'
+        local function close_all()
+            vim.cmd 'DiffviewClose'
+        end
 
         require('diffview').setup {
             enhanced_diff_hl = true,
             keymaps = {
                 view = {
-                    ['gf'] = actions.goto_file_tab,
-                    ['<c-c>'] = close_all,
+                    { 'n', 'gf', actions.goto_file_tab, { desc = 'Go to file' } },
+                    { 'n', '<c-c>', close_all, { desc = 'Close Diffview' } },
                 },
                 file_panel = {
-                    ['gf'] = actions.goto_file_tab,
-                    ['<c-c>'] = close_all,
-                    ['s'] = actions.toggle_stage_entry,
+                    { 'n', 'gf', actions.goto_file_tab, { desc = 'Go to file' } },
+                    { 'n', '<c-c>', close_all, { desc = 'Close Diffview' } },
                 },
             },
         }

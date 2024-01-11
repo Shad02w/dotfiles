@@ -1,6 +1,3 @@
--- copy from
-local default_schemas = {}
-
 local schemas = {
     {
         description = 'TypeScript compiler configuration file',
@@ -173,32 +170,26 @@ local schemas = {
         fileMatch = { 'tsup.config.json' },
         url = 'https://cdn.jsdelivr.net/npm/tsup/schema.json',
     },
+    {
+        description = 'Configuration file for Biome',
+        fileMatch = { 'biome.json' },
+        url = 'https://biomejs.dev/schemas/1.4.1/schema.json',
+    },
 }
 
-local function extend(tab1, tab2)
-    for _, value in ipairs(tab2) do
-        table.insert(tab1, value)
-    end
-    return tab1
-end
-
-local extended_schemas = extend(schemas, default_schemas)
-
-local opts = {
+return {
     settings = {
         json = {
-            schemas = extended_schemas,
+            schemas = schemas,
         },
     },
-    setup = {
-        commands = {
-            Format = {
-                function()
-                    vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line '$', 0 })
-                end,
-            },
-        },
-    },
+    -- setup = {
+    --     commands = {
+    --         Format = {
+    --             function()
+    --                 vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line '$', 0 })
+    --             end,
+    --         },
+    --     },
+    -- },
 }
-
-return opts

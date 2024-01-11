@@ -28,6 +28,7 @@ end
 
 local snippets = {
     s('sreq', fmt(saferequire_snippet, { i(2), i(1), rep(2) })),
+    s('log', fmta('vim.notify(vim.inspect(<>))', { i(1) })),
 }
 
 return snippets

@@ -20,6 +20,7 @@ return {
     },
     config = function()
         require('spectre').setup {
+            live_update = true,
             find_engine = {
                 -- rg is map with finder_cmd
                 ['rg'] = {

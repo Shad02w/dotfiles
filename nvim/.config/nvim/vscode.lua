@@ -17,7 +17,4 @@ set('n', 'gr', [[<Cmd>call VSCodeNotify('references-view.findReferences')<CR>]],
 set('n', 'rn', [[<Cmd>call VSCodeNotify('editor.action.rename')<CR>]], opts)
 
 set('v', 'gc', [[<Plug>VSCodeCommentary]])
-set('n', 'gc', [[<Plug>VSCodeCommentary]])
 set('n', 'gcc', [[<Plug>VSCodeCommentaryLine]])
-
--- set('n', ';j', [[<Plug>(easymotion-bd-w)]])

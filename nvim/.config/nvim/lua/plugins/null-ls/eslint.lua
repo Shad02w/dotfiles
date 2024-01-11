@@ -1,4 +1,4 @@
-local files = require 'util.files'
+local exist = require('core.utils.file').exist
 
 local M = {}
 
@@ -9,7 +9,7 @@ function M.create_eslint_d_source(type)
     local root = require('null-ls.utils').get_root()
 
     local ignore_file_path = root .. '/.eslintignore'
-    local extra_args = files.exists(ignore_file_path) and { '--ignore-path', ignore_file_path } or {}
+    local extra_args = exist { ignore_file_path } and { '--ignore-path', ignore_file_path } or {}
 
     return require('null-ls').builtins[type].eslint_d.with {
         extra_args = extra_args,

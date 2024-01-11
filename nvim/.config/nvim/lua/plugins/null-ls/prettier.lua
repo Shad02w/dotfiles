@@ -1,15 +1,20 @@
-local files = require 'util.files'
+local exist = require('core.utils.file').exist
 
 local M = {}
 
+---TODO: Can Simple since only formatting use case
+
 ---Create eslint_d null-ls source
----@param type 'formatting' | 'diagnostics'
+---@param type 'formatting'
 ---@return unknown
 function M.create_prettier_source(type)
     local root = require('null-ls.utils').get_root()
 
-    local ignore_file_path = root .. '/.prettierignore'
-    local extra_args = files.exists(ignore_file_path) and { '--ignore-path', ignore_file_path } or {}
+    local prettier_ignore_file = root .. '/.prettierignore'
+    local git_ignore_file = root .. '/.gitignore'
+    local extra_args = exist { prettier_ignore_file } and { '--ignore-path', prettier_ignore_file }
+        or exist { git_ignore_file } and { '--ignore-path', git_ignore_file }
+        or {}
 
     local prettier_config_files = {
         '.prettierrc',

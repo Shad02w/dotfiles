@@ -1,5 +1,3 @@
-function Save_without_format()
-    vim.api.nvim_command 'noautocmd :w'
-end
-
-vim.api.nvim_command [[ command! save_without_format :lua Save_without_format() ]]
+vim.api.nvim_create_user_command('SaveWithoutFormat', function()
+    vim.cmd [[silent noautocmd update]]
+end, { desc = 'Save file without trigger LSP formatting' })
