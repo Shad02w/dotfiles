@@ -157,6 +157,22 @@ local Git = {
 }
 
 local LspInfo = {
+    static = {
+        icons = {
+            ['typescript-tools'] = ' ',
+            ['cssmodules_ls'] = ' Module',
+            ['jsonls'] = ' ',
+            ['dockerls'] = ' ',
+            ['docker_compose_language_service'] = ' ',
+            ['lua_ls'] = ' ',
+            ['rust_analyzer'] = ' ',
+            ['tailwindcss'] = '󱏿 ',
+            ['gopls'] = ' ',
+            ['copilot'] = ' ',
+            ['null-ls'] = '󰱺 ',
+            ['biome'] = '󰔶 ',
+        },
+    },
     condition = conditions.lsp_attached,
     update = { 'LspAttach', 'LspDetach' },
     hl = {
@@ -165,13 +181,13 @@ local LspInfo = {
     provider = ' LSP: ',
     {
         hl = { bold = false },
-        provider = function()
+        provider = function(self)
             local clients = vim.lsp.get_clients { bufnr = 0 }
             local names = {}
             for _, client in ipairs(clients) do
-                table.insert(names, client.name)
+                table.insert(names, self.icons[client.name] or client.name)
             end
-            return table.concat(names, ',')
+            return table.concat(names, ' ')
         end,
     },
     on_click = {
