@@ -4,6 +4,9 @@ source "$HOME/.config/zsh/completions.zsh"
 source "$HOME/.config/zsh/title.zsh"
 source "$HOME/.config/zsh/external.zsh"
 
+HISTSIZE=10000
+SAVEHIST=10000
+
 if [[ -f "$HOME/.zsh_secret" ]]; then
     source "$HOME/.zsh_secret"
 fi

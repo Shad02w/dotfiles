@@ -1,6 +1,3 @@
-HISTSIZE=1000000
-SAVEHIST=1000000
-
 # disable zsh seesion
 export SHELL_SESSIONS_DISABLE=1
 
