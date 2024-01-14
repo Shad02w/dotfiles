@@ -30,6 +30,11 @@ if type "sgpt" > /dev/null; then
     alias ss="sgpt -s"
 fi
 
+# bat - better cat
+if type "bat" > /dev/null; then
+    alias cat="bat"
+fi
+
 # javascript
 yarn() {
     echo "use ni instead, stupid"
