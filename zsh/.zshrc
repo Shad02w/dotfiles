@@ -15,7 +15,7 @@ fi
 eval "$(sheldon source)"
 
 # bun completions
-[ -s "/Users/alvistse/.bun/_bun" ] && source "/Users/alvistse/.bun/_bun"
+[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
 
 
 # spaceship 
