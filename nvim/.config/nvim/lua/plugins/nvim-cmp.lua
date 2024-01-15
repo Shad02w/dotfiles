@@ -45,6 +45,7 @@ return {
     },
     config = function()
         local cmp = require 'cmp'
+        local compare = require 'cmp.config.compare'
         local highlight = 'Normal:Normal,FloatBorder:None,CursorLine:Visual,Search:None'
 
         ---@diagnostic disable-next-line: missing-fields
