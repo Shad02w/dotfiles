@@ -83,6 +83,21 @@ return {
                     require('luasnip').lsp_expand(args.body)
                 end,
             },
+            sorting = {
+                priority_weight = 2,
+                comparators = {
+                    compare.offset,
+                    compare.exact,
+                    -- compare.scopes,
+                    compare.score,
+                    compare.kind,
+                    compare.recently_used,
+                    compare.locality,
+                    -- compare.sort_text,
+                    compare.length,
+                    compare.order,
+                },
+            },
             mapping = {
                 ['<up>'] = cmp.mapping.select_prev_item(),
                 ['<down>'] = cmp.mapping.select_next_item(),
