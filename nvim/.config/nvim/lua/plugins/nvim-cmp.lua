@@ -71,7 +71,13 @@ return {
                 end,
             },
             sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
+                {
+                    name = 'nvim_lsp',
+                    ---@param entry cmp.Entry
+                    entry_filter = function(entry)
+                        return cmp.lsp.CompletionItemKind.Text ~= entry:get_kind()
+                    end,
+                },
                 { name = 'luasnip' },
             }, {
                 { name = 'path' },
