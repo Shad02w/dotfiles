@@ -6,6 +6,7 @@ return {
         require('statuscol').setup {
             relculright = true,
             ft_ignore = { 'DiffviewFiles', 'notify', 'Trouble', 'neo-tree', 'netrw', 'dbui' },
+            bt_ignore = { 'nofile' },
             segments = {
                 { text = { ' ' } },
                 {
