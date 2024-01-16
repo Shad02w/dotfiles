@@ -45,7 +45,6 @@ return {
     },
     config = function()
         local cmp = require 'cmp'
-        local compare = require 'cmp.config.compare'
         local highlight = 'Normal:Normal,FloatBorder:None,CursorLine:Visual,Search:None'
 
         ---@diagnostic disable-next-line: missing-fields
@@ -89,21 +88,6 @@ return {
                 expand = function(args)
                     require('luasnip').lsp_expand(args.body)
                 end,
-            },
-            sorting = {
-                priority_weight = 2,
-                comparators = {
-                    compare.offset,
-                    compare.exact,
-                    -- compare.scopes,
-                    compare.score,
-                    compare.kind,
-                    compare.recently_used,
-                    compare.locality,
-                    -- compare.sort_text,
-                    compare.length,
-                    compare.order,
-                },
             },
             mapping = {
                 ['<up>'] = cmp.mapping.select_prev_item(),
