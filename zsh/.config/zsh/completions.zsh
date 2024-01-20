@@ -31,3 +31,8 @@ if type aws_completer > /dev/null; then
     complete -C "$(which aws_completer)" aws
 fi
 
+# enable terraform completion
+if type terraform > /dev/null; then
+    complete -o nospace -C "$(which terraform)" terraform
+fi
+
