@@ -1,3 +1,4 @@
+local file = require 'core.utils.file'
 -- Restore cursor position
 local preserve_cursor_position_group = vim.api.nvim_create_augroup('preserve_cursor_position_group', {})
 vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
@@ -28,6 +29,19 @@ vim.api.nvim_create_autocmd('FileType', {
     pattern = { 'help' },
     group = set_help_keymap_group,
     command = 'wincmd L',
+})
+
+-- Disable syntax for large file
+local disable_syntax_for_large_file_group = vim.api.nvim_create_augroup('disable_syntax_for_large_file', {})
+vim.api.nvim_create_autocmd('BufReadPre', {
+    pattern = { '*' },
+    group = disable_syntax_for_large_file_group,
+    callback = function(args)
+        local buf = args.buf
+        if file.is_large_file(buf) then
+            vim.api.nvim_set_option_value('syntax', 'off', { buf = buf })
+        end
+    end,
 })
 
 -- Warn when open big file

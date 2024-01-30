@@ -1,3 +1,4 @@
+local file = require 'core.utils.file'
 return {
     'nvim-treesitter/nvim-treesitter',
     event = { 'VeryLazy' },
@@ -64,15 +65,10 @@ return {
             },
             highlight = {
                 enable = true,
+                disable = function(lang, buf)
+                    return file.is_large_file(buf)
+                end,
             },
-            -- incremental_selection = {
-            --     enable = true,
-            --     keymaps = {
-            --         init_selection = '<CR>',
-            --         node_incremental = '<CR>',
-            --         node_decremental = '<S-CR>',
-            --     },
-            -- },
             textobjects = {
                 select = {
                     enable = true,
