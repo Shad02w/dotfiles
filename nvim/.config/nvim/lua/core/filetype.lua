@@ -25,3 +25,9 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     pattern = { 'docker-compose.yaml', 'compose.yaml' },
     command = 'set filetype=yaml.docker-compose',
 })
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+    group = set_file_type_gropup,
+    pattern = { '*.tf' },
+    command = 'set filetype=terraform',
+})

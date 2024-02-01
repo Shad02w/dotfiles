@@ -29,9 +29,10 @@ M.ensure_installed_server = {
     'cssls',
     'tailwindcss',
 
-    -- docker
+    -- DevOps
     'dockerls',
     'docker_compose_language_service',
+    'terraformls',
 }
 
 ---@class LspEnabledServerConfig
@@ -73,7 +74,8 @@ M.enabled_server = {
         end,
     },
 
-    -- docker
+    -- DevOps
+    'terraformls',
     {
         'dockerls',
         cond = function()
@@ -117,5 +119,7 @@ set_default_formatter({ 'typescript', 'typescriptreact', 'javascript', 'javascri
     end
     return 'null-ls'
 end)
+
+set_default_formatter({ 'terraform', 'tf' }, 'terraformls')
 
 return M
