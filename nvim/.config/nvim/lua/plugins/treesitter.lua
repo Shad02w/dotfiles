@@ -65,7 +65,7 @@ return {
             },
             highlight = {
                 enable = true,
-                disable = function(lang, buf)
+                disable = function(_, buf)
                     return file.is_large_file(buf)
                 end,
             },
