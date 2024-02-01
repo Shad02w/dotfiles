@@ -48,7 +48,7 @@ M.match = function(path, patterns)
 end
 
 local max_columns = 300
-local max_line = 2000
+local max_line = 4000
 
 ---check if file is large file
 ---@param buf number
