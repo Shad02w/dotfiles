@@ -25,8 +25,14 @@ if type "fnm" > /dev/null; then
     eval "$(fnm env --use-on-cd)"
 fi
 
+# use neovim as git editor
 if type "nvim" > /dev/null; then
     export GIT_EDITOR=nvim
+fi
+
+# add pyenv path
+if type "pyenv" > /dev/null; then
+    eval "$(pyenv init --path)"
 fi
 
 # mac Postgres
