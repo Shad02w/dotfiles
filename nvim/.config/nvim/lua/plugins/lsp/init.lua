@@ -26,7 +26,7 @@ return {
         'williamboman/mason-lspconfig.nvim',
         dependencies = { 'williamboman/mason.nvim' },
         opts = {
-            ensure_installed = config.ensure_installed_server,
+            ensure_installed = config.ensure_installed,
             automatic_installation = true,
         },
     },

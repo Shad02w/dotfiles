@@ -16,7 +16,7 @@ local function set_default_formatter(filetypes, formatter)
 end
 
 ---@type string[]
-M.ensure_installed_server = {
+M.ensure_installed = {
     'rust_analyzer',
     'gopls',
     'lua_ls',
@@ -28,6 +28,10 @@ M.ensure_installed_server = {
     'tsserver',
     'cssls',
     'tailwindcss',
+
+    -- python
+    'pyright',
+    'ruff_lsp',
 
     -- DevOps
     'dockerls',
@@ -57,6 +61,15 @@ M.enabled_server = {
     'jsonls',
     'yamlls',
     'lua_ls',
+
+    -- python
+    'pyright',
+    {
+        'ruff_lsp',
+        cond = function()
+            return has_root { 'pyproject.toml', 'ruff.toml', '.ruff.toml' }
+        end,
+    },
 
     -- js
     'cssls',
@@ -106,6 +119,7 @@ M.default_formatter = {}
 
 set_default_formatter({ 'lua' }, 'null-ls')
 set_default_formatter({ 'go' }, 'gopls')
+set_default_formatter({ 'python' }, 'ruff_lsp')
 set_default_formatter({ 'json', 'jsonc' }, function()
     if has_root { 'biome.json' } then
         return 'biome'

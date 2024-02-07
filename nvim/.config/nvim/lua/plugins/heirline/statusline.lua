@@ -160,17 +160,20 @@ local LspInfo = {
     static = {
         icons = {
             ['typescript-tools'] = ' ',
+            ['biome'] = '󰔶 ',
             ['cssmodules_ls'] = ' Module',
             ['jsonls'] = ' ',
             ['dockerls'] = ' ',
             ['docker_compose_language_service'] = ' ',
+
             ['lua_ls'] = ' ',
             ['rust_analyzer'] = ' ',
             ['tailwindcss'] = '󱏿 ',
             ['gopls'] = ' ',
             ['copilot'] = ' ',
             ['null-ls'] = '󰱺 ',
-            ['biome'] = '󰔶 ',
+            ['pyright'] = ' ',
+            ['ruff_lsp'] = ' ',
         },
     },
     condition = conditions.lsp_attached,
