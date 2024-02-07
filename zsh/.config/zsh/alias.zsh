@@ -84,8 +84,15 @@ confirm_rm() {
 
 alias rm='confirm_rm'
 
+# aws
 if type "aws" > /dev/null; then
     set-aws-default-profile() {
         export AWS_PROFILE=$argv[1]
     }
+fi
+
+# python3
+if type "python3" > /dev/null; then
+    alias venv="python3 -m venv"
+    alias py="python3"
 fi
