@@ -17,7 +17,6 @@ eval "$(sheldon source)"
 # bun completions
 [ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
 
-
 # spaceship 
 if type "spaceship" > /dev/null; then
     if [[ "$TERM_PROGRAM" == "WarpTerminal" ]]; then
@@ -28,7 +27,6 @@ if type "spaceship" > /dev/null; then
     spaceship add --after line_sep vi_mode
     spaceship_vi_mode_enable
 fi
-
 
 # bun
 export BUN_INSTALL="$HOME/.bun"

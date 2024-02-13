@@ -35,6 +35,11 @@ if type "pyenv" > /dev/null; then
     eval "$(pyenv init --path)"
 fi
 
+# add rbenv path
+if type "rbenv" > /dev/null; then
+    eval "$(rbenv init - zsh)"
+fi
+
 # mac Postgres
 if [[ -d /Applications/Postgres.app/Contents/Versions/16/bin ]]; then
     export PATH="/Applications/Postgres.app/Contents/Versions/15/bin":$PATH
