@@ -29,6 +29,9 @@ M.ensure_installed = {
     'cssls',
     'tailwindcss',
 
+    -- ruby
+    'solargraph',
+
     -- python
     'pyright',
     'ruff_lsp',
@@ -87,6 +90,14 @@ M.enabled_server = {
         end,
     },
 
+    -- ruby
+    {
+        'solargraph',
+        cond = function()
+            return has_root { 'Gemfile', 'Gemfile.lock', '.solargraph.yml' }
+        end,
+    },
+
     -- DevOps
     'terraformls',
     {
@@ -120,6 +131,7 @@ M.default_formatter = {}
 set_default_formatter({ 'lua' }, 'null-ls')
 set_default_formatter({ 'go' }, 'gopls')
 set_default_formatter({ 'python' }, 'ruff_lsp')
+set_default_formatter({ 'ruby' }, 'solargraph')
 set_default_formatter({ 'json', 'jsonc' }, function()
     if has_root { 'biome.json' } then
         return 'biome'
