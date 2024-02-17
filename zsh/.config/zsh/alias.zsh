@@ -4,7 +4,6 @@ unsetopt BEEP
 alias ..="cd .."
 alias :q=exit
 alias so="source $HOME/.zshrc"
-alias dot="cd $HOME/dotfiles"
 alias nv="nvim"
 
 # git
