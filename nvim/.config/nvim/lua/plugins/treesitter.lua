@@ -50,6 +50,7 @@ return {
                 'go',
                 'rust',
                 'json',
+                'elixir',
                 'yaml',
                 'sql',
                 'toml',

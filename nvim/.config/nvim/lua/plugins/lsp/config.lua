@@ -36,6 +36,9 @@ M.ensure_installed = {
     'pyright',
     'ruff_lsp',
 
+    -- elixir
+    'elixirls',
+
     -- DevOps
     'dockerls',
     'docker_compose_language_service',
@@ -98,6 +101,13 @@ M.enabled_server = {
         end,
     },
 
+    {
+        'elixirls',
+        cond = function()
+            return has_root { 'mix.exs' }
+        end,
+    },
+
     -- DevOps
     'terraformls',
     {
@@ -132,6 +142,7 @@ set_default_formatter({ 'lua' }, 'null-ls')
 set_default_formatter({ 'go' }, 'gopls')
 set_default_formatter({ 'python' }, 'ruff_lsp')
 set_default_formatter({ 'ruby' }, 'solargraph')
+set_default_formatter({ 'elixir' }, 'elixirls')
 set_default_formatter({ 'json', 'jsonc' }, function()
     if has_root { 'biome.json' } then
         return 'biome'
