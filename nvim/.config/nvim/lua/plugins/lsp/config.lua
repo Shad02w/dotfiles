@@ -28,6 +28,7 @@ M.ensure_installed = {
     'tsserver',
     'cssls',
     'tailwindcss',
+    'astro',
 
     -- ruby
     'solargraph',
@@ -79,7 +80,12 @@ M.enabled_server = {
 
     -- js
     'cssls',
-    'tailwindcss',
+    {
+        'tailwindcss',
+        cond = function()
+            return has_root { 'tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.ts' }
+        end,
+    },
     {
         'tsserver',
         cond = function()
@@ -90,6 +96,12 @@ M.enabled_server = {
         'biome',
         cond = function()
             return has_root { 'biome.json' }
+        end,
+    },
+    {
+        'astro',
+        cond = function()
+            return has_root { 'astro.config.mjs' }
         end,
     },
 
@@ -143,6 +155,7 @@ set_default_formatter({ 'go' }, 'gopls')
 set_default_formatter({ 'python' }, 'ruff_lsp')
 set_default_formatter({ 'ruby' }, 'solargraph')
 set_default_formatter({ 'elixir' }, 'elixirls')
+-- set_default_formatter({ 'astro' }, 'null-ls')
 set_default_formatter({ 'json', 'jsonc' }, function()
     if has_root { 'biome.json' } then
         return 'biome'
