@@ -39,7 +39,10 @@ return function(bufnr)
     --          then format
     --          else notify me to select one
 
-    local all_clients = vim.lsp.get_clients { bufnr = bufnr }
+    -- TODO: remove this after neovim 0.10 stable release
+    -- get_active_clients will be deprecated in nvim 0.10
+    local get_clients = vim.lsp.get_clients ~= nil and vim.lsp.get_clients or vim.lsp.get_active_clients
+    local all_clients = get_clients { bufnr = bufnr }
     local filetype = vim.bo[bufnr].filetype
 
     --- @type table<string, lsp.Client>

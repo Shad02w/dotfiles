@@ -186,7 +186,9 @@ local LspInfo = {
     {
         hl = { bold = false },
         provider = function(self)
-            local clients = vim.lsp.get_clients { bufnr = 0 }
+            -- get_active_clients will be deprecated in nvim 0.10
+            local get_clients = vim.lsp.get_clients ~= nil and vim.lsp.get_clients or vim.lsp.get_active_clients
+            local clients = get_clients { bufnr = 0 }
             local names = {}
             for _, client in ipairs(clients) do
                 table.insert(names, self.icons[client.name] or client.name)
