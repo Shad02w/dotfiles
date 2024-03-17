@@ -39,16 +39,19 @@ yarn() {
     echo "use ni instead, stupid"
 }
 
-pnpm() {
-    echo "use ni instead, stupid"
-}
+if type "pnpm" > /dev/null; then
+    pnpm() {
+        echo "use ni instead, stupid"
+    }
+fi
+
 
 # ni
 if type "ni" > /dev/null; then
     alias nb="nr build"
     alias nt="nr test"
     alias ns="nr start"
-    alias nx="na dlx"
+    alias nax="na dlx"
     vite-react() {
         na create vite $argv[1] --template=react-ts
     }
