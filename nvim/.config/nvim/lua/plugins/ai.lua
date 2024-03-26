@@ -8,7 +8,7 @@ return {
                 suggestion = {
                     auto_trigger = true,
                     keymap = {
-                        accept = '<C-S-;>',
+                        accept = '<C-;>',
                     },
                 },
                 panel = {
