@@ -80,12 +80,7 @@ M.enabled_server = {
 
     -- js
     'cssls',
-    {
-        'tailwindcss',
-        cond = function()
-            return has_root { 'tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.ts' }
-        end,
-    },
+    'tailwindcss',
     {
         'tsserver',
         cond = function()
