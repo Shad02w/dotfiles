@@ -1,4 +1,3 @@
-unsetopt BEEP
 
 # common alias
 alias ..="cd .."
@@ -35,15 +34,20 @@ if type "bat" > /dev/null; then
 fi
 
 # javascript
-yarn() {
-    echo "use ni instead, stupid"
-}
+if type "ni" > /dev/null; then
+    if type "yarn" > /dev/null; then
+        yarn() {
+            echo "use ni instead, stupid"
+        }
+    fi
 
-if type "pnpm" > /dev/null; then
-    pnpm() {
-        echo "use ni instead, stupid"
-    }
+    if type "pnpm" > /dev/null; then
+        pnpm() {
+            echo "use ni instead, stupid"
+        }
+    fi
 fi
+
 
 
 # ni
@@ -97,4 +101,11 @@ fi
 if type "python3" > /dev/null; then
     alias venv="python3 -m venv"
     alias py="python3"
+fi
+
+
+# corepack
+if type "corepack" > /dev/null; then
+    alias ck="corepack"
+    alias ckp="corepack pnpm"
 fi

@@ -1,3 +1,5 @@
+unsetopt BEEP
+
 source "$HOME/.config/zsh/alias.zsh"
 source "$HOME/.config/zsh/vi.zsh"
 source "$HOME/.config/zsh/completions.zsh"
