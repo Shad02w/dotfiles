@@ -93,13 +93,7 @@ M.enabled_server = {
             return has_root { 'biome.json' }
         end,
     },
-    {
-        'astro',
-        cond = function()
-            return has_root { 'astro.config.mjs' }
-        end,
-    },
-
+    'astro',
     -- ruby
     {
         'solargraph',
@@ -149,8 +143,8 @@ set_default_formatter({ 'lua' }, 'null-ls')
 set_default_formatter({ 'go' }, 'gopls')
 set_default_formatter({ 'python' }, 'ruff_lsp')
 set_default_formatter({ 'ruby' }, 'solargraph')
+set_default_formatter({ 'astro' }, 'astro')
 set_default_formatter({ 'elixir' }, 'elixirls')
--- set_default_formatter({ 'astro' }, 'null-ls')
 set_default_formatter({ 'json', 'jsonc' }, function()
     if has_root { 'biome.json' } then
         return 'biome'
