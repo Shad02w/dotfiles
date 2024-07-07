@@ -2,6 +2,8 @@ return {
     'nvimtools/none-ls.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     event = { 'BufReadPre' },
+    -- eslintd and eslint is deprecated in null-ls, use eslint-lsp or none-ls-extras instead
+    commit = 'fbdcbf8e152529af846b3a333f039751829b84c2',
     config = function()
         local null_ls = require 'null-ls'
         local cspell = require 'plugins.null-ls.cspell'
