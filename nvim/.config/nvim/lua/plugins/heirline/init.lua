@@ -1,5 +1,5 @@
 return {
-    '/rebelot/heirline.nvim',
+    'rebelot/heirline.nvim',
     dependencies = {
         'nvim-tree/nvim-web-devicons',
         'lewis6991/gitsigns.nvim',
