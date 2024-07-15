@@ -26,7 +26,8 @@ return {
     config = function()
         local telescope = require 'telescope'
         local actions = require 'telescope.actions'
-        local trouble = require 'trouble.providers.telescope'
+        local open_with_trouble = require('trouble.providers.telescope').open_with_trouble
+
         telescope.setup {
             defaults = {
                 mappings = {
@@ -35,14 +36,14 @@ return {
                         ['<C-p>'] = actions.cycle_history_prev,
                         ['<C-h>'] = actions.which_key,
                         ['<C-c>'] = actions.close,
-                        ['<C-q>'] = trouble.open_with_trouble,
+                        ['<C-q>'] = open_with_trouble,
                     },
                     n = {
                         ['<C-n>'] = actions.cycle_history_next,
                         ['<C-p>'] = actions.cycle_history_prev,
                         ['<C-h>'] = actions.which_key,
                         ['<C-c>'] = actions.close,
-                        ['<C-q>'] = trouble.open_with_trouble,
+                        ['<C-q>'] = open_with_trouble,
                     },
                 },
             },

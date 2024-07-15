@@ -8,49 +8,44 @@ end
 
 return {
     'folke/which-key.nvim',
-    keys = '<leader>',
+    event = 'VeryLazy',
     dependencies = {
         'famiu/bufdelete.nvim',
+        'nvim-tree/nvim-web-devicons',
+        { 'echasnovski/mini.icons', version = false },
     },
     config = function()
         local wk = require 'which-key'
         local general = require 'plugins.whick-key.general'
 
         local mappings = {
-            c = {
-                name = 'Close buffer',
-                o = { general.close_other_buffer, 'Close all buffers execpt buffers on current tab' },
-            },
-            d = { cmd 'Bdelete', 'Delete Current Buffer' },
-            g = {
-                name = 'Git',
-                h = {
-                    name = 'Hunk',
-                },
-            },
-            l = {
-                name = 'LSP',
-            },
-            w = {
-                name = 'Window Layout',
-                h = { cmd 'abo vsplit', 'Split left' },
-                j = { cmd 'split', 'Split bottom' },
-                k = { cmd 'to split', 'Split top' },
-                l = { cmd 'vsplit', 'Split right' },
-                v = { cmd 'vsplit', 'Split right' },
+            {
+                mode = { 'n', 'v' },
+                { '<leader>c', group = 'Close' },
+                { '<leader>co', general.close_other_buffer, desc = 'Close all buffers execpt buffers on current tab' },
+
+                { '<leader>d', cmd 'Bdelete', 'Delete Current Buffer' },
+
+                { '<leader>w', group = 'Window Layout' },
+                { '<leader>wh', cmd 'abo vsplit', desc = 'Split left' },
+                { '<leader>wj', cmd 'split', desc = 'Split bottom' },
+                { '<leader>wk', cmd 'to split', desc = 'Split top' },
+                { '<leader>wl', cmd 'vsplit', desc = 'Split right' },
+                { '<leader>wv', cmd 'vsplit', desc = 'Split right' },
+
+                { '<leader>g', group = 'Git' },
+                { '<leader>gh', group = 'Git Hunk' },
+                { '<leader>l', group = 'LSP' },
             },
         }
 
         wk.setup {
-            window = {
+            win = {
                 border = 'rounded',
-                margin = { 1, 0, 1, 0 },
+                padding = { 1, 0, 1, 0 },
             },
         }
 
-        local mapping_opts = { silent = true, prefix = '<leader>', noremap = true, nowait = true }
-
-        wk.register(mappings, vim.tbl_extend('force', { mode = 'n' }, mapping_opts))
-        wk.register(mappings, vim.tbl_extend('force', { mode = 'v' }, mapping_opts))
+        wk.add(mappings)
     end,
 }
