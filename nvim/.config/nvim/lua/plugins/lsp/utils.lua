@@ -2,11 +2,16 @@ local config = require 'plugins.lsp.config'
 local format = require 'plugins.lsp.format'
 local M = {}
 
----@bufnr number
-local function keymaps(bufnr)
+---@param client lsp.Client
+---@param bufnr number
+local function keymaps(client, bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', '<cmd>Trouble lsp_definitions<cr>', opts)
+    if client.name == 'elixirls' then
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    else
+        vim.keymap.set('n', 'gd', '<cmd>Trouble lsp_definitions<cr>', opts)
+    end
     vim.keymap.set('n', 'gk', '<cmd>Trouble lsp_type_definitions<cr>', opts)
     vim.keymap.set('n', 'gi', '<cmd>Trouble lsp_implementations<cr>', opts)
     vim.keymap.set('n', 'gr', '<cmd>Trouble lsp_references<cr>', opts)
@@ -63,7 +68,7 @@ M.capabilities.textDocument.foldingRange = {
 ---@param bufnr number
 M.on_attach = function(client, bufnr)
     disable_formatter(client)
-    keymaps(bufnr)
+    keymaps(client, bufnr)
     command(bufnr)
     format_on_save(bufnr)
 end
