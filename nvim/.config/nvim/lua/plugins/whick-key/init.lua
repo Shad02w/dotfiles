@@ -24,7 +24,7 @@ return {
                 { '<leader>c', group = 'Close' },
                 { '<leader>co', general.close_other_buffer, desc = 'Close all buffers execpt buffers on current tab' },
 
-                { '<leader>d', cmd 'Bdelete', 'Delete Current Buffer' },
+                { '<leader>d', cmd 'Bdelete', desc = 'Delete Current Buffer' },
 
                 { '<leader>w', group = 'Window Layout' },
                 { '<leader>wh', cmd 'abo vsplit', desc = 'Split left' },
