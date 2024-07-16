@@ -29,6 +29,9 @@ return {
 
         ---@diagnostic disable-next-line: missing-fields
         require('ufo').setup {
+            close_fold_kinds_for_ft = {
+                'neo-tree',
+            },
             provider_selector = function()
                 return { 'lsp', 'indent' }
             end,
