@@ -43,6 +43,7 @@ local tsconfig_snippet = [[
         /* Linting */
         "strict": true,
         "noImplicitOverride": true,
+        "noUncheckedIndexedAccess": true,
         "noImplicitAny": true,
         "verbatimModuleSyntax": true,
         "noUnusedLocals": true,
