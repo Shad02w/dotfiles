@@ -1,22 +1,45 @@
 return {
     {
-        'zbirenbaum/copilot.lua',
+        'supermaven-inc/supermaven-nvim',
         event = 'InsertEnter',
-        cmd = 'Copilot',
+        cmd = {
+            'SupermavenStart',
+            'SupermavenStop',
+            'SupermavenRestart',
+            'SupermavenToggle',
+            'SupermavenStatus',
+            'SupermavenUseFree',
+            'SupermavenUsePro',
+            'SupermavenLogout',
+            'SupermavenShowLog',
+            'SupermavenClearLog',
+        },
         config = function()
-            require('copilot').setup {
-                suggestion = {
-                    auto_trigger = true,
-                    keymap = {
-                        accept = '<C-;>',
-                    },
-                },
-                panel = {
-                    auto_refresh = true,
+            require('supermaven-nvim').setup {
+                keymaps = {
+                    accept_suggestion = '<C-;>',
                 },
             }
         end,
     },
+    -- {
+    --     'zbirenbaum/copilot.lua',
+    --     event = 'InsertEnter',
+    --     cmd = 'Copilot',
+    --     config = function()
+    --         require('copilot').setup {
+    --             suggestion = {
+    --                 auto_trigger = true,
+    --                 keymap = {
+    --                     accept = '<C-;>',
+    --                 },
+    --             },
+    --             panel = {
+    --                 auto_refresh = true,
+    --             },
+    --         }
+    --     end,
+    -- },
     {
         'jackMort/ChatGPT.nvim',
         dependencies = {
