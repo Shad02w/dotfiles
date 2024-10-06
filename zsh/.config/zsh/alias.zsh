@@ -109,3 +109,8 @@ if type "corepack" > /dev/null; then
     alias ck="corepack"
     alias ckp="corepack pnpm"
 fi
+
+# lazygit
+if type "lazygit" > /dev/null; then
+    alias lg="lazygit"
+fi
