@@ -24,6 +24,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' group-name ''
 
 zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
+zstyle ':completion:*:*:-command-:*:*' group-name ''
+zstyle ':completion:*:*:-command-:*:*' format '<- %d ->'
 
 
 # enable aws completion
