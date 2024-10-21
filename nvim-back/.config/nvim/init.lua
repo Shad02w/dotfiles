@@ -1,6 +1,0 @@
-require 'core.options'
-require 'core.keymaps'
-require 'core.filetype'
-require 'core.autocmd'
-require 'core.lazy'
-require 'core.colorscheme'
