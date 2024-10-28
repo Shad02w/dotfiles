@@ -95,6 +95,8 @@ local snippests = {
     s('ce', fmta('console.error(<>)', { i(1) })),
     s('imp', fmta([[import {<>} from '<>']], { i(2), i(1) })),
     s('afn', fmta([[(<>) =>> {<>}]], { i(1), i(2) })),
+    s('fn', fmta([[function <>(<>) {<>}]], { i(1), i(2), i(3) })),
+    s('fna', fmta([[async function <>(<>) {<>}]], { i(1), i(2), i(3) })),
     s('try', fmta([[try {<>} catch() {<>}]], { i(1), i(2) })),
 
     -- for loop

@@ -55,11 +55,11 @@ return {
             end
 
             if has_eslint_config() then
+                -- use eslint-lsp
                 formatter.lsp_format = 'last'
             end
 
             if has_prettier_config() then
-                ---@type conform.FiletypeFormatterInternal
                 table.insert(formatter, 'prettierd')
             end
 

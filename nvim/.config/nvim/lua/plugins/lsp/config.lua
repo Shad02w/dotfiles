@@ -7,14 +7,6 @@ local function has_root(pattern)
     return util.root_pattern(pattern)(vim.loop.cwd()) ~= nil
 end
 
----@param filetypes string[]
----@param formatter string | LspDefaultFormatterFilter
-local function set_default_formatter(filetypes, formatter)
-    for _, filetype in ipairs(filetypes) do
-        M.default_formatter[filetype] = formatter
-    end
-end
-
 ---@type string[]
 M.ensure_installed = {
     'rust_analyzer',
@@ -25,7 +17,8 @@ M.ensure_installed = {
 
     -- js
     'biome',
-    'tsserver',
+    'eslint',
+    'ts_ls',
     'cssls',
     'tailwindcss',
     'astro',
@@ -93,6 +86,24 @@ M.enabled_server = {
             return has_root { 'biome.json' }
         end,
     },
+    {
+        'eslint',
+        cond = function()
+            return has_root {
+                '.eslintrc.js',
+                '.eslintrc.cjs',
+                '.eslintrc.yaml',
+                '.eslintrc.yml',
+                '.eslintrc.json',
+                'eslint.config.js',
+                'eslint.config.mjs',
+                'eslint.config.cjs',
+                'eslint.config.ts',
+                'eslint.config.mts',
+                'eslint.config.cts',
+            }
+        end,
+    },
     'astro',
     -- ruby
     {
@@ -125,40 +136,14 @@ M.enabled_server = {
     },
 }
 
-M.disable_server_formatter = {
-    'lua_ls',
-    -- disable copilot formatting capability
-    'copilot',
-    'tailwindcss',
-    'cssls',
-    'dockerls',
-    'docker_compose_language_service',
-}
-
----@alias LspDefaultFormatterFilter fun(): string
----@type table<string, string | LspDefaultFormatterFilter>
-M.default_formatter = {}
-
-set_default_formatter({ 'lua' }, 'null-ls')
-set_default_formatter({ 'go' }, 'gopls')
-set_default_formatter({ 'python' }, 'ruff_lsp')
-set_default_formatter({ 'ruby' }, 'solargraph')
-set_default_formatter({ 'astro' }, 'astro')
-set_default_formatter({ 'elixir' }, 'elixirls')
-set_default_formatter({ 'json', 'jsonc' }, function()
-    if has_root { 'biome.json' } then
-        return 'biome'
-    end
-    return 'null-ls'
-end)
-
-set_default_formatter({ 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' }, function()
-    if has_root { 'biome.json' } then
-        return 'biome'
-    end
-    return 'null-ls'
-end)
-
-set_default_formatter({ 'terraform', 'tf' }, 'terraformls')
+-- M.disable_server_formatter = {
+--     'lua_ls',
+--     -- disable copilot formatting capability
+--     'copilot',
+--     'tailwindcss',
+--     'cssls',
+--     'dockerls',
+--     'docker_compose_language_service',
+-- }
 
 return M

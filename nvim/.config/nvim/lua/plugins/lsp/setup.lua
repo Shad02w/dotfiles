@@ -20,7 +20,7 @@ vim.diagnostic.config {
     float = {
         focusable = false,
         border = 'rounded',
-        source = 'always',
+        source = true,
     },
 }
 

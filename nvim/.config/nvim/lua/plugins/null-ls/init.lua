@@ -1,5 +1,6 @@
 return {
     'nvimtools/none-ls.nvim',
+    enabled = false,
     dependencies = { 'nvim-lua/plenary.nvim' },
     event = { 'BufReadPre' },
     -- eslintd and eslint is deprecated in null-ls, use eslint-lsp or none-ls-extras instead

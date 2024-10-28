@@ -72,3 +72,14 @@ vim.api.nvim_create_autocmd('BufReadPre', {
         end
     end,
 })
+
+-- auto reload file if when focus gained, buffer enter, and cursor hold
+-- local auto_reload_group = vim.api.nvim_create_augroup('auto_reload_group', {})
+-- vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+--     pattern = { '*' },
+--     group = auto_reload_group,
+--     callback = function()
+--         vim.notify 'auto reload file'
+--         vim.cmd 'checktime'
+--     end,
+-- })
