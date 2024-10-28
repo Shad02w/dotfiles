@@ -14,3 +14,7 @@ if type brew >/dev/null; then
         fi
     fi
 fi
+
+if [[ -f "$HOME/.deno/env" ]]; then
+    . "$HOME/.deno/env"
+fi
