@@ -37,6 +37,9 @@ M.ensure_installed = {
     'dockerls',
     'docker_compose_language_service',
     'terraformls',
+
+    -- general
+    'typos_lsp',
 }
 
 ---@class LspEnabledServerConfig
@@ -134,6 +137,9 @@ M.enabled_server = {
             return has_root { 'docker-compose.yaml', 'compose.yaml' }
         end,
     },
+
+    -- general
+    'typos_lsp',
 }
 
 -- M.disable_server_formatter = {

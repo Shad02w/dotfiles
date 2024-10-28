@@ -14,11 +14,21 @@ local function keymaps(client, bufnr)
     vim.keymap.set('n', 'gi', '<cmd>Trouble lsp_implementations<cr>', opts)
     vim.keymap.set('n', 'gr', '<cmd>Trouble lsp_references<cr>', opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'ge', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', 'ge', function()
+        vim.diagnostic.jump {
+            severity = vim.diagnostic.severity.ERROR,
+            count = 1,
+            float = true,
+        }
+    end, opts)
     vim.keymap.set('n', 'rn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '<leader>le', vim.diagnostic.goto_prev, opts)
-    vim.keymap.set('n', '<leader>ne', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', '<leader>le', function()
+        vim.diagnostic.jump { count = -1, float = true }
+    end, opts)
+    vim.keymap.set('n', '<leader>ne', function()
+        vim.diagnostic.jump { count = 1, float = true }
+    end, opts)
     vim.keymap.set('n', '<leader>lc', function()
         require('lazy').load { plugins = { 'telescope.nvim' } }
         vim.lsp.buf.code_action()
