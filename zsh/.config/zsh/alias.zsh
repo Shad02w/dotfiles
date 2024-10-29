@@ -114,3 +114,4 @@ fi
 if type "lazygit" > /dev/null; then
     alias lg="lazygit"
 fi
+
