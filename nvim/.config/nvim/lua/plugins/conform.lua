@@ -60,8 +60,7 @@ return {
 
             -- only use deno fmt if deno.json exist
             if has_deno_config() then
-                formatter.lsp_format = 'prefer'
-                return formatter
+                return { lsp_format = 'prefer' }
             end
 
             if has_biome_config() then
