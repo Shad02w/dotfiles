@@ -2,7 +2,7 @@ local M = {}
 
 ---@param pattern string[]
 ---@return boolean
-local function has_root(pattern)
+local function has_root_file(pattern)
     local util = require 'lspconfig.util'
     return util.root_pattern(pattern)(vim.loop.cwd()) ~= nil
 end
@@ -22,6 +22,7 @@ M.ensure_installed = {
     'cssls',
     'tailwindcss',
     'astro',
+    'denols',
 
     -- ruby
     'solargraph',
@@ -52,13 +53,13 @@ M.enabled_server = {
     {
         'gopls',
         cond = function()
-            return has_root { 'go.mod' }
+            return has_root_file { 'go.mod' }
         end,
     },
     {
         'rust_analyzer',
         cond = function()
-            return has_root { 'Cargo.toml' }
+            return has_root_file { 'Cargo.toml' }
         end,
     },
     'jsonls',
@@ -70,7 +71,7 @@ M.enabled_server = {
     {
         'ruff_lsp',
         cond = function()
-            return has_root { 'pyproject.toml', 'ruff.toml', '.ruff.toml' }
+            return has_root_file { 'pyproject.toml', 'ruff.toml', '.ruff.toml' }
         end,
     },
 
@@ -80,19 +81,19 @@ M.enabled_server = {
     {
         'tsserver',
         cond = function()
-            return has_root { 'package.json' }
+            return has_root_file { 'package.json' }
         end,
     },
     {
         'biome',
         cond = function()
-            return has_root { 'biome.json' }
+            return has_root_file { 'biome.json' }
         end,
     },
     {
         'eslint',
         cond = function()
-            return has_root {
+            return has_root_file {
                 '.eslintrc.js',
                 '.eslintrc.cjs',
                 '.eslintrc.yaml',
@@ -107,19 +108,26 @@ M.enabled_server = {
             }
         end,
     },
-    'astro',
+    -- 'astro',
+    {
+        'denols',
+        cond = function()
+            return has_root_file { 'deno.json' }
+        end,
+    },
+
     -- ruby
     {
         'solargraph',
         cond = function()
-            return has_root { 'Gemfile', 'Gemfile.lock', '.solargraph.yml' }
+            return has_root_file { 'Gemfile', 'Gemfile.lock', '.solargraph.yml' }
         end,
     },
 
     {
         'elixirls',
         cond = function()
-            return has_root { 'mix.exs' }
+            return has_root_file { 'mix.exs' }
         end,
     },
 
@@ -128,13 +136,13 @@ M.enabled_server = {
     {
         'dockerls',
         cond = function()
-            return has_root { 'Dockerfile' }
+            return has_root_file { 'Dockerfile' }
         end,
     },
     {
         'docker_compose_language_service',
         cond = function()
-            return has_root { 'docker-compose.yaml', 'compose.yaml' }
+            return has_root_file { 'docker-compose.yaml', 'compose.yaml' }
         end,
     },
 

@@ -42,6 +42,14 @@ local function has_eslint_config()
     return eslint_config_path
 end
 
+local function has_deno_config()
+    local deno_config_path = vim.fs.root(0, {
+        'deno.json',
+    })
+
+    return deno_config_path
+end
+
 return {
     'stevearc/conform.nvim',
     event = 'BufWritePre',
@@ -49,6 +57,12 @@ return {
         local function jsFormatter()
             ---@type conform.FiletypeFormatterInternal
             local formatter = {}
+
+            -- only use deno fmt if deno.json exist
+            if has_deno_config() then
+                formatter.lsp_format = 'prefer'
+                return formatter
+            end
 
             if has_biome_config() then
                 table.insert(formatter, 'biome')
