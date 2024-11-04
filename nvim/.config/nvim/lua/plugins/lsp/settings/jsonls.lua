@@ -175,6 +175,11 @@ local schemas = {
         fileMatch = { 'biome.json' },
         url = 'https://biomejs.dev/schemas/1.4.1/schema.json',
     },
+    {
+        description = 'Deno configuration file',
+        fileMatch = { 'deno.json' },
+        url = 'https://deno.land/x/deno/cli/schemas/config-file.v1.json',
+    },
 }
 
 return {
