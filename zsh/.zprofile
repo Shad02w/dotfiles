@@ -30,10 +30,10 @@ if type "nvim" > /dev/null; then
     export GIT_EDITOR=nvim
 fi
 
-# add pyenv path
-if type "pyenv" > /dev/null; then
-    eval "$(pyenv init --path)"
-fi
+# add pyenv path -- tempoary disable because it slow down zsh startup by 100ms😱
+# if type "pyenv" > /dev/null; then
+#     eval "$(pyenv init --path)"
+# fi
 
 # add rbenv path
 if type "rbenv" > /dev/null; then
@@ -48,4 +48,9 @@ fi
 # Added by OrbStack: command-line tools and integration
 if [[ -d ~/.orbstack/shell ]]; then
     source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+fi
+
+# tizen-cli
+if [[ -d $HOME/tizen-studio ]]; then
+    export PATH=$HOME/tizen-studio/tools/ide/bin:$PATH
 fi
