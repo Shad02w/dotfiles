@@ -214,6 +214,22 @@ local Macro = {
     end,
 }
 
+local FindResult = {
+    condition = function()
+        return vim.v.hlsearch == 1
+    end,
+    provider = function()
+        local max_count = 999
+
+        local search = vim.fn.searchcount { maxcount = max_count }
+        local total = search.total
+        if search.total > max_count then
+            total = '<' .. max_count
+        end
+        return ' [' .. search.current .. '/' .. total .. '] '
+    end,
+}
+
 local Ruler = {
     provider = [[ %2l:%-2c ]],
 }
@@ -239,6 +255,7 @@ return {
     Git,
     Align,
     Macro,
+    FindResult,
     Space,
     LspInfo,
     Space,
