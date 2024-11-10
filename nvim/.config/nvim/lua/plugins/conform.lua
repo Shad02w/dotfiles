@@ -1,4 +1,4 @@
-local disabled_lsp_formatters = { 'typescript-tools' }
+local disabled_lsp_formatters = { 'typescript-tools', 'jsonls' }
 
 local function has_prettier_config()
     local prettier_config_path = vim.fs.root(0, {
@@ -50,35 +50,35 @@ local function has_deno_config()
     return deno_config_path
 end
 
+local function jsFormatter()
+    ---@type conform.FiletypeFormatterInternal
+    local formatter = {}
+
+    -- only use deno fmt if deno.json exist
+    if has_deno_config() then
+        return { lsp_format = 'prefer' }
+    end
+
+    if has_biome_config() then
+        table.insert(formatter, 'biome')
+    end
+
+    if has_eslint_config() then
+        -- use eslint-lsp
+        formatter.lsp_format = 'last'
+    end
+
+    if has_prettier_config() then
+        table.insert(formatter, 'prettierd')
+    end
+
+    return formatter
+end
+
 return {
     'stevearc/conform.nvim',
     event = 'BufWritePre',
     config = function()
-        local function jsFormatter()
-            ---@type conform.FiletypeFormatterInternal
-            local formatter = {}
-
-            -- only use deno fmt if deno.json exist
-            if has_deno_config() then
-                return { lsp_format = 'prefer' }
-            end
-
-            if has_biome_config() then
-                table.insert(formatter, 'biome')
-            end
-
-            if has_eslint_config() then
-                -- use eslint-lsp
-                formatter.lsp_format = 'last'
-            end
-
-            if has_prettier_config() then
-                table.insert(formatter, 'prettierd')
-            end
-
-            return formatter
-        end
-
         require('conform').setup {
             log_level = vim.log.levels.DEBUG,
             formatters_by_ft = {
