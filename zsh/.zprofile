@@ -1,4 +1,4 @@
-# disable zsh seesion
+# disable zsh session
 export SHELL_SESSIONS_DISABLE=1
 
 # common path
@@ -53,4 +53,8 @@ fi
 # tizen-cli
 if [[ -d $HOME/tizen-studio ]]; then
     export PATH=$HOME/tizen-studio/tools/ide/bin:$PATH
+fi
+
+if type "vfox" > /dev/null; then
+    eval "$(vfox activate zsh)"
 fi
