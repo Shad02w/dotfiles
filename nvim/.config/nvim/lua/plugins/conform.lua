@@ -87,6 +87,7 @@ return {
                 javascript = jsFormatter,
                 typescriptreact = jsFormatter,
                 javascriptreact = jsFormatter,
+                svelte = jsFormatter,
                 json = jsFormatter,
                 jsonc = jsFormatter,
                 go = { lsp_format = 'prefer' },
