@@ -221,7 +221,12 @@ local FindResult = {
     provider = function()
         local max_count = 999
 
-        local search = vim.fn.searchcount { maxcount = max_count }
+        local ok, search = pcall(vim.fn.searchcount, { maxcount = max_count })
+
+        if not ok then
+            return ' [0/0] '
+        end
+
         local total = search.total
         if search.total > max_count then
             total = '<' .. max_count
