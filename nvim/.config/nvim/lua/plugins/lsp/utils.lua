@@ -5,11 +5,7 @@ local M = {}
 local function keymaps(client, bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    if client.name == 'elixirls' then
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    else
-        vim.keymap.set('n', 'gd', '<cmd>Trouble lsp_definitions<cr>', opts)
-    end
+    vim.keymap.set('n', 'gd', '<cmd>Trouble lsp_definitions<cr>', opts)
     vim.keymap.set('n', 'gk', '<cmd>Trouble lsp_type_definitions<cr>', opts)
     vim.keymap.set('n', 'gi', '<cmd>Trouble lsp_implementations<cr>', opts)
     vim.keymap.set('n', 'gr', '<cmd>Trouble lsp_references<cr>', opts)

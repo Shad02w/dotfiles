@@ -111,7 +111,6 @@ M.lsp_server_config = {
             return has_root_file { 'svelte.config.js', 'svelte.config.cjs', 'svelte.config.mjs', 'svelte.config.ts' }
         end,
         on_attach = function(client)
-            vim.notify 'svelte custom on_attach'
             vim.api.nvim_create_autocmd('BufWritePost', {
                 group = svelte_didchange_group,
                 pattern = { '*.js', '*.ts' },
@@ -138,6 +137,9 @@ M.lsp_server_config = {
     elixirls = {
         cond = function()
             return has_root_file { 'mix.exs' }
+        end,
+        on_attach = function(_, bufnr)
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true, buffer = bufnr })
         end,
     },
 
