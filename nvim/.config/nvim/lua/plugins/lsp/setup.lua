@@ -43,29 +43,40 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
 
         utils.on_attach(client, bufnr)
+
+        local client_config = config.lsp_server_config[client.name]
+
+        if client_config and type(client_config) == 'table' and client_config.on_attach then
+            client_config.on_attach(client, bufnr)
+        end
     end,
 })
 
-for _, s in ipairs(config.enabled_server) do
-    local server_name
-    if type(s) == 'string' then
-        server_name = s
+for server_name, c in pairs(config.lsp_server_config) do
+    if not c then
+        goto continue
+    end
+
+    if type(c) == 'table' then
+        if c.enabled ~= nil and not c.enabled then
+            goto continue
+        end
+
+        if c.cond and not c.cond() then
+            goto continue
+        end
+    end
+
+    local settings = utils.get_settings(server_name) or {}
+    local opts = vim.tbl_deep_extend('force', {
+        capabilities = utils.capabilities,
+    }, settings)
+
+    if server_name == 'tsserver' then
+        require('typescript-tools').setup(opts)
     else
-        if s.cond() then
-            server_name = s[1]
-        end
+        lspconfig[server_name].setup(opts)
     end
 
-    if server_name then
-        local settings = utils.get_settings(server_name) or {}
-        local opts = vim.tbl_deep_extend('force', {
-            capabilities = utils.capabilities,
-        }, settings)
-
-        if server_name == 'tsserver' then
-            require('typescript-tools').setup(opts)
-        else
-            lspconfig[server_name].setup(opts)
-        end
-    end
+    ::continue::
 end

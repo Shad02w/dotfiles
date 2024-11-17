@@ -44,55 +44,52 @@ M.ensure_installed = {
     'typos_lsp',
 }
 
----@class LspEnabledServerConfig
----@field [1] string
----@field cond fun(): boolean
----@field setup nil|fun(): boolean
+local svelte_didchange_group = vim.api.nvim_create_augroup('svelte_didchange_group', {})
+---@alias LspServerName string
 
----@type (LspEnabledServerConfig | string)[]
-M.enabled_server = {
-    {
-        'gopls',
+---@class LspEnabledServerConfig
+---@field enabled? boolean @default true
+---@field cond? fun(): boolean
+---@field on_attach? fun(client: vim.lsp.Client, bufnr: integer): nil
+
+---@type table<LspServerName, LspEnabledServerConfig | boolean>
+M.lsp_server_config = {
+    gopls = {
         cond = function()
             return has_root_file { 'go.mod' }
         end,
     },
-    {
-        'rust_analyzer',
+    rust_analyzer = {
         cond = function()
             return has_root_file { 'Cargo.toml' }
         end,
     },
-    'jsonls',
-    'yamlls',
-    'lua_ls',
+    jsonls = true,
+    yamlls = true,
+    lua_ls = true,
 
     -- python
-    'pyright',
-    {
-        'ruff_lsp',
+    pyright = true,
+    ruff_lsp = {
         cond = function()
             return has_root_file { 'pyproject.toml', 'ruff.toml', '.ruff.toml' }
         end,
     },
 
     -- js
-    'cssls',
-    'tailwindcss',
-    {
-        'tsserver',
+    cssls = true,
+    tailwindcss = true,
+    tsserver = {
         cond = function()
             return has_root_file { 'package.json' }
         end,
     },
-    {
-        'biome',
+    biome = {
         cond = function()
             return has_root_file { 'biome.json' }
         end,
     },
-    {
-        'eslint',
+    eslint = {
         cond = function()
             return has_root_file {
                 '.eslintrc.js',
@@ -109,52 +106,45 @@ M.enabled_server = {
             }
         end,
     },
-    {
-        'svelte',
+    svelte = {
         cond = function()
             return has_root_file { 'svelte.config.js', 'svelte.config.cjs', 'svelte.config.mjs', 'svelte.config.ts' }
         end,
     },
-    -- 'astro',
-    {
-        'denols',
+    -- astro = true,
+    denols = {
         cond = function()
             return has_root_file { 'deno.json' }
         end,
     },
 
     -- ruby
-    {
-        'solargraph',
+    solargraph = {
         cond = function()
             return has_root_file { 'Gemfile', 'Gemfile.lock', '.solargraph.yml' }
         end,
     },
 
-    {
-        'elixirls',
+    elixirls = {
         cond = function()
             return has_root_file { 'mix.exs' }
         end,
     },
 
     -- DevOps
-    'terraformls',
-    {
-        'dockerls',
+    terraformls = true,
+    dockerls = {
         cond = function()
             return has_root_file { 'Dockerfile' }
         end,
     },
-    {
-        'docker_compose_language_service',
+    docker_compose_language_service = {
         cond = function()
             return has_root_file { 'docker-compose.yaml', 'compose.yaml' }
         end,
     },
-
     -- general
-    'typos_lsp',
+    typos_lsp = true,
 }
 
 -- M.disable_server_formatter = {
