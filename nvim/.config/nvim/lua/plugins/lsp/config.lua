@@ -110,6 +110,16 @@ M.lsp_server_config = {
         cond = function()
             return has_root_file { 'svelte.config.js', 'svelte.config.cjs', 'svelte.config.mjs', 'svelte.config.ts' }
         end,
+        on_attach = function(client)
+            vim.notify 'svelte custom on_attach'
+            vim.api.nvim_create_autocmd('BufWritePost', {
+                group = svelte_didchange_group,
+                pattern = { '*.js', '*.ts' },
+                callback = function(ctx)
+                    client.notify('$/onDidChangeTsOrJsFile', { uri = ctx.match })
+                end,
+            })
+        end,
     },
     -- astro = true,
     denols = {
