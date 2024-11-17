@@ -23,6 +23,7 @@ M.ensure_installed = {
     'tailwindcss',
     'astro',
     'denols',
+    'svelte',
 
     -- ruby
     'solargraph',
@@ -106,6 +107,12 @@ M.enabled_server = {
                 'eslint.config.mts',
                 'eslint.config.cts',
             }
+        end,
+    },
+    {
+        'svelte',
+        cond = function()
+            return has_root_file { 'svelte.config.js', 'svelte.config.cjs', 'svelte.config.mjs', 'svelte.config.ts' }
         end,
     },
     -- 'astro',
