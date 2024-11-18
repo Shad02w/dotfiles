@@ -58,3 +58,9 @@ fi
 if type "vfox" > /dev/null; then
     eval "$(vfox activate zsh)"
 fi
+
+# herd-lite
+if [[ -d $HOME/.config/herd-lite ]]; then
+    export PATH="$HOME/.config/herd-lite/bin:$PATH"
+    export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+fi
