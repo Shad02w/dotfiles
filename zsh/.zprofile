@@ -20,6 +20,11 @@ if [[ -d "$HOME/.cargo/bin" ]]; then
     export PATH="$HOME/.cargo/bin":$PATH
 fi
 
+# go
+if [[ -d "$HOME/go/bin" ]]; then
+    export PATH="$HOME/go/bin":$PATH
+fi
+
 # fnm
 if type "fnm" > /dev/null; then
     eval "$(fnm env --use-on-cd)"
