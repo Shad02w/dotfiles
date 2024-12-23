@@ -22,7 +22,13 @@ fi
 
 # go
 if [[ -d "$HOME/go/bin" ]]; then
-    export PATH="$HOME/go/bin":$PATH
+    export GOPATH="$HOME/go"
+    export PATH="$GOPATH/bin":$PATH
+fi
+
+if [[ -d "/usr/local/go" ]]; then
+    export GOROOT="/usr/local/go"
+    export PATH="$GOROOT/bin":$PATH
 fi
 
 # fnm
