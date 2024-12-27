@@ -1,4 +1,14 @@
----@type vim.opt
+function Get_title()
+    local filename = vim.fn.expand '%:t'
+    if filename == '' then
+        filename = '[No Name]'
+    end
+    local cwd = vim.fn.getcwd()
+    local first = vim.fn.fnamemodify(cwd, ':t:h')
+    local last_two = vim.fn.fnamemodify(cwd, ':h:t') .. '/' .. vim.fn.fnamemodify(cwd, ':t')
+    return filename .. ' (' .. last_two .. ') - NVIM'
+end
+
 local opt = {
     relativenumber = true,
     number = true,
@@ -33,6 +43,9 @@ local opt = {
     fillchars = vim.opt.fillchars + 'diff:╱' + 'eob: ',
     -- listchars = { lead = '⋅', tab = '|  ' },
     listchars = vim.opt.listchars + 'tab:▸ ',
+
+    title = true,
+    titlestring = '⌨️ %{v:lua.Get_title()}',
 }
 
 for key, value in pairs(opt) do
