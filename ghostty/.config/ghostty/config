@@ -1,4 +1,4 @@
 theme = Kanagawa Dragon
-font-family = "JetBrainsMono Nerd Font"
-font-thicken = true
+font-size = 14
+font-family = "JetBrainsMonoNL NFM SemiBold"
 adjust-cell-height = 13
