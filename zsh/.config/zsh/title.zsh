@@ -6,4 +6,6 @@ function set_win_title() {
 }
 
 
-precmd_functions+=(set_win_title)
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd set_win_title
+
