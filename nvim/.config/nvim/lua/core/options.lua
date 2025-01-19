@@ -4,9 +4,8 @@ function Get_title()
         filename = '[No Name]'
     end
     local cwd = vim.fn.getcwd()
-    local first = vim.fn.fnamemodify(cwd, ':t:h')
     local last_two = vim.fn.fnamemodify(cwd, ':h:t') .. '/' .. vim.fn.fnamemodify(cwd, ':t')
-    return filename .. ' (' .. last_two .. ') - NVIM'
+    return '⌨️ ' .. filename .. ' (' .. last_two .. ') - NVIM'
 end
 
 local opt = {
@@ -45,7 +44,7 @@ local opt = {
     listchars = vim.opt.listchars + 'tab:▸ ',
 
     title = true,
-    titlestring = '⌨️ %{v:lua.Get_title()}',
+    titlestring = '%{v:lua.Get_title()}',
 }
 
 for key, value in pairs(opt) do
