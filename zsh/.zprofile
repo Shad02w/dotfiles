@@ -42,9 +42,9 @@ if type "nvim" > /dev/null; then
 fi
 
 # add pyenv path -- tempoary disable because it slow down zsh startup by 100ms😱
-# if type "pyenv" > /dev/null; then
-#     eval "$(pyenv init --path)"
-# fi
+if type "pyenv" > /dev/null; then
+    eval "$(pyenv init --path)"
+fi
 
 # add rbenv path
 if type "rbenv" > /dev/null; then
@@ -74,4 +74,9 @@ fi
 if [[ -d $HOME/.config/herd-lite ]]; then
     export PATH="$HOME/.config/herd-lite/bin:$PATH"
     export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+fi
+
+# Added by Windsurf
+if [[ -d $HOME/.codeium/windsurf ]]; then
+    export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 fi

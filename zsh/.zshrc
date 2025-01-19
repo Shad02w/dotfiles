@@ -33,6 +33,3 @@ fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-export PATH="/Users/alvistse/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/Users/alvistse/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
