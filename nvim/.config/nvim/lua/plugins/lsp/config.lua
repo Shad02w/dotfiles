@@ -30,7 +30,7 @@ M.ensure_installed = {
 
     -- python
     'pyright',
-    'ruff_lsp',
+    'ruff',
 
     -- elixir
     'elixirls',
@@ -70,7 +70,7 @@ M.lsp_server_config = {
 
     -- python
     pyright = true,
-    ruff_lsp = {
+    ruff = {
         cond = function()
             return has_root_file { 'pyproject.toml', 'ruff.toml', '.ruff.toml' }
         end,
