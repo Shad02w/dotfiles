@@ -62,9 +62,11 @@ if type "ni" > /dev/null; then
     vite-svelte() {
         na create vite $argv[1] --template=svelte-ts
     }
-
     vite-solid() {
         na create vite $argv[1] --template=solid-ts
+    }
+    vite-vanilla() {
+        na create vite $argv[1] --template=vanilla-ts
     }
 fi
 
