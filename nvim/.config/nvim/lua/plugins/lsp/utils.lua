@@ -19,12 +19,21 @@ local function keymaps(client, bufnr)
     end, opts)
     vim.keymap.set('n', 'rn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, opts)
+
+    -- jump to next/prev error
     vim.keymap.set('n', '<leader>le', function()
         vim.diagnostic.jump { count = -1, float = true }
     end, opts)
     vim.keymap.set('n', '<leader>ne', function()
         vim.diagnostic.jump { count = 1, float = true }
     end, opts)
+    vim.keymap.set('n', '[e', function()
+        vim.diagnostic.jump { count = -1, float = true }
+    end, opts)
+    vim.keymap.set('n', ']e', function()
+        vim.diagnostic.jump { count = 1, float = true }
+    end, opts)
+
     vim.keymap.set('n', '<leader>lc', function()
         require('lazy').load { plugins = { 'telescope.nvim' } }
         vim.lsp.buf.code_action()
