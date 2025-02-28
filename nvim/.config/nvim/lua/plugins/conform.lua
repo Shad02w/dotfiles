@@ -75,6 +75,21 @@ local function jsFormatter()
     return formatter
 end
 
+local function cssFormatter()
+    ---@type conform.FiletypeFormatterInternal
+    local formatter = {}
+
+    if has_biome_config() then
+        table.insert(formatter, 'biome')
+    end
+
+    if has_prettier_config() then
+        table.insert(formatter, 'prettierd')
+    end
+
+    return formatter
+end
+
 return {
     'stevearc/conform.nvim',
     event = 'BufWritePre',
@@ -90,6 +105,7 @@ return {
                 svelte = jsFormatter,
                 json = jsFormatter,
                 jsonc = jsFormatter,
+                css = cssFormatter,
                 go = { lsp_format = 'prefer' },
             },
             format_after_save = {
