@@ -25,7 +25,15 @@ local prettier_snippet = [[
     "singleQuote": false,
     "trailingComma": "none",
     "printWidth": 140,
-    "arrowParens": "avoid"<>
+    "arrowParens": "avoid",<>
+    "overrides": [
+        {
+            "files": ["*.yml", "*.yaml"],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }
 ]]
 
