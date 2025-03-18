@@ -114,6 +114,6 @@ fi
 
 # lazygit
 if type "lazygit" > /dev/null; then
-    alias lg="lazygit"
+    alias lg="HUSKY=0 lazygit"
 fi
 
