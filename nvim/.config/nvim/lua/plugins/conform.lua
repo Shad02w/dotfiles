@@ -102,6 +102,7 @@ return {
                 javascript = jsFormatter,
                 typescriptreact = jsFormatter,
                 javascriptreact = jsFormatter,
+                astro = jsFormatter,
                 svelte = jsFormatter,
                 json = jsFormatter,
                 jsonc = jsFormatter,
