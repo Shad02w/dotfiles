@@ -2,10 +2,13 @@ local lspconfig = require 'lspconfig'
 local config = require 'plugins.lsp.config'
 local utils = require 'plugins.lsp.utils'
 
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = 'rounded',
-    width = 60,
-})
+local hover = vim.lsp.buf.hover
+---@diagnostic disable-next-line: duplicate-set-field override default hover
+vim.lsp.buf.hover = function()
+    hover {
+        border = 'rounded',
+    }
+end
 
 vim.diagnostic.config {
     signs = {
