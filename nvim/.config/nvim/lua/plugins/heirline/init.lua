@@ -7,7 +7,6 @@ return {
     init = function()
         vim.o.cmdheight = 0
         vim.o.laststatus = 0
-        vim.cmd 'hi StatusLine guibg=NONE guifg=NONE'
     end,
     event = 'VeryLazy',
     config = function()
@@ -18,6 +17,8 @@ return {
         local conditions = require 'heirline.conditions'
         local Statusline = require 'plugins.heirline.statusline'
         local Winbar = require 'plugins.heirline.winbar'
+
+        vim.cmd 'hi StatusLine guibg=NONE guifg=NONE'
 
         ---@param bufnr number
         ---@return boolean
