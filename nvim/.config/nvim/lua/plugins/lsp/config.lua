@@ -159,14 +159,4 @@ M.lsp_server_config = {
     typos_lsp = true,
 }
 
--- M.disable_server_formatter = {
---     'lua_ls',
---     -- disable copilot formatting capability
---     'copilot',
---     'tailwindcss',
---     'cssls',
---     'dockerls',
---     'docker_compose_language_service',
--- }
-
 return M
