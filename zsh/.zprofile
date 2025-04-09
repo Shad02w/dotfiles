@@ -46,9 +46,9 @@ if type "pyenv" > /dev/null; then
     eval "$(pyenv init --path)"
 fi
 
-# add rbenv path
-if type "rbenv" > /dev/null; then
-    eval "$(rbenv init - zsh)"
+# Init mise, for ruby 
+if [[ -f ~/.local/bin/mise ]]; then
+    eval "$(~/.local/bin/mise activate)"
 fi
 
 # mac Postgres
