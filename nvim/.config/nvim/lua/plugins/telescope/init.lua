@@ -1,7 +1,7 @@
 local keys = require 'plugins.telescope.keys'
 return {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
+    -- tag = '0.1.8', -- disable tag util lsp_dynamic_workspace_symbol issue fixed https://github.com/nvim-telescope/telescope.nvim/issues/3438
     cmd = 'Telescope',
     dependencies = {
         'nvim-lua/plenary.nvim',
@@ -20,6 +20,7 @@ return {
         { '<leader>s', keys.live_grep_raw, desc = 'Search with args' },
         { '<leader>Sy', keys.live_grep_with_default, desc = 'Search current 0 register' },
         { '<leader>Ss', keys.live_grep, desc = 'Search All' },
+        { '<leader>\\', keys.lsp_workspace_symbols, desc = 'Search symbols using LSP across workspace' },
         { '<leader>lc', desc = 'Code Action' },
         { '<leader>S', desc = 'Search' },
     },

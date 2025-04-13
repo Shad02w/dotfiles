@@ -74,4 +74,9 @@ function M.clipboard()
     })
 end
 
+function M.lsp_workspace_symbols()
+    require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_ivy {
+        layout_config = { height = 0.5 },
+    })
+end
 return M
