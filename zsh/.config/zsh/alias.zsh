@@ -68,6 +68,9 @@ if type "ni" > /dev/null; then
     vite-vanilla() {
         na create vite $argv[1] --template=vanilla-ts
     }
+    vite-svelte() {
+        na create vite $argv[1] --template=svelte-ts
+    }
 fi
 
 # neovim
