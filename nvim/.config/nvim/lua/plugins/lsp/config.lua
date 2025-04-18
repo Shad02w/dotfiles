@@ -120,7 +120,11 @@ M.lsp_server_config = {
             })
         end,
     },
-    -- astro = true,
+    astro = {
+        cond = function()
+            return has_root_file { 'package.json' }
+        end,
+    },
     denols = {
         cond = function()
             return has_root_file { 'deno.json' }
