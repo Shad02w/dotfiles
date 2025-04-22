@@ -25,9 +25,6 @@ M.ensure_installed = {
     'denols',
     'svelte',
 
-    -- ruby
-    'solargraph',
-
     -- python
     'pyright',
     'ruff',
@@ -128,13 +125,6 @@ M.lsp_server_config = {
     denols = {
         cond = function()
             return has_root_file { 'deno.json' }
-        end,
-    },
-
-    -- ruby
-    solargraph = {
-        cond = function()
-            return has_root_file { 'Gemfile', 'Gemfile.lock', '.solargraph.yml' }
         end,
     },
 
