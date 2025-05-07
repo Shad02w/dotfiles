@@ -7,8 +7,12 @@ local function keymaps(client, bufnr)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', '<cmd>Trouble lsp_definitions<cr>', opts)
     vim.keymap.set('n', 'gk', '<cmd>Trouble lsp_type_definitions<cr>', opts)
-    vim.keymap.set('n', 'gi', '<cmd>Trouble lsp_implementations<cr>', opts)
     vim.keymap.set('n', 'gr', '<cmd>Trouble lsp_references<cr>', opts)
+    if client.name == 'cssmodules_ls' then
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    else
+        vim.keymap.set('n', 'gi', '<cmd>Trouble lsp_implementations<cr>', opts)
+    end
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'ge', function()
         vim.diagnostic.jump {

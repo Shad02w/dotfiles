@@ -20,6 +20,7 @@ M.ensure_installed = {
     'eslint',
     'ts_ls',
     'cssls',
+    'cssmodules_ls',
     'tailwindcss',
     'astro',
     'denols',
@@ -75,6 +76,7 @@ M.lsp_server_config = {
 
     -- js
     cssls = true,
+    cssmodules_ls = true,
     tailwindcss = true,
     tsserver = {
         cond = function()
