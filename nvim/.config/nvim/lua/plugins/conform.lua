@@ -42,6 +42,19 @@ local function has_eslint_config()
     return eslint_config_path
 end
 
+local function has_stylelint_config()
+    return vim.fs.root(0, {
+        '.stylelintrc.js',
+        '.stylelintrc.cjs',
+        '.stylelintrc.yaml',
+        '.stylelintrc.yml',
+        '.stylelintrc.json',
+        'stylelint.config.js',
+        'stylelint.config.cjs',
+        '.stylelintrc.toml',
+    })
+end
+
 local function has_deno_config()
     local deno_config_path = vim.fs.root(0, {
         'deno.json',
@@ -87,12 +100,36 @@ local function cssFormatter()
         table.insert(formatter, 'prettierd')
     end
 
+    if has_stylelint_config() then
+        table.insert(formatter, 'stylelint')
+    end
+
     return formatter
 end
 
 local function htmlFormatter()
     ---@type conform.FiletypeFormatterInternal
     local formatter = {}
+
+    if has_biome_config() then
+        table.insert(formatter, 'biome')
+    end
+
+    if has_prettier_config() then
+        table.insert(formatter, 'prettierd')
+    end
+
+    return formatter
+end
+
+local function jsonFormatter()
+    ---@type conform.FiletypeFormatterInternal
+    local formatter = {}
+
+    -- only use deno fmt if deno.json exist
+    if has_deno_config() then
+        return { lsp_format = 'prefer' }
+    end
 
     if has_biome_config() then
         table.insert(formatter, 'biome')
@@ -119,12 +156,13 @@ return {
                 javascriptreact = jsFormatter,
                 astro = jsFormatter,
                 svelte = jsFormatter,
-                json = jsFormatter,
                 yaml = jsFormatter,
                 html = htmlFormatter,
-                jsonc = jsFormatter,
                 css = cssFormatter,
+                scss = cssFormatter,
                 go = { lsp_format = 'prefer' },
+                json = jsonFormatter,
+                jsonc = jsonFormatter,
             },
             format_after_save = {
                 timeout_ms = 1000,

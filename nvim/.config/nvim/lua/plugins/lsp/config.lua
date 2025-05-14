@@ -21,6 +21,7 @@ M.ensure_installed = {
     'ts_ls',
     'cssls',
     'cssmodules_ls',
+    'stylelint_lsp',
     'tailwindcss',
     'astro',
     'denols',
@@ -74,9 +75,27 @@ M.lsp_server_config = {
         end,
     },
 
-    -- js
+    --css
     cssls = true,
     cssmodules_ls = true,
+    stylelint_lsp = {
+        cond = function()
+            return has_root_file {
+                'stylelint.config.js',
+                'stylelint.config.cjs',
+                'stylelint.config.mjs',
+                '.stylelintrc.js',
+                '.stylelintrc.cjs',
+                '.stylelintrc.mjs',
+                '.stylelintrc.json',
+                '.stylelintrc.yaml',
+                '.stylelintrc.yml',
+                '.stylelintrc',
+            }
+        end,
+    },
+
+    -- js
     tailwindcss = true,
     tsserver = {
         cond = function()
