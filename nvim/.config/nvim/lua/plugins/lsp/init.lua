@@ -25,6 +25,7 @@ return {
         dependencies = { 'williamboman/mason.nvim' },
         opts = {
             ensure_installed = config.ensure_installed,
+            automatic_enable = false,
             automatic_installation = true,
         },
     },
