@@ -45,6 +45,10 @@ local Filename = {
         local Path = require 'plenary.path'
         local full_path = vim.fn.expand '%:p'
 
+        if full_path == '' then
+            return '[No Name]'
+        end
+
         return Path:new(full_path):make_relative(git_root) .. '%<'
     end,
     fallthrough = false,
