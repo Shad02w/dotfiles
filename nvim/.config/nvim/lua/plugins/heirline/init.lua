@@ -3,6 +3,7 @@ return {
     dependencies = {
         'nvim-tree/nvim-web-devicons',
         'lewis6991/gitsigns.nvim',
+        'nvim-lua/plenary.nvim',
     },
     init = function()
         vim.o.cmdheight = 0

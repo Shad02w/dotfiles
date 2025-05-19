@@ -55,6 +55,10 @@ M.capabilities.textDocument.foldingRange = {
 ---@param bufnr number
 M.on_attach = function(client, bufnr)
     keymaps(client, bufnr)
+
+    if client.server_capabilities.documentSymbolProvider then
+        require('nvim-navic').attach(client, bufnr)
+    end
 end
 
 ---@param server_name string

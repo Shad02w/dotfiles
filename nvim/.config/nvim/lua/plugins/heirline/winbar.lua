@@ -2,6 +2,8 @@ local conditions = require 'heirline.conditions'
 
 local Space = { provider = ' ' }
 
+local Align = { provider = '%=' }
+
 local Filename = {
     init = function(self)
         self.modified = vim.api.nvim_get_option_value('modified', {})
@@ -34,7 +36,17 @@ local Filename = {
         'DiagnosticChanged',
         'BufEnter',
     },
-    provider = '%f',
+    provider = function()
+        local git_root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+        if git_root.match(git_root, 'fatal: not a git repository') then
+            return vim.fn.expand '%:.'
+        end
+
+        local Path = require 'plenary.path'
+        local full_path = vim.fn.expand '%:p'
+
+        return Path:new(full_path):make_relative(git_root) .. '%<'
+    end,
     fallthrough = false,
     {
         condition = function(self)
@@ -51,6 +63,19 @@ local Filename = {
     },
     {
         provider = ' ',
+    },
+}
+
+local Navic = {
+    condition = function()
+        return require('nvim-navic').is_available()
+    end,
+    provider = function()
+        return require('nvim-navic').get_location { highlight = true }
+    end,
+    update = {
+        'CursorMoved',
+        'BufEnter',
     },
 }
 
@@ -106,6 +131,7 @@ local LspDiagnostic = {
             fg = 'diagnostic_hint',
         },
     },
+    Space,
 }
 return {
     hl = {
@@ -116,5 +142,8 @@ return {
     Space,
     Filename,
     Space,
+    Space,
+    Navic,
+    Align,
     LspDiagnostic,
 }
