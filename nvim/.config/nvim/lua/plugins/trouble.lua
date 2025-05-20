@@ -3,6 +3,7 @@ return {
     opts = {
         auto_preview = false,
         focus = true,
+        auto_refresh = false,
     },
     keys = {
         { '<leader>qq', require('trouble').close, desc = 'Toggle quickfix' },
