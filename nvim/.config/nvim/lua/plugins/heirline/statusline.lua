@@ -156,6 +156,20 @@ local Git = {
     },
 }
 
+local Navic = {
+    condition = function()
+        return require('nvim-navic').is_available()
+    end,
+    provider = function()
+        return require('nvim-navic').get_location { highlight = true }
+    end,
+    update = {
+        'CursorMoved',
+        'BufEnter',
+        'LspAttach',
+    },
+}
+
 local LspInfo = {
     static = {
         icons = {
@@ -258,6 +272,9 @@ return {
     Space,
     Space,
     Git,
+    Space,
+    Space,
+    Navic,
     Align,
     Macro,
     FindResult,

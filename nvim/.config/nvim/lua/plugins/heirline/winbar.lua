@@ -70,19 +70,6 @@ local Filename = {
     },
 }
 
-local Navic = {
-    condition = function()
-        return require('nvim-navic').is_available()
-    end,
-    provider = function()
-        return require('nvim-navic').get_location { highlight = true }
-    end,
-    update = {
-        'CursorMoved',
-        'BufEnter',
-    },
-}
-
 local LspDiagnostic = {
     condition = conditions.has_diagnostics,
     static = {
@@ -145,9 +132,6 @@ return {
     Space,
     Space,
     Filename,
-    Space,
-    Space,
-    Navic,
     Align,
     LspDiagnostic,
 }
