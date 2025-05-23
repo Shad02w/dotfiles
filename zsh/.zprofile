@@ -52,8 +52,8 @@ if [[ -f ~/.local/bin/mise ]]; then
 fi
 
 # mac Postgres
-if [[ -d /Applications/Postgres.app/Contents/Versions/16/bin ]]; then
-    export PATH="/Applications/Postgres.app/Contents/Versions/15/bin":$PATH
+if [[ -d /Applications/Postgres.app/Contents/Versions/latest/bin ]]; then
+    export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin":$PATH
 fi
 
 # Added by OrbStack: command-line tools and integration
