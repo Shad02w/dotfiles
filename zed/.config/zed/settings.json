@@ -53,5 +53,13 @@
       "enabled": true,
       "max_severity": "warning"
     }
+  },
+  "auto_install_extensions": {
+    "vercel-theme": true,
+    "toml": true,
+    "dockerfile": true,
+    "typos": true,
+    "svelte": true,
+    "html": true
   }
 }
