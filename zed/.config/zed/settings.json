@@ -61,5 +61,12 @@
     "typos": true,
     "svelte": true,
     "html": true
+  },
+  "vim": {
+    "use_smartcase_find": true,
+    "use_system_clipboard": "never"
+  },
+  "command_aliases": {
+    "q": "pane::CloseAllItems"
   }
 }

@@ -51,7 +51,15 @@
       "space w l": "pane::SplitRight",
       "space w k": "pane::SplitUp",
       "space w j": "pane::SplitDown",
-      "space g d": "git_panel::ToggleFocus"
+      "space g d": "git_panel::ToggleFocus",
+      "space s": "pane::DeploySearch",
+      "space c a": "pane::CloseAllItems",
+      "ctrl-shift-p ctrl-t": "workspace::NewCenterTerminal",
+      "ctrl-shift-p ctrl-w l": "pane::SplitRight",
+      "space t l": [
+        "workspace::SendKeystrokes",
+        "ctrl-shift-p ctrl-t ctrl-shift-p ctrl-w l"
+      ]
     }
   },
   {
@@ -69,10 +77,16 @@
     }
   },
   {
+    "context": "VimControl && multibuffer",
+    "bindings": {
+      "enter": "editor::ToggleFold"
+    }
+  },
+  {
     "context": "Editor && edit_prediction",
     "bindings": {
       "alt-tab": null,
-      "tab": null,
+      "tab": "editor::Tab",
       "ctrl-;": "editor::AcceptEditPrediction"
     }
   },
@@ -83,7 +97,7 @@
     }
   },
   {
-    "context": "ProjectPanel",
+    "context": "ProjectPanel && not_editing",
     "bindings": {
       "a": "project_panel::NewFile",
       "d": "project_panel::Delete",
