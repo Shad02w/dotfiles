@@ -73,7 +73,8 @@
       "g f": "editor::OpenExcerpts",
       "] e": "editor::GoToDiagnostic",
       "[ e": "editor::GoToPreviousDiagnostic",
-      "space g h s": "git::ToggleStaged"
+      "space g h s": "git::ToggleStaged",
+      "space l c": "editor::ToggleCodeActions"
     }
   },
   {
