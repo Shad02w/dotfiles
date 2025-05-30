@@ -38,9 +38,6 @@ M.ensure_installed = {
     'dockerls',
     'docker_compose_language_service',
     'terraformls',
-
-    -- general
-    'typos_lsp',
 }
 
 local svelte_didchange_group = vim.api.nvim_create_augroup('svelte_didchange_group', {})
@@ -170,8 +167,6 @@ M.lsp_server_config = {
             return has_root_file { 'docker-compose.yaml', 'compose.yaml' }
         end,
     },
-    -- general
-    typos_lsp = true,
 }
 
 return M

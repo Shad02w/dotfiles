@@ -189,6 +189,7 @@ local LspInfo = {
             ['pyright'] = ' ',
             ['ruff_lsp'] = ' ',
             ['elixirls'] = ' ',
+            ['cspell_lsp'] = '',
         },
     },
     condition = conditions.lsp_attached,
