@@ -20,8 +20,9 @@ vim.diagnostic.config {
         },
     },
     severity_sort = true,
+    virtual_text = true,
     float = {
-        focusable = false,
+        focusable = true,
         border = 'rounded',
         source = true,
     },
