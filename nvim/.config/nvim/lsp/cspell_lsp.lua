@@ -11,7 +11,7 @@ vim.diagnostic.config {
 
 ---@type vim.lsp.ClientConfig
 return {
-    cmd = { 'cspell-lsp', '--stdio' },
+    cmd = { 'cspell-lsp', '--stdio', '--config', vim.fn.expand '~/cspell.json' },
     filetypes = {
         'go',
         'rust',
@@ -50,14 +50,4 @@ return {
         'rst',
         'asciidoc',
     },
-    root_markers = { '.git', 'cspell.json', 'package.json' },
-    -- handlers = {
-    --     ['textDocument/publishDiagnostics'] = function(_, result, ctx)
-    --         -- Filter or modify diagnostics for this specific server
-    --         for _, diagnostic in ipairs(result.diagnostics) do
-    --             diagnostic.severity = vim.diagnostic.severity.WARN
-    --         end
-    --         return vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx)
-    --     end,
-    -- },
 }
