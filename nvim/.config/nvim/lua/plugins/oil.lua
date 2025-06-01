@@ -8,6 +8,32 @@ return {
     opts = {
         default_file_explorer = true,
     },
-    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    dependencies = { { 'echasnovski/mini.icons', opts = {} }, 'folke/snacks.nvim' },
+    config = function()
+        require('oil').setup {
+            lsp_file_methods = {
+                enabled = false,
+            },
+        }
+
+        ---@param url string
+        ---@return nil|string
+        local parse_url = function(url)
+            return url:match '^.*://(.*)$'
+        end
+
+        vim.api.nvim_create_autocmd('User', {
+            pattern = 'OilActionsPost',
+            callback = function(event)
+                if event.data.actions == nil then
+                    return
+                end
+                for _, action in ipairs(event.data.actions) do
+                    if action.type == 'move' then
+                        Snacks.rename.on_rename_file(parse_url(action.src_url), parse_url(action.dest_url))
+                    end
+                end
+            end,
+        })
+    end,
 }

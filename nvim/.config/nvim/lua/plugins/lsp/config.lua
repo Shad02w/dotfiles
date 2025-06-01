@@ -100,7 +100,7 @@ M.lsp_server_config = {
             return has_root_file { 'package.json' }
         end,
     },
-    -- tsserver = {
+    -- ts_ls = {
     --     cond = function()
     --         return has_root_file { 'package.json' }
     --     end,
