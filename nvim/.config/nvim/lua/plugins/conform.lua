@@ -78,7 +78,7 @@ local function jsFormatter()
 
     if has_eslint_config() then
         -- use eslint-lsp
-        formatter.lsp_format = 'last'
+        formatter.lsp_format = 'first'
     end
 
     if has_prettier_config() then
