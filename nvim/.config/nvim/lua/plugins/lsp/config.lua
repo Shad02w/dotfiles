@@ -18,10 +18,11 @@ M.ensure_installed = {
     -- js
     'biome',
     'eslint',
-    'ts_ls',
     'cssls',
     'cssmodules_ls',
     'stylelint_lsp',
+    -- 'ts_ls',
+    'vtsls',
     'tailwindcss',
     'astro',
     'denols',
@@ -94,11 +95,16 @@ M.lsp_server_config = {
 
     -- js
     tailwindcss = true,
-    tsserver = {
+    vtsls = {
         cond = function()
             return has_root_file { 'package.json' }
         end,
     },
+    -- tsserver = {
+    --     cond = function()
+    --         return has_root_file { 'package.json' }
+    --     end,
+    -- },
     biome = {
         cond = function()
             return has_root_file { 'biome.json' }
@@ -147,6 +153,7 @@ M.lsp_server_config = {
     },
 
     elixirls = {
+        enabled = false,
         cond = function()
             return has_root_file { 'mix.exs' }
         end,

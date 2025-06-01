@@ -76,12 +76,7 @@ for server_name, c in pairs(config.lsp_server_config) do
         capabilities = utils.capabilities,
     }, settings)
 
-    if server_name == 'tsserver' then
-        require('typescript-tools').setup(opts)
-    else
-        lspconfig[server_name].setup(opts)
-    end
-
+    lspconfig[server_name].setup(opts)
     ::continue::
 end
 

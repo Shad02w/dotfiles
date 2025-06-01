@@ -1,4 +1,4 @@
-local disabled_lsp_formatters = { 'typescript-tools', 'jsonls' }
+local disabled_lsp_formatters = { 'tsserver', 'vtsls', 'jsonls' }
 
 local function has_prettier_config()
     local prettier_config_path = vim.fs.root(0, {
