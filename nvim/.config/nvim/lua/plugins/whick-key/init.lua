@@ -11,7 +11,6 @@ return {
     event = 'VeryLazy',
     dependencies = {
         'famiu/bufdelete.nvim',
-        'nvim-tree/nvim-web-devicons',
         { 'echasnovski/mini.icons', version = false },
     },
     config = function()

@@ -1,4 +1,4 @@
-local devicons = require 'nvim-web-devicons'
+local mini_icons = require 'mini.icons'
 local conditions = require 'heirline.conditions'
 
 local Space = { provider = ' ' }
@@ -173,10 +173,11 @@ local Navic = {
 local LspInfo = {
     static = {
         icons = {
-            ['vtls'] = ' ',
+            ['vtsls'] = ' ',
             ['ts_ls'] = ' ',
+            ['eslint'] = '󰱺 ',
             ['biome'] = '󰔶 ',
-            ['cssmodules_ls'] = ' Module',
+            ['cssmodules_ls'] = ' ',
             ['jsonls'] = ' ',
             ['dockerls'] = ' ',
             ['docker_compose_language_service'] = ' ',
@@ -258,7 +259,7 @@ local Ruler = {
 local Filetype = {
     provider = function()
         local filetype = vim.bo.filetype
-        local fileicon = devicons.get_icon_by_filetype(filetype)
+        local fileicon = mini_icons.get('filetype', filetype)
         return filetype .. ' ' .. (fileicon or '') .. ' '
     end,
     update = { 'BufEnter' },

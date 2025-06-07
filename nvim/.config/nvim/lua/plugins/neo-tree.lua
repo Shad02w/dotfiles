@@ -9,9 +9,8 @@ return {
         },
         dependencies = {
             'nvim-lua/plenary.nvim',
-            'nvim-tree/nvim-web-devicons',
+            'echasnovski/mini.icons',
             'MunifTanjim/nui.nvim',
-            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
         },
         cmd = 'Neotree',
         config = function()
@@ -20,10 +19,37 @@ return {
                 vim.notify(vim.inspect(data))
                 Snacks.rename.on_rename_file(data.source, data.destination)
             end
-            require('neo-tree').setup {
+            ---@module 'neo-tree'
+            ---@type neotree.Config
+            local opts = {
                 default_component_configs = {
                     indent = {
                         with_markers = false,
+                    },
+                    ---@diagnostic disable-next-line: missing-fields
+                    icon = {
+                        provider = function(icon, node)
+                            if node.type == 'file' or node.type == 'terminal' then
+                                local success, mini_icons = pcall(require, 'mini.icons')
+                                if success then
+                                    local file_icon, file_hl = mini_icons.get('file', node.name)
+                                    return {
+                                        text = file_icon,
+                                        highlight = file_hl,
+                                    }
+                                end
+                            elseif node.type == 'directory' then
+                                local success, mini_icons = pcall(require, 'mini.icons')
+                                if success then
+                                    local dir_icon, dir_hl = mini_icons.get('directory', node.name)
+                                    return {
+                                        text = dir_icon,
+                                        highlight = dir_hl,
+                                    }
+                                end
+                            end
+                            return icon
+                        end,
                     },
                 },
                 filesystem = {
@@ -73,6 +99,7 @@ return {
                     { event = events.FILE_MOVED, handler = on_move },
                 },
             }
+            require('neo-tree').setup(opts)
         end,
     },
 }

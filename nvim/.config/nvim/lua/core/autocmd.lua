@@ -79,7 +79,6 @@ vim.api.nvim_create_autocmd('BufReadPre', {
 --     pattern = { '*' },
 --     group = auto_reload_group,
 --     callback = function()
---         vim.notify 'auto reload file'
 --         vim.cmd 'checktime'
 --     end,
 -- })

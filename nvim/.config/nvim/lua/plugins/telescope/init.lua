@@ -9,6 +9,7 @@ return {
         'nvim-telescope/telescope-ui-select.nvim',
         { 'AckslD/nvim-neoclip.lua', config = true },
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        'echasnovski/mini.icons',
         'folke/trouble.nvim',
     },
     keys = {
