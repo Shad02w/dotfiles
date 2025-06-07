@@ -81,5 +81,11 @@ if [[ -d $HOME/.codeium/windsurf ]]; then
     export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 fi
 
+# Added deno
+if  [[ -d $HOME/.deno ]]; then
+    source $HOME/.deno/env
+fi
+
+
 # disable husky
 export HUSKY=0

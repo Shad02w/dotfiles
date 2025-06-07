@@ -78,7 +78,8 @@
     "dockerfile": true,
     "typos": true,
     "svelte": true,
-    "html": true
+    "html": true,
+    "deno": true
   },
   "vim": {
     "use_smartcase_find": true,
