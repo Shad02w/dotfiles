@@ -16,14 +16,14 @@ return {
             },
         }
 
-        ---@param url string
-        ---@return nil|string
         local parse_url = function(url)
             return url:match '^.*://(.*)$'
         end
 
+        local oil_action_post_group = vim.api.nvim_create_augroup('oil_action_post_group', {})
         vim.api.nvim_create_autocmd('User', {
             pattern = 'OilActionsPost',
+            group = oil_action_post_group,
             callback = function(event)
                 if event.data.actions == nil then
                     return
