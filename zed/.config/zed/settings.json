@@ -76,7 +76,7 @@
     "vercel-theme": true,
     "toml": true,
     "dockerfile": true,
-    "typos": true,
+    "cspell": true,
     "svelte": true,
     "html": true,
     "deno": true
