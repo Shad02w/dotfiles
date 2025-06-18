@@ -31,30 +31,15 @@ vim.diagnostic.config {
 -- use round border in lspconfig ui
 require('lspconfig.ui.windows').default_options.border = 'rounded'
 
-local lsp_attach_group = vim.api.nvim_create_augroup('lsp_attach_group', {})
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = lsp_attach_group,
-    callback = function(ev)
-        local client_id = ev.data.client_id
-        local bufnr = ev.buf
-        if not client_id or not bufnr then
-            return
-        end
+utils.create_lsp_attach_autocmd('lsp_attach_group', function(client, bufnr)
+    utils.on_attach(client, bufnr)
 
-        local client = vim.lsp.get_client_by_id(client_id)
-        if not client then
-            return
-        end
+    local client_config = config.lsp_server_config[client.name]
 
-        utils.on_attach(client, bufnr)
-
-        local client_config = config.lsp_server_config[client.name]
-
-        if client_config and type(client_config) == 'table' and client_config.on_attach then
-            client_config.on_attach(client, bufnr)
-        end
-    end,
-})
+    if client_config and type(client_config) == 'table' and client_config.on_attach then
+        client_config.on_attach(client, bufnr)
+    end
+end)
 
 for server_name, c in pairs(config.lsp_server_config) do
     if not c then

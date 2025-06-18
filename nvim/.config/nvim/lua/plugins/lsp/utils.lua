@@ -68,4 +68,27 @@ M.get_settings = function(server_name)
     return has_settings and settings or nil
 end
 
+---@param name string
+---@param callback fun(client: vim.lsp.Client, bufnr: number)
+M.create_lsp_attach_autocmd = function(name, callback)
+    local attach_group = vim.api.nvim_create_augroup(name, {})
+    vim.api.nvim_create_autocmd('LspAttach', {
+        group = attach_group,
+        callback = function(ev)
+            local client_id = ev.data.client_id
+            local bufnr = ev.buf
+            if not client_id or not bufnr then
+                return
+            end
+
+            local client = vim.lsp.get_client_by_id(client_id)
+            if not client then
+                return
+            end
+
+            callback(client, bufnr)
+        end,
+    })
+end
+
 return M
