@@ -14,6 +14,7 @@ return {
             lsp_file_methods = {
                 enabled = false,
             },
+            view_options = { show_hidden = true },
         }
 
         local parse_url = function(url)
