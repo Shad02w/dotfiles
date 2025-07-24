@@ -5,7 +5,7 @@ function Get_title()
     end
     local cwd = vim.fn.getcwd()
     local last_two = vim.fn.fnamemodify(cwd, ':h:t') .. '/' .. vim.fn.fnamemodify(cwd, ':t')
-    return '⌨️ ' .. filename .. ' (' .. last_two .. ') - NVIM'
+    return last_two .. ' (' .. filename .. ')' .. ' - NVIM'
 end
 
 local opt = {
