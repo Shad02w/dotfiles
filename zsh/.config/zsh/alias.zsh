@@ -120,3 +120,8 @@ if type "lazygit" > /dev/null; then
     alias lg="HUSKY=0 lazygit"
 fi
 
+# claude code
+if type "claude" > /dev/null; then
+    alias cc="claude"
+    alias ccy="claude --dangerously-skip-permissions"
+fi
