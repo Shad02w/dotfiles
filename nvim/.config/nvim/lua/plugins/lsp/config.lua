@@ -153,7 +153,7 @@ M.lsp_server_config = {
     },
 
     elixirls = {
-        enabled = false,
+        -- enabled = false,
         cond = function()
             return has_root_file { 'mix.exs' }
         end,

@@ -66,3 +66,4 @@ for server_name, c in pairs(config.lsp_server_config) do
 end
 
 vim.lsp.enable 'cspell_lsp'
+vim.lsp.enable 'sourcekit'
