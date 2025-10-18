@@ -1,0 +1,25 @@
+{
+  "$schema": "http://opencode.ai/config.json",
+  "mcp": {
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"]
+    }
+  },
+  "provider": {
+    "openrouter": {
+      "name": "OpenRouter",
+      "models": {}
+    },
+    "groq": {
+        "models": {
+            "moonshotai/kimi-k2-instruct": {
+                "limit": {
+                    "context": 131000,
+                    "output": 16384
+                }
+            }
+        }
+    }
+  }
+}
