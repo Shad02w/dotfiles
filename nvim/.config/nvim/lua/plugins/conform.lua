@@ -161,6 +161,7 @@ return {
                 css = cssFormatter,
                 scss = cssFormatter,
                 go = { lsp_format = 'prefer' },
+                terraform = { lsp_format = 'prefer' },
                 json = jsonFormatter,
                 jsonc = jsonFormatter,
             },
