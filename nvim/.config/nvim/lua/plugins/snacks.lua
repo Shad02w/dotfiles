@@ -8,7 +8,7 @@ return {
         dashboard = { enabled = false },
         explorer = { enabled = false },
         indent = { enabled = false },
-        picker = { enabled = false },
+        picker = { enabled = true },
         notifier = { enabled = false },
         quickfile = { enabled = false },
         scope = { enabled = false },
