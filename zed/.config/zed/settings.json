@@ -35,14 +35,9 @@
   },
   "agent": {
     "always_allow_tool_actions": true,
-    "dock": "right",
-    "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
-    },
-    "version": "2"
+    "dock": "right"
   },
-  "theme": "Fleet Dark",
+  "theme": "Vercel Dark",
   "buffer_font_size": 15,
   "vim_mode": true,
   "ui_font_family": "FiraCode Nerd Font Mono",
@@ -51,7 +46,7 @@
     "custom": 1.7
   },
   "buffer_font_weight": 600,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "indent_guides": {
     "enabled": false
   },
