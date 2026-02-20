@@ -1,5 +1,6 @@
 ---
 description: This command aim to create a git worktree from the current directory and branch
+argument-hint: [relative_path] [branch_name]
 ---
 
 ## arguments
@@ -19,6 +20,6 @@ branch_name=$ARGUMENTS
 
 ## post works
 - search for the env files, copy the env files that are ignored to the new worktree, for example, most of time, `*.local` will be ignored
-- search for the claude code related files, like .mcp.json, claude.*.md, claude.md, memory.local/**/*.md, custom slash commands and settings under.claude directory etc., copy them to the new worktree
+- search for the claude code related files, like .mcp.json, claude.*.md, claude.md, memory.local/**/*.md, custom slash commands and settings under.claude directory etc., figure out all the claude related files by yourself, try to use the claude code doc to find the settings file if you want, i want all claude code related file included in the new worktree directory
 - do the files searching and copying in parallel
 - summary all the steps
