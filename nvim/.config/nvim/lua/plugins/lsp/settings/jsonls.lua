@@ -180,6 +180,18 @@ local schemas = {
         fileMatch = { 'deno.json' },
         url = 'https://deno.land/x/deno/cli/schemas/config-file.v1.json',
     },
+    {
+        name = 'Claude Code Keybindings',
+        description = 'Keyboard shortcut configuration for Claude Code',
+        fileMatch = { '**/.claude/keybindings.json' },
+        url = 'https://www.schemastore.org/claude-code-keybindings.json',
+    },
+    {
+        name = 'Claude Code Settings',
+        description = 'Configuration file for Claude Code',
+        fileMatch = { '**/.claude/settings.json', '**/.claude/settings.local.json' },
+        url = 'https://www.schemastore.org/claude-code-settings.json',
+    },
 }
 
 return {
