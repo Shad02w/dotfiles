@@ -1,2 +1,11 @@
 .luarc.json
 .DS_Store
+
+pi/.pi/agent/auth.json
+pi/.pi/agent/trust.json
+pi/.pi/agent/models-store.json
+
+
+pi/.pi/agent/tmp
+pi/.pi/agent/sessions
+pi/.pi/agent/npm
